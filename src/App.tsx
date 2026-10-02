@@ -4,13 +4,16 @@ import { CalendarTab } from '@/features/calendar/CalendarTab';
 import { NotesTab } from '@/features/notes/NotesTab';
 import { ToastProvider } from '@/components/ToastContext';
 import { AddMessageSheet } from '@/components/AddMessageSheet';
-import { Plus } from 'lucide-react';
+import { SettingsSheet } from '@/features/settings/SettingsSheet';
+import { DueReminderBanner } from '@/components/DueReminderBanner';
+import { Plus, Settings } from 'lucide-react';
 
 type Tab = 'messages' | 'calendar' | 'notes';
 
 function AppContent() {
   const [activeTab, setActiveTab] = useState<Tab>('messages');
   const [isAddSheetOpen, setIsAddSheetOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   return (
     <div
@@ -34,7 +37,21 @@ function AppContent() {
             WhatsAppText
           </h1>
         </div>
+
+        {/* Settings button */}
+        <button
+          onClick={() => setIsSettingsOpen(true)}
+          className="p-2 rounded-xl text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
+          style={{ minHeight: '38px', minWidth: '38px' }}
+          title="Settings & Privacy"
+          aria-label="Settings and Privacy"
+        >
+          <Settings size={20} />
+        </button>
       </header>
+
+      {/* Due Reminder Alert Banner */}
+      <DueReminderBanner />
 
       {/* Tab Bar */}
       <nav
@@ -90,6 +107,12 @@ function AppContent() {
       <AddMessageSheet
         isOpen={isAddSheetOpen}
         onClose={() => setIsAddSheetOpen(false)}
+      />
+
+      {/* Settings & Privacy Sheet */}
+      <SettingsSheet
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
       />
     </div>
   );
