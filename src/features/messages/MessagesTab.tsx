@@ -1,15 +1,29 @@
-export function MessagesTab() {
+import { useState } from 'react';
+import type { Group } from '@/db/db';
+import { GroupList } from './GroupList';
+import { ChatThread } from './ChatThread';
+
+interface MessagesTabProps {
+  onOpenAddSheet: () => void;
+}
+
+export function MessagesTab({ onOpenAddSheet }: MessagesTabProps) {
+  const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
+
+  if (selectedGroup) {
+    return (
+      <ChatThread
+        group={selectedGroup}
+        onBack={() => setSelectedGroup(null)}
+        onOpenAddSheet={onOpenAddSheet}
+      />
+    );
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center h-full px-4 text-center">
-      <p style={{ color: 'var(--color-muted)', fontSize: 'var(--font-size-sm)' }}>
-        No messages yet
-      </p>
-      <p
-        className="mt-2"
-        style={{ color: 'var(--color-muted)', fontSize: 'var(--font-size-xs)' }}
-      >
-        Tap + to paste or import a WhatsApp chat
-      </p>
-    </div>
+    <GroupList
+      onSelectGroup={(g) => setSelectedGroup(g)}
+      onOpenAddSheet={onOpenAddSheet}
+    />
   );
 }
