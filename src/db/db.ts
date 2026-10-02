@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie';
-import type { MsgType } from '@/lib/parser/__tests__/parser.fixtures';
+import type { MsgType } from '@/lib/parser/messageClassifier';
 
 export interface Group {
   id?: number;
