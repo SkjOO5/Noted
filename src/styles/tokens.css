@@ -1,0 +1,76 @@
+:root {
+  /* Background */
+  --color-bg: #0B141A;
+  --color-surface: #111B21;
+  --color-elevated: #202C33;
+  --color-border: #2A3942;
+
+  /* Text */
+  --color-text: #E9EDEF;
+  --color-muted: #8696A0;
+
+  /* Accent */
+  --color-accent: #25D366;
+  --color-accent-hover: #1DA851;
+
+  /* Event type colors */
+  --color-quiz: #FF6B6B;
+  --color-assignment: #4ECDC4;
+  --color-exam: #FFE66D;
+  --color-class-change: #A78BFA;
+  --color-other: #8696A0;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 20px;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+
+  /* Spacing (8px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Radius */
+  --radius-card: 12px;
+  --radius-chip: 999px;
+  --radius-button: 8px;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --ease-out: ease-out;
+
+  /* Layout */
+  --max-content-width: 480px;
+  --min-touch-target: 44px;
+  --app-bar-height: 56px;
+  --tab-bar-height: 48px;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --color-bg: #FFFFFF;
+  --color-surface: #F0F2F5;
+  --color-elevated: #FFFFFF;
+  --color-border: #D1D7DB;
+  --color-text: #111B21;
+  --color-muted: #667781;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+  }
+}
