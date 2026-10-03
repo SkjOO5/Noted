@@ -13,12 +13,12 @@ interface AddEventSheetProps {
   onEventCreated?: (eventId: number) => void;
 }
 
-const EVENT_TYPES: { type: EventType; label: string; color: string }[] = [
-  { type: 'quiz', label: 'Quiz', color: 'var(--color-quiz)' },
-  { type: 'assignment', label: 'Assignment', color: 'var(--color-assignment)' },
-  { type: 'exam', label: 'Exam', color: 'var(--color-exam)' },
-  { type: 'class-change', label: 'Class Change', color: 'var(--color-class-change)' },
-  { type: 'other', label: 'Other', color: 'var(--color-muted)' },
+const EVENT_TYPES: { type: EventType; label: string }[] = [
+  { type: 'quiz', label: 'Quiz' },
+  { type: 'assignment', label: 'Assignment' },
+  { type: 'exam', label: 'Exam' },
+  { type: 'class-change', label: 'Class Change' },
+  { type: 'other', label: 'Other' },
 ];
 
 export function AddEventSheet({
@@ -97,12 +97,12 @@ export function AddEventSheet({
   };
 
   return (
-    <BottomSheet isOpen={isOpen} onClose={onClose} title="New Calendar Event">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <BottomSheet isOpen={isOpen} onClose={onClose} title="New calendar event">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3.5 py-1">
         {/* Title */}
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
-            Event Title
+          <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
+            Event title
           </label>
           <input
             type="text"
@@ -110,15 +110,14 @@ export function AddEventSheet({
             placeholder="e.g. DBMS Quiz Unit 3"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-            style={{ minHeight: '44px' }}
+            className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[14px] font-normal text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
           />
         </div>
 
         {/* Subject & Type row */}
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+            <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
               Subject
             </label>
             <input
@@ -126,23 +125,21 @@ export function AddEventSheet({
               placeholder="e.g. DBMS, OS"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[14px] font-normal text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+            <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
               Category
             </label>
             <select
               value={type}
               onChange={(e) => setType(e.target.value as EventType)}
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[13px] font-semibold text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)] cursor-pointer transition-colors"
             >
               {EVENT_TYPES.map((t) => (
-                <option key={t.type} value={t.type}>
+                <option key={t.type} value={t.type} className="bg-[var(--color-surface)] text-[var(--color-text)]">
                   {t.label}
                 </option>
               ))}
@@ -153,7 +150,7 @@ export function AddEventSheet({
         {/* Date & Time */}
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+            <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
               Date
             </label>
             <input
@@ -161,13 +158,12 @@ export function AddEventSheet({
               required
               value={dateStr}
               onChange={(e) => setDateStr(e.target.value)}
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[13px] font-semibold text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+            <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
               Time
             </label>
             <input
@@ -175,22 +171,21 @@ export function AddEventSheet({
               disabled={allDay}
               value={timeStr}
               onChange={(e) => setTimeStr(e.target.value)}
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] disabled:opacity-40 focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[13px] font-semibold text-[var(--color-text)] disabled:opacity-40 focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             />
           </div>
         </div>
 
         {/* All Day Switch */}
-        <label className="flex items-center gap-2.5 cursor-pointer py-1">
+        <label className="flex items-center gap-2.5 cursor-pointer py-1 select-none">
           <input
             type="checkbox"
             checked={allDay}
             onChange={(e) => setAllDay(e.target.checked)}
-            className="w-4 h-4 rounded text-[var(--color-accent)] focus:ring-0 cursor-pointer"
+            className="w-4 h-4 rounded border-[var(--color-border)] text-[var(--color-accent)] accent-[var(--color-accent)] cursor-pointer"
           />
-          <span className="text-xs font-medium text-[var(--color-text)]">
-            All-day / Time Unconfirmed
+          <span className="text-[13px] font-medium text-[var(--color-text-secondary)]">
+            All-day / Time unconfirmed
           </span>
         </label>
 
@@ -198,11 +193,10 @@ export function AddEventSheet({
         <button
           type="submit"
           disabled={isSubmitting || !title.trim()}
-          className="w-full py-3 rounded-xl bg-[var(--color-accent)] text-black font-semibold text-sm hover:opacity-90 disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
-          style={{ minHeight: '44px' }}
+          className="btn-primary w-full h-[44px] text-[14px] font-bold flex items-center justify-center gap-2 cursor-pointer mt-2 disabled:opacity-50"
         >
           <Plus size={18} strokeWidth={2.5} />
-          {isSubmitting ? 'Saving...' : 'Add Event to Calendar'}
+          <span>{isSubmitting ? 'Saving...' : 'Add event to calendar'}</span>
         </button>
       </form>
     </BottomSheet>

@@ -106,7 +106,7 @@ export function AddNoteSheet({
           linkedEventId,
         });
 
-        showToast({ message: 'Note created successfully' });
+        showToast({ message: 'Note saved successfully' });
         onNoteSaved?.(id);
       }
 
@@ -123,49 +123,42 @@ export function AddNoteSheet({
     <BottomSheet
       isOpen={isOpen}
       onClose={onClose}
-      title={noteToEdit ? 'Edit Note' : 'Create Study Note'}
+      title={noteToEdit ? 'Edit note' : 'New note'}
     >
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3.5 py-1">
         {/* Subject & Pin */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <div className="flex-1 flex flex-col gap-1.5">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
-              Subject / Topic
+            <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
+              Subject (Optional)
             </label>
             <input
               type="text"
-              placeholder="e.g. DBMS, OS, Computer Networks"
+              placeholder="e.g. DBMS, Operating Systems"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-elevated)] text-[14px] font-normal text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             />
           </div>
 
-          <div className="flex flex-col gap-1.5 shrink-0">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
-              Pin
-            </label>
-            <button
-              type="button"
-              onClick={() => setIsPinned(!isPinned)}
-              className={`p-3 rounded-xl border flex items-center justify-center transition-colors cursor-pointer ${
-                isPinned
-                  ? 'border-[var(--color-accent)] bg-[var(--color-accent)]/15 text-[var(--color-accent)]'
-                  : 'border-[var(--color-border)] bg-[var(--color-elevated)] text-[var(--color-muted)] hover:text-[var(--color-text)]'
-              }`}
-              style={{ minHeight: '44px', minWidth: '44px' }}
-              title={isPinned ? 'Pinned Note' : 'Pin Note'}
-              aria-label="Toggle Pin"
-            >
-              <Pin size={18} className={isPinned ? 'fill-current' : ''} />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setIsPinned(!isPinned)}
+            className={`w-[44px] h-[44px] mt-5 rounded-[var(--radius-button)] border transition-all flex items-center justify-center shrink-0 cursor-pointer ${
+              isPinned
+                ? 'bg-[var(--color-accent)] text-[#0B141A] border-transparent shadow-xs'
+                : 'bg-[var(--color-surface)] text-[var(--color-muted)] border-[var(--color-border)] hover:bg-[var(--color-elevated)]'
+            }`}
+            title={isPinned ? 'Pinned note' : 'Pin note'}
+            aria-label="Toggle Pin"
+          >
+            <Pin size={18} strokeWidth={2} className={isPinned ? 'fill-current' : ''} />
+          </button>
         </div>
 
         {/* Note Body Text */}
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+          <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
             Note Content
           </label>
           <textarea
@@ -173,32 +166,32 @@ export function AddNoteSheet({
             placeholder="Write key points, formulas, syllabus instructions, or paste message details..."
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] resize-none focus:outline-none focus:border-[var(--color-accent)]"
+            className="w-full p-3.5 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-elevated)] text-[14px] font-normal text-[var(--color-text)] placeholder-[var(--color-muted)] resize-none focus:outline-none focus:border-[var(--color-accent)] leading-relaxed transition-colors"
           />
         </div>
 
         {/* Important Topics / Checklist */}
         <div className="flex flex-col gap-2">
-          <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider flex items-center gap-1.5">
-            <CheckSquare size={14} className="text-[var(--color-accent)]" />
-            <span>Important Topics / Checklist ({checklist.length})</span>
+          <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)] flex items-center gap-1.5">
+            <CheckSquare size={14} className="text-[var(--color-accent)]" strokeWidth={2} />
+            <span>Checklist ({checklist.length})</span>
           </label>
 
           {checklist.length > 0 && (
-            <div className="flex flex-col gap-1.5 max-h-36 overflow-y-auto pr-1">
+            <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden divide-y divide-[var(--color-border)] max-h-36 overflow-y-auto">
               {checklist.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between gap-2 p-2 rounded-lg bg-[var(--color-elevated)] border border-[var(--color-border)]"
+                  className="flex items-center justify-between gap-2 p-3 text-[13px] font-semibold text-[var(--color-text)]"
                 >
-                  <span className="text-xs text-[var(--color-text)] truncate">{item.text}</span>
+                  <span className="truncate">{item.text}</span>
                   <button
                     type="button"
                     onClick={() => handleRemoveChecklistItem(idx)}
-                    className="text-[var(--color-muted)] hover:text-[var(--color-quiz)] transition-colors p-1"
+                    className="text-[var(--color-muted)] hover:text-[var(--color-danger)] transition-colors p-1 cursor-pointer"
                     aria-label="Remove checklist item"
                   >
-                    <Trash2 size={13} />
+                    <Trash2 size={16} strokeWidth={2} />
                   </button>
                 </div>
               ))}
@@ -218,15 +211,13 @@ export function AddNoteSheet({
                   handleAddChecklistItem();
                 }
               }}
-              className="flex-1 p-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-xs text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '40px' }}
+              className="flex-1 h-[44px] px-3.5 rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-elevated)] text-[13px] font-medium text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             />
             <button
               type="button"
               onClick={handleAddChecklistItem}
               disabled={!newChecklistText.trim()}
-              className="px-3 py-2 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent)] text-[var(--color-text)] text-xs font-semibold disabled:opacity-40 transition-colors cursor-pointer"
-              style={{ minHeight: '40px' }}
+              className="btn-secondary h-[44px] px-4 text-[13px] font-bold disabled:opacity-40"
             >
               Add
             </button>
@@ -236,7 +227,7 @@ export function AddNoteSheet({
         {/* Linked Calendar Event */}
         {events.length > 0 && (
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+            <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
               Link to Calendar Event (Optional)
             </label>
             <select
@@ -244,12 +235,11 @@ export function AddNoteSheet({
               onChange={(e) =>
                 setLinkedEventId(e.target.value ? Number(e.target.value) : undefined)
               }
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full h-[44px] px-3.5 rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-elevated)] text-[13px] font-semibold text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)] cursor-pointer transition-colors"
             >
-              <option value="">-- No linked event --</option>
+              <option value="" className="bg-[var(--color-surface)] text-[var(--color-text)]">-- No linked event --</option>
               {events.map((ev) => (
-                <option key={ev.id} value={ev.id}>
+                <option key={ev.id} value={ev.id} className="bg-[var(--color-surface)] text-[var(--color-text)]">
                   {ev.title} ({new Date(ev.startAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })})
                 </option>
               ))}
@@ -259,20 +249,20 @@ export function AddNoteSheet({
 
         {/* Tags */}
         <div className="flex flex-col gap-2">
-          <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+          <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
             Tags
           </label>
           <div className="flex flex-wrap gap-1.5 min-h-6">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-[var(--color-elevated)] text-[var(--color-text)] border border-[var(--color-border)]"
+                className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full text-[12px] font-semibold bg-[var(--color-accent-surface)] text-[var(--color-accent)] border border-[var(--color-accent-border)]"
               >
-                #{tag}
+                #{tag.toLowerCase()}
                 <button
                   type="button"
                   onClick={() => handleRemoveTag(tag)}
-                  className="text-[var(--color-muted)] hover:text-[var(--color-quiz)] cursor-pointer"
+                  className="text-[var(--color-accent)] hover:opacity-70 font-bold cursor-pointer"
                 >
                   ×
                 </button>
@@ -292,15 +282,13 @@ export function AddNoteSheet({
                   handleAddTag();
                 }
               }}
-              className="flex-1 p-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-xs text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '40px' }}
+              className="flex-1 h-[44px] px-3.5 rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-elevated)] text-[13px] font-medium text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             />
             <button
               type="button"
               onClick={handleAddTag}
               disabled={!tagInput.trim()}
-              className="px-3 py-2 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent)] text-[var(--color-text)] text-xs font-semibold disabled:opacity-40 transition-colors cursor-pointer"
-              style={{ minHeight: '40px' }}
+              className="btn-secondary h-[44px] px-4 text-[13px] font-bold disabled:opacity-40"
             >
               + Tag
             </button>
@@ -311,15 +299,16 @@ export function AddNoteSheet({
         <button
           type="submit"
           disabled={isSubmitting || (!text.trim() && checklist.length === 0)}
-          className="w-full py-3 rounded-xl bg-[var(--color-accent)] text-black font-semibold text-sm hover:opacity-90 disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
-          style={{ minHeight: '44px' }}
+          className="btn-primary w-full h-[44px] text-[14px] font-bold flex items-center justify-center gap-2 cursor-pointer mt-2 disabled:opacity-50"
         >
           <Plus size={18} strokeWidth={2.5} />
-          {isSubmitting
-            ? 'Saving...'
-            : noteToEdit
-            ? 'Update Note'
-            : 'Save Note'}
+          <span>
+            {isSubmitting
+              ? 'Saving...'
+              : noteToEdit
+              ? 'Update Note'
+              : 'Save Note'}
+          </span>
         </button>
       </form>
     </BottomSheet>

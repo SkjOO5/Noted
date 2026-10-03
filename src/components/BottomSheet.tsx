@@ -33,32 +33,31 @@ export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetPro
       aria-label={title}
     >
       <div
-        className="w-full max-h-[85vh] flex flex-col rounded-t-2xl shadow-2xl overflow-hidden animate-slide-up"
+        className="w-full max-h-[85vh] flex flex-col rounded-t-[20px] bg-[var(--color-surface)] border-t border-[var(--color-border)] shadow-2xl overflow-hidden animate-slide-up"
         style={{
-          maxWidth: 'var(--max-content-width)',
-          backgroundColor: 'var(--color-surface)',
-          borderTop: '1px solid var(--color-border)',
+          maxWidth: 'var(--max-w, 480px)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Handle & Header */}
-        <div className="flex flex-col px-4 pt-3 pb-2 border-b border-[var(--color-border)] shrink-0">
-          <div className="w-10 h-1 rounded-full bg-[var(--color-border)] self-center mb-2" />
+        <div className="flex flex-col px-5 pt-3 pb-3.5 border-b border-[var(--color-border)] shrink-0 bg-[var(--color-surface)]">
+          <div className="w-10 h-1 rounded-full bg-[var(--color-border)] self-center mb-3" />
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-semibold text-[var(--color-text)]">{title}</h2>
+            <h2 className="text-[16px] font-semibold text-[var(--color-text)] tracking-tight">
+              {title}
+            </h2>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-[var(--color-elevated)] transition-colors text-[var(--color-muted)] hover:text-[var(--color-text)]"
+              className="w-8 h-8 rounded-full bg-[var(--color-elevated)] text-[var(--color-muted)] hover:bg-[var(--color-border)] hover:text-[var(--color-text)] transition-colors cursor-pointer flex items-center justify-center"
               aria-label="Close"
-              style={{ minHeight: '44px', minWidth: '44px' }}
             >
-              <X size={20} strokeWidth={1.75} />
+              <X size={18} strokeWidth={2} />
             </button>
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-4">{children}</div>
+        <div className="flex-1 overflow-y-auto p-5 bg-[var(--color-surface)]">{children}</div>
       </div>
     </div>
   );

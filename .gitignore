@@ -31,3 +31,8 @@ playwright-report/
 .env
 .env.local
 .env.*.local
+
+# Android APK builds
+*.apk
+public/*.apk
+

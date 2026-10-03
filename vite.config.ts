@@ -10,10 +10,10 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['vite.svg'],
+      includeAssets: ['icon.svg', 'apple-touch-icon.png', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
-        name: 'WhatsAppText',
-        short_name: 'WText',
+        name: 'Noted - College Notice Companion',
+        short_name: 'Noted',
         description: 'Turn WhatsApp messages into calendar events, notes and reminders',
         theme_color: '#0B141A',
         background_color: '#0B141A',
@@ -52,6 +52,9 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    host: true,
+  },
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, 'src'),

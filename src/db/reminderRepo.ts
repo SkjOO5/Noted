@@ -11,6 +11,10 @@ export async function getReminderById(id: number): Promise<Reminder | undefined>
   return await db.reminders.get(id);
 }
 
+export async function getAllReminders(): Promise<Reminder[]> {
+  return await db.reminders.orderBy('triggerAt').toArray();
+}
+
 export async function getRemindersByEventId(eventId: number): Promise<Reminder[]> {
   return await db.reminders.where('eventId').equals(eventId).toArray();
 }

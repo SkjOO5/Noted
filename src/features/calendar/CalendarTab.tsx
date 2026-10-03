@@ -5,6 +5,7 @@ import { useLiveQuery } from '@/db/useLiveQuery';
 import { useToast } from '@/components/ToastContext';
 import { downloadIcs } from '@/lib/calendar/icsExporter';
 import { AddEventSheet } from './AddEventSheet';
+import { Chip } from '@/components/Chip';
 import {
   ChevronLeft,
   ChevronRight,
@@ -16,12 +17,11 @@ import {
   Clock,
   Trash2,
   Bell,
-  CalendarDays,
 } from 'lucide-react';
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-const EVENT_TYPE_COLORS: Record<EventType, string> = {
+const EVENT_DOT_COLORS: Record<EventType, string> = {
   quiz: 'var(--color-quiz)',
   assignment: 'var(--color-assignment)',
   exam: 'var(--color-exam)',
@@ -45,7 +45,7 @@ export function CalendarTab() {
     return d;
   });
   const [selectedDate, setSelectedDate] = useState<Date>(() => new Date());
-  const [viewFilter, setViewFilter] = useState<'selected' | 'upcoming'>('selected');
+  const [viewFilter, setViewFilter] = useState<'selected' | 'upcoming'>('upcoming');
   const [isAddOpen, setIsAddOpen] = useState(false);
 
   // Live queries for all events
@@ -90,7 +90,7 @@ export function CalendarTab() {
       });
     }
 
-    // Trailing days from next month to complete 6-row or 5-row grid (multiples of 7)
+    // Trailing days from next month to complete rows
     const remaining = (7 - (days.length % 7)) % 7;
     for (let i = 1; i <= remaining; i++) {
       days.push({
@@ -178,21 +178,29 @@ export function CalendarTab() {
     );
   };
 
+  const mapEventTypeToChip = (type: EventType): 'quiz' | 'assignment' | 'exam' | 'class-change' | 'other' => {
+    if (type === 'quiz' || type === 'deadline') return 'quiz';
+    if (type === 'assignment') return 'assignment';
+    if (type === 'exam') return 'exam';
+    if (type === 'class-change') return 'class-change';
+    return 'other';
+  };
+
   const today = new Date();
 
   return (
     <div className="flex flex-col h-full bg-[var(--color-bg)] overflow-y-auto">
       {/* Calendar Card Container */}
-      <div className="p-3 bg-[var(--color-surface)] border-b border-[var(--color-border)] shrink-0">
+      <div className="px-4 py-3 bg-[var(--color-surface)] border-b border-[var(--color-border)] shrink-0">
         {/* Month Navigation Header */}
-        <div className="flex items-center justify-between mb-3 px-1">
+        <div className="flex items-center justify-between mb-2.5">
           <div className="flex items-center gap-2">
-            <h2 className="text-base font-bold text-[var(--color-text)]">
+            <h2 className="text-[15px] font-semibold text-[var(--color-text)]">
               {currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
             </h2>
             <button
               onClick={handleToday}
-              className="text-[11px] font-semibold text-[var(--color-accent)] px-2 py-0.5 rounded-full border border-[var(--color-accent)]/30 hover:bg-[var(--color-accent)]/15 transition-colors cursor-pointer"
+              className="text-[11px] font-semibold text-[#0B141A] bg-[var(--color-accent)] px-2.5 py-0.5 rounded-full hover:bg-[var(--color-accent-hover)] transition-colors cursor-pointer"
             >
               Today
             </button>
@@ -201,19 +209,17 @@ export function CalendarTab() {
           <div className="flex items-center gap-1">
             <button
               onClick={handlePrevMonth}
-              className="p-1.5 rounded-lg text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
-              style={{ minHeight: '36px', minWidth: '36px' }}
+              className="w-8 h-8 rounded-lg bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors cursor-pointer flex items-center justify-center"
               aria-label="Previous Month"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={16} strokeWidth={2} />
             </button>
             <button
               onClick={handleNextMonth}
-              className="p-1.5 rounded-lg text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
-              style={{ minHeight: '36px', minWidth: '36px' }}
+              className="w-8 h-8 rounded-lg bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors cursor-pointer flex items-center justify-center"
               aria-label="Next Month"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={16} strokeWidth={2} />
             </button>
           </div>
         </div>
@@ -223,7 +229,7 @@ export function CalendarTab() {
           {WEEKDAYS.map((day) => (
             <span
               key={day}
-              className="text-[11px] font-semibold text-[var(--color-muted)] uppercase tracking-wider py-1"
+              className="text-[11px] font-semibold text-[var(--color-muted)] uppercase py-1"
             >
               {day}
             </span>
@@ -231,7 +237,7 @@ export function CalendarTab() {
         </div>
 
         {/* Month Day Grid */}
-        <div className="grid grid-cols-7 gap-y-1">
+        <div className="grid grid-cols-7 gap-1">
           {calendarDays.map(({ date, isCurrentMonth }, idx) => {
             const dateKey = formatDateKey(date);
             const dayEvents = eventsByDate.get(dateKey) || [];
@@ -243,33 +249,34 @@ export function CalendarTab() {
                 key={idx}
                 onClick={() => {
                   setSelectedDate(date);
+                  setViewFilter('selected');
                   if (!isCurrentMonth) {
                     setCurrentMonth(new Date(date.getFullYear(), date.getMonth(), 1));
                   }
                 }}
-                className={`flex flex-col items-center justify-center p-1.5 rounded-xl transition-all relative cursor-pointer ${
+                className={`flex flex-col items-center justify-center p-1 rounded-xl transition-colors relative cursor-pointer border ${
                   isSelected
-                    ? 'bg-[var(--color-accent)] text-black font-bold shadow-xs'
+                    ? 'bg-[var(--color-accent)] text-[#0B141A] border-transparent font-semibold shadow-xs'
                     : isToday
-                    ? 'border border-[var(--color-accent)] text-[var(--color-accent)] font-semibold'
+                    ? 'border-[var(--color-accent)] text-[var(--color-accent)] font-semibold bg-[var(--color-accent-surface)]'
                     : isCurrentMonth
-                    ? 'text-[var(--color-text)] hover:bg-[var(--color-elevated)]'
-                    : 'text-[var(--color-muted)]/40 hover:bg-[var(--color-elevated)]'
+                    ? 'border-transparent text-[var(--color-text)] hover:border-[var(--color-border)] hover:bg-[var(--color-elevated)]'
+                    : 'border-transparent text-[var(--color-muted)]/50 hover:bg-[var(--color-elevated)]'
                 }`}
-                style={{ minHeight: '42px' }}
+                style={{ minHeight: '40px' }}
               >
-                <span className="text-xs">{date.getDate()}</span>
+                <span className="text-[13px]">{date.getDate()}</span>
 
                 {/* Event Dots */}
-                <div className="flex items-center gap-0.5 h-1.5 mt-0.5">
+                <div className="flex items-center gap-0.5 h-1 mt-0.5">
                   {dayEvents.slice(0, 3).map((ev, i) => (
                     <span
                       key={i}
                       className="w-1.5 h-1.5 rounded-full"
                       style={{
                         backgroundColor: isSelected
-                          ? '#000000'
-                          : EVENT_TYPE_COLORS[ev.type] || 'var(--color-muted)',
+                          ? '#0B141A'
+                          : EVENT_DOT_COLORS[ev.type] || 'var(--color-accent)',
                       }}
                     />
                   ))}
@@ -281,14 +288,14 @@ export function CalendarTab() {
       </div>
 
       {/* Agenda Header & Action Controls */}
-      <div className="px-4 py-3 bg-[var(--color-bg)] border-b border-[var(--color-border)] flex items-center justify-between gap-2">
+      <div className="px-4 py-2.5 bg-[var(--color-surface)] border-b border-[var(--color-border)] flex items-center justify-between gap-2">
         {/* Toggle between Selected Day vs Upcoming */}
-        <div className="flex items-center gap-1 bg-[var(--color-surface)] p-1 rounded-xl border border-[var(--color-border)]">
+        <div className="flex items-center gap-1 bg-[var(--color-elevated)] p-1 rounded-full border border-[var(--color-border)]">
           <button
             onClick={() => setViewFilter('selected')}
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+            className={`px-3 py-1 rounded-full text-[12px] font-semibold transition-colors cursor-pointer ${
               viewFilter === 'selected'
-                ? 'bg-[var(--color-elevated)] text-[var(--color-text)] shadow-xs'
+                ? 'bg-[var(--color-accent)] text-[#0B141A] shadow-xs'
                 : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
             }`}
           >
@@ -298,9 +305,9 @@ export function CalendarTab() {
           </button>
           <button
             onClick={() => setViewFilter('upcoming')}
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+            className={`px-3 py-1 rounded-full text-[12px] font-semibold transition-colors cursor-pointer ${
               viewFilter === 'upcoming'
-                ? 'bg-[var(--color-elevated)] text-[var(--color-text)] shadow-xs'
+                ? 'bg-[var(--color-accent)] text-[#0B141A] shadow-xs'
                 : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
             }`}
           >
@@ -309,44 +316,43 @@ export function CalendarTab() {
         </div>
 
         {/* Global Export .ics & Add Event buttons */}
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           <button
             onClick={handleExportAll}
             title="Export all events to .ics"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-accent)] text-xs font-semibold text-[var(--color-text)] transition-colors cursor-pointer"
-            style={{ minHeight: '36px' }}
+            className="flex items-center gap-1.5 px-3 h-[36px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-elevated)] text-[12px] font-semibold text-[var(--color-text)] transition-colors cursor-pointer shadow-xs"
           >
-            <Download size={14} className="text-[var(--color-accent)]" />
-            <span>.ics</span>
+            <Download size={14} strokeWidth={2} className="text-[var(--color-accent)]" />
+            <span>.ICS</span>
           </button>
 
           <button
             onClick={() => setIsAddOpen(true)}
             title="Add event"
-            className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[var(--color-accent)] text-black font-semibold text-xs hover:opacity-90 transition-opacity cursor-pointer"
-            style={{ minHeight: '36px' }}
+            className="btn-primary h-[36px] px-3.5 text-[12px] font-bold"
           >
-            <Plus size={16} strokeWidth={2.5} />
+            <Plus size={16} strokeWidth={2} />
             <span>Add</span>
           </button>
         </div>
       </div>
 
       {/* Agenda Event List */}
-      <div className="flex-1 p-3 flex flex-col gap-2.5">
+      <div className="flex-1 px-4 py-3 flex flex-col gap-2.5">
         {filteredEvents.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-12 text-center my-auto">
-            <div className="w-12 h-12 rounded-full bg-[var(--color-elevated)] flex items-center justify-center text-[var(--color-muted)] mb-3">
-              <CalendarDays size={24} />
-            </div>
-            <p className="text-sm font-semibold text-[var(--color-text)]">
+          <div className="flex flex-col items-center justify-center py-16 text-center my-auto gap-4">
+            <p className="text-[13px] font-normal text-[var(--color-muted)]">
               {viewFilter === 'selected'
                 ? `No events on ${selectedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
                 : 'No upcoming events'}
             </p>
-            <p className="text-xs text-[var(--color-muted)] mt-1 max-w-xs">
-              Swipe right on any WhatsApp message or tap "+ Add" above to schedule an event.
-            </p>
+            <button
+              onClick={() => setIsAddOpen(true)}
+              className="btn-primary"
+            >
+              <Plus size={18} strokeWidth={2} />
+              <span>Add event</span>
+            </button>
           </div>
         ) : (
           filteredEvents.map((event) => {
@@ -355,15 +361,14 @@ export function CalendarTab() {
               ? 'All Day'
               : eventDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-            const typeColor = EVENT_TYPE_COLORS[event.type] || 'var(--color-muted)';
-
             return (
               <div
                 key={event.id}
-                className={`p-3.5 rounded-xl border transition-all flex flex-col gap-2 ${
+                data-card="true"
+                className={`bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] p-3.5 flex flex-col gap-2.5 transition-colors shadow-xs ${
                   event.isDone
-                    ? 'bg-[var(--color-surface)]/60 border-[var(--color-border)] opacity-60'
-                    : 'bg-[var(--color-elevated)] border-[var(--color-border)] hover:border-[var(--color-border)]/80 shadow-xs'
+                    ? 'opacity-60'
+                    : 'hover:border-[var(--color-accent)]/40'
                 }`}
               >
                 {/* Header Row: Checkbox, Title & Actions */}
@@ -375,15 +380,15 @@ export function CalendarTab() {
                       aria-label={event.isDone ? 'Mark as incomplete' : 'Mark as complete'}
                     >
                       {event.isDone ? (
-                        <CheckCircle2 size={18} className="text-[var(--color-accent)]" />
+                        <CheckCircle2 size={18} className="text-[var(--color-accent)]" strokeWidth={2} />
                       ) : (
-                        <Circle size={18} />
+                        <Circle size={18} strokeWidth={1.75} />
                       )}
                     </button>
 
                     <div className="flex flex-col min-w-0">
                       <h4
-                        className={`text-sm font-semibold truncate ${
+                        className={`text-[14px] font-semibold truncate ${
                           event.isDone
                             ? 'line-through text-[var(--color-muted)]'
                             : 'text-[var(--color-text)]'
@@ -393,9 +398,9 @@ export function CalendarTab() {
                       </h4>
 
                       {/* Date & Time */}
-                      <div className="flex items-center gap-2 mt-0.5 text-xs text-[var(--color-muted)]">
-                        <span className="flex items-center gap-1 font-medium">
-                          <CalendarIcon size={12} />
+                      <div className="flex items-center gap-2 mt-1 text-[12px] font-normal text-[var(--color-muted)]">
+                        <span className="flex items-center gap-1">
+                          <CalendarIcon size={12} strokeWidth={1.75} />
                           {eventDate.toLocaleDateString('en-GB', {
                             weekday: 'short',
                             day: 'numeric',
@@ -404,7 +409,7 @@ export function CalendarTab() {
                         </span>
                         <span>•</span>
                         <span className="flex items-center gap-1">
-                          <Clock size={12} />
+                          <Clock size={12} strokeWidth={1.75} />
                           {timeFormatted}
                         </span>
                       </div>
@@ -416,53 +421,47 @@ export function CalendarTab() {
                     <button
                       onClick={(e) => handleExportSingle(e, event)}
                       title="Export this event to .ics"
-                      className="p-1.5 rounded-lg text-[var(--color-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
-                      style={{ minHeight: '32px', minWidth: '32px' }}
+                      className="w-8 h-8 rounded-lg bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors cursor-pointer flex items-center justify-center shadow-xs"
                       aria-label="Export to .ics"
                     >
-                      <Download size={14} />
+                      <Download size={14} strokeWidth={1.75} />
                     </button>
 
                     <button
                       onClick={() => handleDeleteEvent(event)}
                       title="Delete event"
-                      className="p-1.5 rounded-lg text-[var(--color-muted)] hover:text-[var(--color-quiz)] hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
-                      style={{ minHeight: '32px', minWidth: '32px' }}
+                      className="w-8 h-8 rounded-lg bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-danger)] text-[var(--color-muted)] hover:text-[var(--color-danger)] transition-colors cursor-pointer flex items-center justify-center shadow-xs"
                       aria-label="Delete event"
                     >
-                      <Trash2 size={14} />
+                      <Trash2 size={14} strokeWidth={1.75} />
                     </button>
                   </div>
                 </div>
 
                 {/* Footer Chips */}
-                <div className="flex flex-wrap items-center gap-1.5 pt-1 border-t border-[var(--color-border)]/50">
-                  <span
-                    className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border"
-                    style={{
-                      backgroundColor: `${typeColor}20`,
-                      color: typeColor,
-                      borderColor: `${typeColor}40`,
-                    }}
-                  >
-                    {event.type}
-                  </span>
+                <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-[var(--color-border)]/50">
+                  <Chip
+                    label={event.type}
+                    type={mapEventTypeToChip(event.type)}
+                  />
 
                   {event.subject && (
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[var(--color-surface)] text-[var(--color-text)] border border-[var(--color-border)]">
-                      {event.subject}
-                    </span>
+                    <Chip
+                      label={event.subject}
+                      type="neutral"
+                    />
                   )}
 
                   {!event.timeConfirmed && (
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-[var(--color-exam)]/15 text-[var(--color-exam)] border border-[var(--color-exam)]/30">
-                      Time unconfirmed
-                    </span>
+                    <Chip
+                      label="Time Unconfirmed"
+                      type="exam"
+                    />
                   )}
 
                   {event.reminderOffsets && event.reminderOffsets.length > 0 && (
-                    <span className="flex items-center gap-1 ml-auto text-[10px] text-[var(--color-muted)]">
-                      <Bell size={11} className="text-[var(--color-exam)]" />
+                    <span className="flex items-center gap-1 ml-auto text-[11px] font-normal text-[var(--color-muted)]">
+                      <Bell size={12} className="text-[var(--color-quiz)]" strokeWidth={1.75} />
                       <span>{event.reminderOffsets.length} reminder(s)</span>
                     </span>
                   )}

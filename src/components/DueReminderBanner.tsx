@@ -70,18 +70,18 @@ export function DueReminderBanner() {
   };
 
   return (
-    <div className="bg-[var(--color-elevated)] border-b border-[var(--color-accent)]/40 px-4 py-2.5 flex flex-col gap-2 shrink-0 animate-in slide-in-from-top-2 duration-200">
+    <div className="bg-[var(--color-surface)] border-b border-[var(--color-border)] px-4 py-2.5 flex flex-col gap-2 shrink-0">
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-7 h-7 rounded-full bg-[var(--color-accent)]/20 text-[var(--color-accent)] flex items-center justify-center shrink-0">
-            <Bell size={15} className="animate-pulse" />
+          <div className="w-8 h-8 rounded-lg bg-[var(--color-accent)] text-[#0B141A] flex items-center justify-center shrink-0 shadow-xs">
+            <Bell size={16} strokeWidth={2} className="animate-pulse" />
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-semibold text-[var(--color-text)] truncate">
+            <p className="text-[13px] font-semibold text-[var(--color-text)] truncate">
               {currentReminder.title}
             </p>
-            <p className="text-[11px] text-[var(--color-accent)] font-medium">
-              Reminder Due Now {activeDueReminders.length > 1 ? `(+${activeDueReminders.length - 1} more)` : ''}
+            <p className="text-[11px] font-semibold text-[var(--color-accent)]">
+              Due now {activeDueReminders.length > 1 ? `(+${activeDueReminders.length - 1} more)` : ''}
             </p>
           </div>
         </div>
@@ -90,8 +90,7 @@ export function DueReminderBanner() {
         <div className="flex items-center gap-1.5 shrink-0 relative">
           <button
             onClick={() => handleDone(currentReminder)}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[var(--color-accent)] text-black text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer"
-            style={{ minHeight: '32px' }}
+            className="btn-primary h-[34px] px-3 text-[12px] font-semibold flex items-center gap-1.5 cursor-pointer"
             title="Mark Done"
           >
             <Check size={14} strokeWidth={2.5} />
@@ -105,32 +104,31 @@ export function DueReminderBanner() {
                   snoozeMenuOpenId === currentReminder.id ? null : (currentReminder.id || null)
                 )
               }
-              className="flex items-center gap-1 px-2 py-1 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-muted)] hover:text-[var(--color-text)] text-xs font-medium transition-colors cursor-pointer"
-              style={{ minHeight: '32px' }}
+              className="flex items-center gap-1 px-2.5 h-[34px] rounded-[var(--radius-button)] bg-[var(--color-elevated)] border border-[var(--color-border)] text-[var(--color-text)] text-[12px] font-semibold transition-colors cursor-pointer shadow-xs"
               title="Snooze"
             >
-              <Clock size={13} />
+              <Clock size={13} strokeWidth={1.8} />
               <span>Snooze</span>
-              <ChevronDown size={12} />
+              <ChevronDown size={12} strokeWidth={1.8} />
             </button>
 
             {snoozeMenuOpenId === currentReminder.id && (
-              <div className="absolute right-0 top-full mt-1 w-32 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl shadow-xl z-50 py-1 flex flex-col">
+              <div className="absolute right-0 top-full mt-1.5 w-36 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] shadow-lg z-50 py-1 flex flex-col divide-y divide-[var(--color-border)]">
                 <button
                   onClick={() => handleSnooze(currentReminder, 10, '10 min')}
-                  className="px-3 py-1.5 text-left text-xs text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
+                  className="px-3 py-2 text-left text-[12px] font-medium text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
                 >
-                  10 Minutes
+                  10 minutes
                 </button>
                 <button
                   onClick={() => handleSnooze(currentReminder, 60, '1 hour')}
-                  className="px-3 py-1.5 text-left text-xs text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
+                  className="px-3 py-2 text-left text-[12px] font-medium text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
                 >
-                  1 Hour
+                  1 hour
                 </button>
                 <button
                   onClick={() => handleSnooze(currentReminder, 1440, 'Tomorrow')}
-                  className="px-3 py-1.5 text-left text-xs text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
+                  className="px-3 py-2 text-left text-[12px] font-medium text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
                 >
                   Tomorrow
                 </button>

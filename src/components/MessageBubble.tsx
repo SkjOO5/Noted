@@ -1,6 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, animate, type PanInfo } from 'framer-motion';
 import type { Message } from '@/db/db';
+import { Chip } from '@/components/Chip';
 import { Calendar, FileText, Bell, CheckCheck, MoreVertical } from 'lucide-react';
 
 interface MessageBubbleProps {
@@ -19,11 +20,24 @@ export function MessageBubble({
   onLongPress,
 }: MessageBubbleProps) {
   const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isDragging = useRef(false);
 
-  // Background opacity and scale transforms based on swipe drag
+  // Close overflow menu on click outside
+  useEffect(() => {
+    if (!showMenu) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setShowMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showMenu]);
+
+  // Background opacity transforms based on swipe drag
   const rightOpacity = useTransform(x, [0, SWIPE_THRESHOLD], [0, 1]);
   const leftOpacity = useTransform(x, [-SWIPE_THRESHOLD, 0], [1, 0]);
 
@@ -65,33 +79,28 @@ export function MessageBubble({
     return new Date(d).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
-  // Color mapping for chips
-  const getChipStyle = (type: string) => {
+  const mapChipType = (type: string): 'quiz' | 'assignment' | 'exam' | 'class-change' | 'other' | 'neutral' => {
     switch (type.toLowerCase()) {
       case 'quiz':
-        return { bg: 'rgba(255, 107, 107, 0.15)', text: 'var(--color-quiz)', border: 'rgba(255, 107, 107, 0.3)' };
+        return 'quiz';
       case 'assignment':
-        return { bg: 'rgba(78, 205, 196, 0.15)', text: 'var(--color-assignment)', border: 'rgba(78, 205, 196, 0.3)' };
+        return 'assignment';
       case 'exam':
-        return { bg: 'rgba(255, 230, 109, 0.15)', text: 'var(--color-exam)', border: 'rgba(255, 230, 109, 0.3)' };
+        return 'exam';
       case 'room-change':
       case 'class-change':
-        return { bg: 'rgba(167, 139, 250, 0.15)', text: 'var(--color-class-change)', border: 'rgba(167, 139, 250, 0.3)' };
-      case 'holiday':
-        return { bg: 'rgba(37, 211, 102, 0.15)', text: 'var(--color-accent)', border: 'rgba(37, 211, 102, 0.3)' };
-      case 'deadline':
-        return { bg: 'rgba(255, 107, 107, 0.15)', text: 'var(--color-quiz)', border: 'rgba(255, 107, 107, 0.3)' };
+        return 'class-change';
       default:
-        return { bg: 'var(--color-elevated)', text: 'var(--color-muted)', border: 'var(--color-border)' };
+        return 'neutral';
     }
   };
 
   return (
-    <div className="relative overflow-hidden my-1.5 select-none touch-pan-y">
+    <div className="relative overflow-hidden my-1 select-none touch-pan-y">
       {/* Underlay Left (Revealed on Swipe Right -> Add to Calendar) */}
       <motion.div
         style={{ opacity: rightOpacity }}
-        className="absolute inset-y-0 left-0 w-1/2 flex items-center pl-4 bg-[var(--color-accent)]/20 rounded-xl text-[var(--color-accent)] font-semibold text-xs gap-2 z-0"
+        className="absolute inset-y-0 left-0 w-1/2 flex items-center pl-4 bg-[var(--color-accent)] rounded-[var(--radius-card)] text-[#0B141A] font-semibold text-[12px] gap-2 z-0"
       >
         <Calendar size={18} strokeWidth={2} />
         <span>Add to Calendar</span>
@@ -100,7 +109,7 @@ export function MessageBubble({
       {/* Underlay Right (Revealed on Swipe Left -> Save to Notes) */}
       <motion.div
         style={{ opacity: leftOpacity }}
-        className="absolute inset-y-0 right-0 w-1/2 flex items-center justify-end pr-4 bg-[var(--color-assignment)]/20 rounded-xl text-[var(--color-assignment)] font-semibold text-xs gap-2 z-0"
+        className="absolute inset-y-0 right-0 w-1/2 flex items-center justify-end pr-4 bg-[var(--color-elevated)] border border-[var(--color-border)] rounded-[var(--radius-card)] text-[var(--color-text)] font-semibold text-[12px] gap-2 z-0"
       >
         <span>Save to Notes</span>
         <FileText size={18} strokeWidth={2} />
@@ -118,57 +127,55 @@ export function MessageBubble({
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleTouchStart}
         onMouseUp={handleTouchEnd}
-        className="relative z-10 flex flex-col p-3 rounded-xl border bg-[var(--color-elevated)] border-[var(--color-border)] shadow-xs transition-colors hover:border-[var(--color-border)]/80"
+        data-card="true"
+        className="relative z-10 flex flex-col p-3.5 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-accent)]/40 transition-colors"
       >
         {/* Header: Sender & Action Menu */}
-        <div className="flex items-center justify-between gap-2 mb-1">
+        <div className="flex items-center justify-between gap-2 mb-1.5">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-[var(--color-accent)]">
+            <span className="text-[12px] font-semibold text-[var(--color-accent)]">
               {message.sender}
             </span>
             {message.isImportant && (
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-quiz)] shrink-0" />
+              <span className="px-1.5 py-0.5 rounded-full bg-[rgba(255,107,107,0.15)] text-[var(--color-quiz)] border border-[rgba(255,107,107,0.3)] text-[10px] font-semibold">
+                Urgent
+              </span>
             )}
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1.5">
             {/* Status indicators */}
             {message.calendarEventId && (
-              <span
-                title="Event created in Calendar"
-                className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium bg-[var(--color-accent)]/15 text-[var(--color-accent)]"
-              >
-                <Calendar size={11} />
-                <span>Event</span>
-              </span>
+              <Chip
+                label="Calendar"
+                type="quiz"
+                icon={<Calendar size={12} strokeWidth={2} />}
+              />
             )}
             {message.noteId && (
-              <span
-                title="Saved to Notes"
-                className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium bg-[var(--color-assignment)]/15 text-[var(--color-assignment)]"
-              >
-                <FileText size={11} />
-                <span>Note</span>
-              </span>
+              <Chip
+                label="Note"
+                type="assignment"
+                icon={<FileText size={12} strokeWidth={2} />}
+              />
             )}
 
             {/* Overflow button for mouse / accessibility */}
-            <div className="relative">
+            <div className="relative" ref={menuRef}>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowMenu(!showMenu);
                 }}
-                className="p-1 rounded text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
-                style={{ minHeight: '32px', minWidth: '32px' }}
+                className="w-8 h-8 rounded-lg text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer flex items-center justify-center"
                 aria-label="Message options"
               >
-                <MoreVertical size={16} />
+                <MoreVertical size={16} strokeWidth={1.75} />
               </button>
 
               {showMenu && (
                 <div
-                  className="absolute right-0 top-8 z-30 w-44 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-xl py-1"
+                  className="absolute right-0 top-full mt-1 z-30 w-44 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-md py-1 flex flex-col animate-in fade-in zoom-in-95 duration-100"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button
@@ -176,33 +183,30 @@ export function MessageBubble({
                       setShowMenu(false);
                       onSwipeRight(message);
                     }}
-                    className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors text-left"
-                    style={{ minHeight: '36px' }}
+                    className="w-full flex items-center gap-2.5 px-3 py-2 text-[14px] font-normal text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors text-left cursor-pointer"
                   >
-                    <Calendar size={14} className="text-[var(--color-accent)]" />
-                    Add to Calendar
+                    <Calendar size={16} strokeWidth={1.75} className="text-[var(--color-accent)]" />
+                    <span>Add to Calendar</span>
                   </button>
                   <button
                     onClick={() => {
                       setShowMenu(false);
                       onSwipeLeft(message);
                     }}
-                    className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors text-left"
-                    style={{ minHeight: '36px' }}
+                    className="w-full flex items-center gap-2.5 px-3 py-2 text-[14px] font-normal text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors text-left cursor-pointer"
                   >
-                    <FileText size={14} className="text-[var(--color-assignment)]" />
-                    Save to Notes
+                    <FileText size={16} strokeWidth={1.75} className="text-[var(--color-assignment)]" />
+                    <span>Save to Notes</span>
                   </button>
                   <button
                     onClick={() => {
                       setShowMenu(false);
                       onLongPress(message);
                     }}
-                    className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors text-left"
-                    style={{ minHeight: '36px' }}
+                    className="w-full flex items-center gap-2.5 px-3 py-2 text-[14px] font-normal text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors text-left cursor-pointer"
                   >
-                    <Bell size={14} className="text-[var(--color-exam)]" />
-                    Remind Me
+                    <Bell size={16} strokeWidth={1.75} className="text-[var(--color-exam)]" />
+                    <span>Remind Me</span>
                   </button>
                 </div>
               )}
@@ -211,43 +215,35 @@ export function MessageBubble({
         </div>
 
         {/* Message Text */}
-        <p className="text-sm text-[var(--color-text)] whitespace-pre-wrap break-words leading-relaxed">
+        <p className="text-[14px] font-normal text-[var(--color-text)] whitespace-pre-wrap break-words leading-relaxed">
           {message.text}
         </p>
 
-        {/* Category & Academic Chips */}
-        <div className="flex flex-wrap items-center gap-1.5 mt-2">
-          {message.chips.map((chip, idx) => {
-            const style = getChipStyle(chip);
-            return (
-              <span
-                key={idx}
-                className="px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wider border"
-                style={{
-                  backgroundColor: style.bg,
-                  color: style.text,
-                  borderColor: style.border,
-                }}
-              >
-                {chip}
-              </span>
-            );
-          })}
+        {/* Category & Academic Badges */}
+        <div className="flex flex-wrap items-center gap-1.5 mt-2.5">
+          {message.chips.map((chip, idx) => (
+            <Chip
+              key={idx}
+              label={chip}
+              type={mapChipType(chip)}
+            />
+          ))}
 
           {message.subject && (
-            <span className="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[var(--color-border)]/60 text-[var(--color-text)] border border-[var(--color-border)]">
-              {message.subject}
-            </span>
+            <Chip
+              label={message.subject}
+              type="neutral"
+            />
           )}
 
           {message.topic && (
-            <span className="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[var(--color-border)]/60 text-[var(--color-text)] border border-[var(--color-border)]">
+            <span className="text-[12px] font-normal text-[var(--color-muted)]">
               {message.topic}
             </span>
           )}
 
           {/* Time & Double Checkmark */}
-          <div className="ml-auto flex items-center gap-1 text-[11px] text-[var(--color-muted)] shrink-0 self-end">
+          <div className="ml-auto flex items-center gap-1 text-[12px] font-normal text-[var(--color-muted)] shrink-0 self-end">
             <span>{formatTime(message.timestamp)}</span>
             <CheckCheck size={14} className="text-[var(--color-accent)]" />
           </div>

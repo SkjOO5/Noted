@@ -3,7 +3,8 @@ import type { Group } from '@/db/db';
 import { getAllGroups, deleteGroup } from '@/db/groupRepo';
 import { useLiveQuery } from '@/db/useLiveQuery';
 import { useToast } from '@/components/ToastContext';
-import { Search, Users, Trash2, Plus } from 'lucide-react';
+import { seedSampleData } from '@/lib/seed/seedData';
+import { Search, Users, Trash2, Plus, Sparkles } from 'lucide-react';
 
 interface GroupListProps {
   onSelectGroup: (group: Group) => void;
@@ -11,7 +12,7 @@ interface GroupListProps {
 }
 
 const AVATAR_COLORS = [
-  '#25D366', // WhatsApp green
+  '#2563EB', // Royal blue
   '#34B7F1', // Blue
   '#FF6B6B', // Red
   '#4ECDC4', // Teal
@@ -75,53 +76,64 @@ export function GroupList({ onSelectGroup, onOpenAddSheet }: GroupListProps) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-[var(--color-bg)]">
-      {/* Search Bar */}
-      <div className="p-3 bg-[var(--color-surface)] border-b border-[var(--color-border)]">
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[var(--color-elevated)] border border-[var(--color-border)]">
-          <Search size={16} className="text-[var(--color-muted)] shrink-0" />
-          <input
-            type="text"
-            placeholder="Search chats or messages..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full text-xs bg-transparent text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none"
-            style={{ minHeight: '28px' }}
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery('')}
-              className="text-xs text-[var(--color-muted)] hover:text-[var(--color-text)] px-1"
-            >
-              Clear
-            </button>
-          )}
-        </div>
+    <div className="flex flex-col gap-3 px-4 py-3">
+      {/* Search Bar (44px) */}
+      <div className="relative h-[44px] flex items-center">
+        <Search
+          size={20}
+          strokeWidth={1.75}
+          className="absolute left-3 text-[var(--color-muted)] pointer-events-none"
+        />
+        <input
+          type="text"
+          placeholder="Search college groups, subjects..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full h-full pl-10 pr-3 rounded-[var(--radius-button)] bg-[var(--color-surface)] border border-[var(--color-border)] text-[14px] font-normal text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+        />
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery('')}
+            className="absolute right-3 text-[12px] font-semibold text-[var(--color-muted)] hover:text-[var(--color-text)] cursor-pointer"
+          >
+            Clear
+          </button>
+        )}
       </div>
 
-      {/* Group List */}
-      <div className="flex-1 overflow-y-auto divide-y divide-[var(--color-border)]">
+      {/* Group Cards List */}
+      <div className="flex flex-col gap-2.5">
         {filteredGroups.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full p-6 text-center">
-            <div className="w-14 h-14 rounded-full bg-[var(--color-elevated)] flex items-center justify-center text-[var(--color-muted)] mb-3">
-              <Users size={28} />
-            </div>
-            <p className="text-sm font-semibold text-[var(--color-text)]">
+          <div className="flex flex-col items-center justify-center py-16 text-center gap-4 my-auto">
+            <p className="text-[14px] font-normal text-[var(--color-muted)]">
               {searchQuery ? 'No matching chats found' : 'No WhatsApp chats yet'}
             </p>
-            <p className="text-xs text-[var(--color-muted)] mt-1 max-w-xs">
-              {searchQuery
-                ? 'Try searching with a different name or keyword.'
-                : 'Paste a WhatsApp message or import a .txt chat export to extract dates, notes, and reminders.'}
-            </p>
-            {!searchQuery && (
+            {!searchQuery ? (
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={onOpenAddSheet}
+                  className="btn-primary"
+                >
+                  <Plus size={18} strokeWidth={2} />
+                  <span>Paste chat</span>
+                </button>
+                <button
+                  onClick={async () => {
+                    await seedSampleData();
+                    showToast({ message: 'Loaded sample college groups!' });
+                  }}
+                  className="btn-secondary"
+                >
+                  <Sparkles size={16} strokeWidth={2} className="text-[var(--color-accent)]" />
+                  <span>Demo data</span>
+                </button>
+              </div>
+            ) : (
               <button
-                onClick={onOpenAddSheet}
-                className="mt-5 flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-accent)] text-black font-semibold text-xs hover:opacity-90 transition-all cursor-pointer"
-                style={{ minHeight: '44px' }}
+                onClick={() => setSearchQuery('')}
+                className="btn-secondary"
               >
-                <Plus size={16} strokeWidth={2.5} />
-                + Import or Paste Chat
+                Clear search
               </button>
             )}
           </div>
@@ -138,54 +150,53 @@ export function GroupList({ onSelectGroup, onOpenAddSheet }: GroupListProps) {
             return (
               <div
                 key={group.id}
+                data-card="true"
                 onClick={() => onSelectGroup(group)}
-                className="flex items-center gap-3 px-4 py-3 hover:bg-[var(--color-surface)] active:bg-[var(--color-elevated)] transition-colors cursor-pointer group select-none"
+                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] p-3.5 flex items-center gap-3 select-none relative group hover:border-[var(--color-accent)]/40 transition-colors cursor-pointer"
                 style={{ minHeight: '68px' }}
               >
                 {/* Avatar */}
                 <div
-                  className="w-11 h-11 rounded-full flex items-center justify-center font-bold text-xs shrink-0 shadow-xs"
+                  className="w-11 h-11 rounded-full flex items-center justify-center font-semibold text-[14px] shrink-0"
                   style={{
-                    backgroundColor: `${avatarColor}25`,
-                    color: avatarColor,
-                    border: `1.5px solid ${avatarColor}50`,
+                    backgroundColor: avatarColor,
+                    color: '#FFFFFF',
                   }}
                 >
-                  {initials || <Users size={18} />}
+                  {initials || <Users size={18} strokeWidth={2} />}
                 </div>
 
-                {/* Info */}
+                {/* Group Details */}
                 <div className="flex-1 min-w-0 flex flex-col justify-center">
                   <div className="flex items-center justify-between gap-1">
-                    <h3 className="text-sm font-semibold text-[var(--color-text)] truncate">
+                    <h3 className="font-semibold text-[14px] text-[var(--color-text)] truncate">
                       {group.name}
                     </h3>
-                    <span className="text-[11px] text-[var(--color-muted)] shrink-0">
+                    <span className="text-[12px] font-normal text-[var(--color-muted)] shrink-0">
                       {formatGroupDate(group.lastMessageAt)}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between gap-2 mt-0.5">
-                    <p className="text-xs text-[var(--color-muted)] truncate">
+                    <p className="text-[12px] font-normal text-[var(--color-muted)] truncate">
                       {group.lastMessageText || 'No messages yet'}
                     </p>
                     {group.unreadCount > 0 && (
-                      <span className="px-1.5 py-0.5 rounded-full bg-[var(--color-accent)] text-black text-[10px] font-bold shrink-0">
-                        {group.unreadCount}
+                      <span className="inline-flex items-center justify-center h-5 px-2 rounded-full bg-[var(--color-accent)] text-[#0B141A] text-[11px] font-bold shrink-0">
+                        {group.unreadCount} new
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Delete button on hover / touch */}
+                {/* Quick Action / Delete */}
                 <button
                   onClick={(e) => handleDeleteGroup(e, group)}
                   title="Delete chat"
-                  className="p-2 rounded-full text-[var(--color-muted)] opacity-0 group-hover:opacity-100 hover:text-[var(--color-quiz)] hover:bg-[var(--color-elevated)] transition-all cursor-pointer"
-                  style={{ minHeight: '36px', minWidth: '36px' }}
+                  className="w-8 h-8 rounded-lg text-[var(--color-muted)] opacity-0 group-hover:opacity-100 hover:text-[var(--color-quiz)] hover:bg-[var(--color-elevated)] transition-all cursor-pointer flex items-center justify-center shrink-0"
                   aria-label={`Delete ${group.name}`}
                 >
-                  <Trash2 size={16} />
+                  <Trash2 size={16} strokeWidth={1.75} />
                 </button>
               </div>
             );

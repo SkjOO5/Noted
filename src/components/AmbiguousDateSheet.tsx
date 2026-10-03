@@ -43,30 +43,29 @@ export function AmbiguousDateSheet({
   onSelect,
 }: AmbiguousDateSheetProps) {
   return (
-    <BottomSheet isOpen={isOpen} onClose={onClose} title="Confirm Event Date">
-      <div className="flex flex-col gap-4">
-        <p className="text-sm text-[var(--color-muted)]">
-          The date in this message could refer to multiple dates. Please select the intended date:
+    <BottomSheet isOpen={isOpen} onClose={onClose} title="Confirm event date">
+      <div className="flex flex-col gap-3.5 py-1">
+        <p className="text-[12px] font-normal text-[var(--color-muted)] leading-relaxed">
+          The date in this message could refer to multiple dates (e.g. DD/MM vs MM/DD). Please select the intended date:
         </p>
 
-        <div className="p-3 rounded-lg bg-[var(--color-elevated)] border border-[var(--color-border)] text-sm text-[var(--color-text)] italic">
+        <div className="p-3.5 rounded-[var(--radius-card)] bg-[var(--color-elevated)] border border-[var(--color-border)] shadow-xs text-[13px] font-medium text-[var(--color-text)] italic">
           "{messageText}"
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2.5">
           <button
             onClick={() => onSelect(option1)}
-            className="flex items-center gap-3 p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-accent)] transition-all text-left group cursor-pointer"
-            style={{ minHeight: '44px' }}
+            className="flex items-center gap-3 p-3.5 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-elevated)] active:scale-[0.98] transition-all text-left group cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-full bg-[var(--color-elevated)] flex items-center justify-center text-[var(--color-accent)] shrink-0">
-              <Calendar size={20} strokeWidth={1.75} />
+            <div className="w-10 h-10 rounded-xl bg-[var(--color-accent)] text-[#0B141A] flex items-center justify-center shrink-0 shadow-xs">
+              <Calendar size={18} strokeWidth={2.2} />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+              <div className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
                 {option1.label}
               </div>
-              <div className="text-sm font-medium text-[var(--color-text)]">
+              <div className="text-[13px] font-semibold text-[var(--color-text)] mt-0.5">
                 {formatDate(option1.date, option1.timeConfirmed)}
               </div>
             </div>
@@ -74,17 +73,16 @@ export function AmbiguousDateSheet({
 
           <button
             onClick={() => onSelect(option2)}
-            className="flex items-center gap-3 p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-accent)] transition-all text-left group cursor-pointer"
-            style={{ minHeight: '44px' }}
+            className="flex items-center gap-3 p-3.5 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-elevated)] active:scale-[0.98] transition-all text-left group cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-full bg-[var(--color-elevated)] flex items-center justify-center text-[var(--color-accent)] shrink-0">
-              <Calendar size={20} strokeWidth={1.75} />
+            <div className="w-10 h-10 rounded-xl bg-[var(--color-accent-surface)] text-[var(--color-accent)] border border-[var(--color-accent-border)] flex items-center justify-center shrink-0 shadow-xs">
+              <Calendar size={18} strokeWidth={2.2} />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+              <div className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
                 {option2.label}
               </div>
-              <div className="text-sm font-medium text-[var(--color-text)]">
+              <div className="text-[13px] font-semibold text-[var(--color-text)] mt-0.5">
                 {formatDate(option2.date, option2.timeConfirmed)}
               </div>
             </div>
@@ -93,8 +91,7 @@ export function AmbiguousDateSheet({
 
         <button
           onClick={onClose}
-          className="w-full py-2.5 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
-          style={{ minHeight: '44px' }}
+          className="btn-secondary w-full h-[44px] text-[13px] font-bold mt-1"
         >
           Cancel
         </button>

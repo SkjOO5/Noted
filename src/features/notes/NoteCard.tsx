@@ -1,8 +1,10 @@
+import { useState, useRef, useEffect } from 'react';
 import type { Note } from '@/db/db';
 import { updateNote, deleteNote } from '@/db/noteRepo';
 import { getEventById } from '@/db/eventRepo';
 import { useLiveQuery } from '@/db/useLiveQuery';
 import { useToast } from '@/components/ToastContext';
+import { Chip } from '@/components/Chip';
 import {
   Pin,
   CheckSquare,
@@ -10,6 +12,7 @@ import {
   Copy,
   Edit2,
   Trash2,
+  MoreVertical,
   Calendar as CalendarIcon,
 } from 'lucide-react';
 
@@ -20,11 +23,26 @@ interface NoteCardProps {
 
 export function NoteCard({ note, onEdit }: NoteCardProps) {
   const { showToast } = useToast();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const linkedEvent = useLiveQuery(
     () => (note.linkedEventId ? getEventById(note.linkedEventId) : undefined),
     [note.linkedEventId]
   );
+
+  // Close overflow menu on outside click
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
 
   const handleTogglePin = async () => {
     if (!note.id) return;
@@ -44,6 +62,7 @@ export function NoteCard({ note, onEdit }: NoteCardProps) {
   };
 
   const handleCopyText = async () => {
+    setIsMenuOpen(false);
     try {
       let content = '';
       if (note.subject) content += `[${note.subject}]\n`;
@@ -59,6 +78,7 @@ export function NoteCard({ note, onEdit }: NoteCardProps) {
   };
 
   const handleDelete = async () => {
+    setIsMenuOpen(false);
     if (!note.id) return;
     const noteCopy = { ...note };
     await deleteNote(note.id);
@@ -76,136 +96,151 @@ export function NoteCard({ note, onEdit }: NoteCardProps) {
   const checklistTotal = note.checklist?.length || 0;
   const checklistDone = note.checklist?.filter((c) => c.done).length || 0;
   const checklistPercent = checklistTotal > 0 ? Math.round((checklistDone / checklistTotal) * 100) : 0;
+  const isLongText = (note.text?.length || 0) > 160 || (note.text?.split('\n').length || 0) > 3;
 
   return (
     <div
-      className={`p-3.5 rounded-xl border transition-all flex flex-col gap-2.5 ${
+      data-card="true"
+      className={`note-card bg-[var(--color-surface)] border rounded-[var(--radius-card)] p-3.5 flex flex-col gap-3 transition-colors ${
         note.isPinned
-          ? 'bg-[var(--color-surface)] border-[var(--color-accent)]/50 shadow-xs'
-          : 'bg-[var(--color-elevated)] border-[var(--color-border)] hover:border-[var(--color-border)]/80'
+          ? 'border-[var(--color-accent)]/50'
+          : 'border-[var(--color-border)]'
       }`}
     >
-      {/* Header Row: Subject, Linked Event & Action Controls */}
-      <div className="flex items-start justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-1.5 min-w-0">
+      {/* Header Row: Left (Subject + Event), Right (Pin + Overflow 3-dots) */}
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-1.5 min-w-0 flex-1">
           {note.subject ? (
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[var(--color-accent)]/15 text-[var(--color-accent)] border border-[var(--color-accent)]/30 truncate max-w-[180px]">
-              {note.subject}
-            </span>
+            <Chip label={note.subject} type="assignment" />
           ) : (
-            <span className="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[var(--color-surface)] text-[var(--color-muted)] border border-[var(--color-border)]">
-              General Note
-            </span>
+            <Chip label="General" type="neutral" />
           )}
 
           {linkedEvent && (
-            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-[var(--color-quiz)]/15 text-[var(--color-quiz)] border border-[var(--color-quiz)]/30 truncate max-w-[150px]">
-              <CalendarIcon size={10} />
-              <span className="truncate">{linkedEvent.title}</span>
-            </span>
+            <Chip
+              label={linkedEvent.title}
+              type="quiz"
+              icon={<CalendarIcon size={12} strokeWidth={2} />}
+            />
           )}
         </div>
 
-        {/* Action icons */}
-        <div className="flex items-center gap-1 shrink-0">
+        {/* Action Controls: Ghost Pin + Overflow 3-Dots Menu */}
+        <div className="flex items-center gap-1 shrink-0 relative" ref={menuRef}>
           <button
             onClick={handleTogglePin}
             title={note.isPinned ? 'Unpin note' : 'Pin note'}
-            className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+            className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors cursor-pointer ${
               note.isPinned
-                ? 'text-[var(--color-accent)] hover:bg-[var(--color-surface)]'
-                : 'text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]'
+                ? 'text-[var(--color-accent)] bg-[var(--color-accent-surface)]'
+                : 'text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)]'
             }`}
-            style={{ minHeight: '32px', minWidth: '32px' }}
             aria-label={note.isPinned ? 'Unpin note' : 'Pin note'}
           >
-            <Pin size={14} className={note.isPinned ? 'fill-current' : ''} />
+            <Pin size={16} strokeWidth={2} className={note.isPinned ? 'fill-current' : ''} />
           </button>
 
           <button
-            onClick={handleCopyText}
-            title="Copy note"
-            className="p-1.5 rounded-lg text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
-            style={{ minHeight: '32px', minWidth: '32px' }}
-            aria-label="Copy note"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            title="More actions"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
+            aria-label="More actions"
+            aria-expanded={isMenuOpen}
           >
-            <Copy size={14} />
+            <MoreVertical size={16} strokeWidth={2} />
           </button>
 
-          <button
-            onClick={() => onEdit(note)}
-            title="Edit note"
-            className="p-1.5 rounded-lg text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
-            style={{ minHeight: '32px', minWidth: '32px' }}
-            aria-label="Edit note"
-          >
-            <Edit2 size={14} />
-          </button>
-
-          <button
-            onClick={handleDelete}
-            title="Delete note"
-            className="p-1.5 rounded-lg text-[var(--color-muted)] hover:text-[var(--color-quiz)] hover:bg-[var(--color-surface)] transition-colors cursor-pointer"
-            style={{ minHeight: '32px', minWidth: '32px' }}
-            aria-label="Delete note"
-          >
-            <Trash2 size={14} />
-          </button>
+          {/* Overflow Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="absolute right-0 top-full mt-1 z-30 w-36 py-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-card)] shadow-lg divide-y divide-[var(--color-border)]">
+              <button
+                onClick={handleCopyText}
+                className="w-full flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors text-left cursor-pointer"
+              >
+                <Copy size={15} strokeWidth={1.75} className="text-[var(--color-muted)]" />
+                <span>Copy</span>
+              </button>
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  onEdit(note);
+                }}
+                className="w-full flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors text-left cursor-pointer"
+              >
+                <Edit2 size={15} strokeWidth={1.75} className="text-[var(--color-muted)]" />
+                <span>Edit</span>
+              </button>
+              <button
+                onClick={handleDelete}
+                className="w-full flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-[var(--color-danger)] hover:bg-[var(--color-danger-surface)] transition-colors text-left cursor-pointer"
+              >
+                <Trash2 size={15} strokeWidth={1.75} className="text-[var(--color-danger)]" />
+                <span>Delete</span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Note Text */}
+      {/* Note Body Text */}
       {note.text && (
-        <p className="text-sm text-[var(--color-text)] whitespace-pre-wrap break-words leading-relaxed">
-          {note.text}
-        </p>
+        <div className="text-[13px] font-normal text-[var(--color-text)] leading-relaxed break-words">
+          <p className={!isExpanded && isLongText ? 'line-clamp-3' : 'whitespace-pre-wrap'}>
+            {note.text}
+          </p>
+          {isLongText && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="mt-1 text-[12px] font-semibold text-[var(--color-accent)] hover:underline cursor-pointer select-none"
+            >
+              {isExpanded ? 'Show less' : 'Show more'}
+            </button>
+          )}
+        </div>
       )}
 
       {/* Syllabus / Checklist Section */}
       {checklistTotal > 0 && (
-        <div className="flex flex-col gap-1.5 p-2.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]/70 mt-0.5">
+        <div className="flex flex-col gap-2 pt-3 border-t border-[var(--color-border)]">
           <div className="flex items-center justify-between text-[11px] font-semibold text-[var(--color-muted)]">
-            <span className="flex items-center gap-1 uppercase tracking-wider">
-              <CheckSquare size={12} className="text-[var(--color-accent)]" />
-              Checklist
-            </span>
-            <span className="text-[var(--color-text)]">
-              {checklistDone}/{checklistTotal} ({checklistPercent}%)
+            <span className="uppercase tracking-[1.2px] text-[10px]">Checklist</span>
+            <span>
+              {checklistDone}/{checklistTotal}
             </span>
           </div>
 
-          {/* Progress Bar */}
-          <div className="w-full h-1 rounded-full bg-[var(--color-elevated)] overflow-hidden">
+          <div className="w-full h-1.5 rounded-full bg-[var(--color-elevated)] overflow-hidden">
             <div
-              className="h-full bg-[var(--color-accent)] transition-all duration-300"
+              className="h-full bg-[var(--color-accent)] rounded-full transition-all duration-200"
               style={{ width: `${checklistPercent}%` }}
             />
           </div>
 
-          {/* Checklist Items */}
-          <div className="flex flex-col gap-1 pt-1">
+          <div className="flex flex-col rounded-[8px] border border-[var(--color-border)] bg-[var(--color-elevated)]/40 divide-y divide-[var(--color-border)] overflow-hidden">
             {note.checklist?.map((item, idx) => (
               <button
                 key={idx}
                 onClick={() => handleToggleChecklist(idx)}
-                className="flex items-start gap-2 text-left text-xs py-1 px-1 rounded hover:bg-[var(--color-elevated)] transition-colors cursor-pointer group"
+                className="w-full min-h-[40px] flex items-center gap-2.5 py-2 px-3 text-left hover:bg-[var(--color-elevated)] transition-colors cursor-pointer select-none"
               >
                 {item.done ? (
                   <CheckSquare
-                    size={15}
-                    className="text-[var(--color-accent)] shrink-0 mt-0.5"
+                    size={16}
+                    strokeWidth={2}
+                    className="text-[var(--color-accent)] shrink-0"
                   />
                 ) : (
                   <Square
-                    size={15}
-                    className="text-[var(--color-muted)] group-hover:text-[var(--color-text)] shrink-0 mt-0.5"
+                    size={16}
+                    strokeWidth={1.75}
+                    className="text-[var(--color-muted)] shrink-0"
                   />
                 )}
                 <span
-                  className={`leading-tight break-words ${
+                  className={`text-[13px] leading-normal break-words flex-1 ${
                     item.done
-                      ? 'line-through text-[var(--color-muted)] opacity-70'
-                      : 'text-[var(--color-text)]'
+                      ? 'line-through text-[var(--color-muted)]'
+                      : 'font-medium text-[var(--color-text)]'
                   }`}
                 >
                   {item.text}
@@ -216,20 +251,17 @@ export function NoteCard({ note, onEdit }: NoteCardProps) {
         </div>
       )}
 
-      {/* Footer: Tags & Updated Timestamp */}
-      <div className="flex items-center justify-between gap-2 pt-1 border-t border-[var(--color-border)]/40 text-[11px] text-[var(--color-muted)]">
-        <div className="flex flex-wrap items-center gap-1">
+      {/* Footer: Tags (Left) & Date (Right) */}
+      <div className="flex items-center justify-between gap-2 pt-2.5 border-t border-[var(--color-border)] text-[11px] font-medium text-[var(--color-muted)]">
+        <div className="flex flex-wrap items-center gap-1 min-w-0">
           {note.tags?.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] font-medium text-[var(--color-accent)] bg-[var(--color-accent)]/10 px-1.5 py-0.5 rounded-md"
-            >
-              #{tag}
+            <span key={tag} className="text-[var(--color-muted)]">
+              #{tag.toLowerCase()}
             </span>
           ))}
         </div>
 
-        <span className="shrink-0 text-[10px]">
+        <span className="shrink-0 whitespace-nowrap">
           {new Date(note.updatedAt).toLocaleDateString('en-GB', {
             day: 'numeric',
             month: 'short',

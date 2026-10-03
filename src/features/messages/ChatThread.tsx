@@ -10,7 +10,7 @@ import { MessageBubble } from '@/components/MessageBubble';
 import { AmbiguousDateSheet } from '@/components/AmbiguousDateSheet';
 import { ReminderSheet } from '@/components/ReminderSheet';
 import { parseDate, type ParseResult } from '@/lib/parser/dateParser';
-import { ArrowLeft, Search, Filter, MessageSquareDashed } from 'lucide-react';
+import { ArrowLeft, Search, Filter } from 'lucide-react';
 
 interface ChatThreadProps {
   group: Group;
@@ -199,100 +199,96 @@ export function ChatThread({ group, onBack, onOpenAddSheet }: ChatThreadProps) {
 
   return (
     <div className="flex flex-col h-full bg-[var(--color-bg)]">
-      {/* Thread Header */}
+      {/* Thread Sub-Header */}
       <div
-        className="flex items-center justify-between px-3 shrink-0 border-b border-[var(--color-border)]"
+        className="flex items-center justify-between px-4 shrink-0 border-b border-[var(--color-border)] bg-[var(--color-surface)]"
         style={{
-          height: 'var(--app-bar-height)',
-          backgroundColor: 'var(--color-surface)',
+          height: '52px',
         }}
       >
         <div className="flex items-center gap-2 min-w-0">
           <button
             onClick={onBack}
-            className="p-2 -ml-1 rounded-full text-[var(--color-text)] hover:bg-[var(--color-elevated)] transition-colors cursor-pointer"
-            style={{ minHeight: '44px', minWidth: '44px' }}
+            className="w-8 h-8 rounded-lg text-[var(--color-muted)] bg-[var(--color-elevated)] border border-[var(--color-border)] hover:text-[var(--color-text)] active:scale-95 transition-all cursor-pointer flex items-center justify-center -ml-1"
             aria-label="Back to groups"
           >
-            <ArrowLeft size={20} strokeWidth={2} />
+            <ArrowLeft size={16} strokeWidth={2.5} />
           </button>
 
           <div className="flex flex-col min-w-0">
-            <h2 className="text-sm font-semibold text-[var(--color-text)] truncate">
+            <h2 className="font-semibold text-[14px] text-[var(--color-text)] truncate">
               {group.name}
             </h2>
-            <span className="text-[11px] text-[var(--color-muted)]">
-              {messages.length} message{messages.length !== 1 ? 's' : ''} •{' '}
-              {messages.filter((m) => m.isImportant).length} important
+            <span className="text-[11px] font-normal text-[var(--color-muted)]">
+              {messages.length} messages
+              {messages.some((m) => m.isImportant) && (
+                <> • <span className="text-[var(--color-accent)] font-semibold">{messages.filter((m) => m.isImportant).length} urgent</span></>
+              )}
             </span>
           </div>
         </div>
 
         {/* Filter / Search Controls */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5">
           <button
             onClick={() => setOnlyImportant(!onlyImportant)}
-            className={`p-2 rounded-full transition-colors ${
+            className={`h-[32px] px-3 rounded-full text-[12px] font-semibold transition-all border cursor-pointer flex items-center gap-1.5 shadow-xs active:scale-95 ${
               onlyImportant
-                ? 'bg-[var(--color-accent)]/20 text-[var(--color-accent)]'
-                : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
+                ? 'bg-[var(--color-accent)] text-[#0B141A] border-transparent'
+                : 'text-[var(--color-muted)] bg-[var(--color-surface)] border-[var(--color-border)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)]'
             }`}
-            style={{ minHeight: '44px', minWidth: '44px' }}
-            title={onlyImportant ? 'Showing all messages' : 'Show important only'}
+            title={onlyImportant ? 'Showing all messages' : 'Show urgent only'}
           >
-            <Filter size={18} />
+            <Filter size={13} strokeWidth={2.5} />
+            <span>Urgent</span>
           </button>
         </div>
       </div>
 
-      {/* Search Input Bar */}
-      <div className="px-3 py-2 bg-[var(--color-surface)] border-b border-[var(--color-border)] flex items-center gap-2">
-        <Search size={16} className="text-[var(--color-muted)] shrink-0" />
-        <input
-          type="text"
-          placeholder="Search in this chat..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full text-xs bg-transparent text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none"
-          style={{ minHeight: '32px' }}
-        />
-        {searchQuery && (
-          <button
-            onClick={() => setSearchQuery('')}
-            className="text-xs text-[var(--color-muted)] hover:text-[var(--color-text)] px-1"
-          >
-            Clear
-          </button>
-        )}
+      {/* Search Input Bar (44px) */}
+      <div className="px-4 py-2 bg-[var(--color-surface)] border-b border-[var(--color-border)]">
+        <div className="relative h-[38px] flex items-center">
+          <Search
+            size={16}
+            strokeWidth={2}
+            className="absolute left-3 text-[var(--color-muted)] pointer-events-none"
+          />
+          <input
+            type="text"
+            placeholder="Search in this chat..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full h-full pl-9 pr-3 rounded-[var(--radius-button)] bg-[var(--color-elevated)] border border-[var(--color-border)] text-[13px] font-normal text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-3 text-[12px] font-semibold text-[var(--color-muted)] hover:text-[var(--color-text)] cursor-pointer"
+            >
+              Clear
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Messages Stream */}
-      <div className="flex-1 overflow-y-auto p-3 flex flex-col justify-end">
+      <div className="flex-1 overflow-y-auto px-4 py-3 flex flex-col gap-1.5">
         {filteredMessages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-16 text-center my-auto">
-            <div className="w-12 h-12 rounded-full bg-[var(--color-elevated)] flex items-center justify-center text-[var(--color-muted)] mb-3">
-              <MessageSquareDashed size={24} />
-            </div>
-            <p className="text-sm font-medium text-[var(--color-text)]">
+          <div className="flex flex-col items-center justify-center py-16 text-center my-auto gap-4">
+            <p className="text-[14px] font-normal text-[var(--color-muted)]">
               {searchQuery || onlyImportant ? 'No matching messages' : 'No messages in this chat yet'}
-            </p>
-            <p className="text-xs text-[var(--color-muted)] mt-1 max-w-xs">
-              {searchQuery || onlyImportant
-                ? 'Try resetting the filters or search keywords.'
-                : 'Swipe right on any message to add to calendar, or swipe left to save note.'}
             </p>
             {!searchQuery && !onlyImportant && (
               <button
                 onClick={onOpenAddSheet}
-                className="mt-4 px-4 py-2 rounded-xl bg-[var(--color-accent)] text-black font-semibold text-xs cursor-pointer"
-                style={{ minHeight: '44px' }}
+                className="btn-primary"
               >
-                + Paste or Import Messages
+                <span>+ Paste messages</span>
               </button>
             )}
           </div>
         ) : (
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-1.5">
             {filteredMessages.map((msg) => (
               <MessageBubble
                 key={msg.id || msg.hash}

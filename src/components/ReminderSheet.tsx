@@ -54,67 +54,64 @@ export function ReminderSheet({
   };
 
   return (
-    <BottomSheet isOpen={isOpen} onClose={onClose} title="Set a Reminder">
-      <div className="flex flex-col gap-4">
-        <div className="p-3 rounded-lg bg-[var(--color-elevated)] border border-[var(--color-border)] text-sm text-[var(--color-text)] line-clamp-2 italic">
+    <BottomSheet isOpen={isOpen} onClose={onClose} title="Set a reminder">
+      <div className="flex flex-col gap-3.5 py-1">
+        <div className="p-3.5 rounded-[var(--radius-card)] bg-[var(--color-elevated)] border border-[var(--color-border)] shadow-xs text-[13px] font-medium text-[var(--color-text)] line-clamp-2 italic">
           "{messageText}"
         </div>
 
         {!showCustom ? (
           <div className="flex flex-col gap-2">
-            {quickOptions.map((opt, i) => (
-              <button
-                key={i}
-                onClick={() => onSetReminder(opt.time, opt.label)}
-                className="flex items-center justify-between p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-accent)] transition-all cursor-pointer text-left"
-                style={{ minHeight: '44px' }}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[var(--color-elevated)] flex items-center justify-center text-[var(--color-accent)] shrink-0">
-                    <Clock size={16} strokeWidth={1.75} />
+            <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden divide-y divide-[var(--color-border)]">
+              {quickOptions.map((opt, i) => (
+                <button
+                  key={i}
+                  onClick={() => onSetReminder(opt.time, opt.label)}
+                  className="w-full flex items-center justify-between p-3.5 hover:bg-[var(--color-elevated)] transition-colors cursor-pointer text-left"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[var(--color-elevated)] text-[var(--color-accent)] border border-[var(--color-border)] flex items-center justify-center shrink-0 shadow-xs">
+                      <Clock size={15} strokeWidth={2} />
+                    </div>
+                    <span className="text-[13px] font-semibold text-[var(--color-text)]">{opt.label}</span>
                   </div>
-                  <span className="text-sm font-medium text-[var(--color-text)]">{opt.label}</span>
-                </div>
-                <span className="text-xs text-[var(--color-muted)]">{opt.subtext}</span>
-              </button>
-            ))}
+                  <span className="text-[12px] font-normal text-[var(--color-muted)]">{opt.subtext}</span>
+                </button>
+              ))}
+            </div>
 
             <button
               onClick={() => setShowCustom(true)}
-              className="flex items-center justify-center gap-2 p-3 mt-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] hover:border-[var(--color-accent)] text-sm font-medium text-[var(--color-text)] transition-colors cursor-pointer"
-              style={{ minHeight: '44px' }}
+              className="btn-secondary h-[44px] mt-1 text-[13px] font-bold"
             >
-              <Bell size={16} strokeWidth={1.75} className="text-[var(--color-accent)]" />
-              Pick Custom Date & Time
+              <Bell size={16} strokeWidth={2} className="text-[var(--color-muted)]" />
+              <span>Custom date & time</span>
             </button>
           </div>
         ) : (
           <div className="flex flex-col gap-3">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
+            <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
               Select date & time
             </label>
             <input
               type="datetime-local"
               value={customDateTime}
               onChange={(e) => setCustomDateTime(e.target.value)}
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-[var(--color-text)] text-sm focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-elevated)] text-[var(--color-text)] text-[13px] font-semibold focus:outline-none focus:border-[var(--color-accent)] shadow-xs transition-colors"
             />
-            <div className="flex gap-2 mt-2">
+            <div className="flex gap-2 mt-1">
               <button
                 onClick={() => setShowCustom(false)}
-                className="flex-1 py-2.5 rounded-xl border border-[var(--color-border)] text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
-                style={{ minHeight: '44px' }}
+                className="btn-secondary flex-1 h-[44px] text-[13px] font-bold"
               >
                 Back
               </button>
               <button
                 onClick={handleCustomSubmit}
                 disabled={!customDateTime}
-                className="flex-1 py-2.5 rounded-xl bg-[var(--color-accent)] text-black font-semibold text-sm hover:opacity-90 disabled:opacity-50 transition-opacity"
-                style={{ minHeight: '44px' }}
+                className="btn-primary flex-1 h-[44px] text-[13px] font-bold cursor-pointer disabled:opacity-50"
               >
-                Set Reminder
+                Set reminder
               </button>
             </div>
           </div>

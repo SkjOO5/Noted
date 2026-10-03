@@ -10,9 +10,17 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "playwright test",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cap:sync": "cap sync android",
+    "apk:build": "npm run build && npx cap sync android && cd android && .\\gradlew.bat assembleDebug && cd .."
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@capgo/capacitor-share-target": "^8.0.54",
     "chrono-node": "^2.10.1",
     "dexie": "^4.4.6",
     "framer-motion": "^14.0.0",
@@ -21,6 +29,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",

@@ -4,7 +4,7 @@ import { getAllNotes } from '@/db/noteRepo';
 import { useLiveQuery } from '@/db/useLiveQuery';
 import { NoteCard } from './NoteCard';
 import { AddNoteSheet } from './AddNoteSheet';
-import { Search, Plus, BookOpen, Pin } from 'lucide-react';
+import { Search, Plus, Pin } from 'lucide-react';
 
 export function NotesTab() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -67,112 +67,138 @@ export function NotesTab() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-[var(--color-bg)] overflow-y-auto">
-      {/* Search & Action Header */}
-      <div className="p-3 bg-[var(--color-surface)] border-b border-[var(--color-border)] shrink-0 flex flex-col gap-2.5">
-        <div className="flex items-center gap-2">
-          {/* Search Input */}
-          <div className="relative flex-1">
-            <Search
-              size={16}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-muted)]"
-            />
-            <input
-              type="text"
-              placeholder="Search notes, formulas, topics..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 rounded-xl bg-[var(--color-elevated)] border border-[var(--color-border)] text-xs text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '38px' }}
-            />
-          </div>
+    <div className="flex flex-col gap-3 px-4 py-3">
+      {/* Toolbar row (search + new note) */}
+      <div className="grid grid-cols-[1fr_auto] gap-2 items-center">
+        <div className="relative h-[44px] flex items-center">
+          <Search
+            size={18}
+            strokeWidth={2}
+            className="absolute left-3 text-[var(--color-muted)] pointer-events-none"
+          />
+          <input
+            type="text"
+            placeholder="Search notes..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full h-[44px] pl-10 pr-3 rounded-[var(--radius-button)] bg-[var(--color-surface)] border border-[var(--color-border)] text-[14px] font-normal text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors box-border"
+          />
+        </div>
 
-          {/* Quick Add Note Button */}
+        <button
+          onClick={() => {
+            setEditingNote(null);
+            setIsAddOpen(true);
+          }}
+          className="btn-primary h-[44px] px-3.5 text-[13px] font-semibold flex items-center justify-center gap-1.5 box-border"
+          aria-label="+ Note"
+        >
+          <Plus size={16} strokeWidth={2.5} />
+          <span>+ Note</span>
+        </button>
+      </div>
+
+      {/* Filter chips row */}
+      <div className="flex items-center gap-1.5 overflow-x-auto px-4 -mx-4 py-0.5 snap-x no-scrollbar">
+        {/* All chip */}
+        <button
+          onClick={() => {
+            setSelectedSubject('all');
+            setOnlyPinned(false);
+          }}
+          className={`h-8 px-3 rounded-full text-[12px] font-semibold whitespace-nowrap transition-colors border shrink-0 snap-start cursor-pointer flex items-center gap-1.5 select-none ${
+            selectedSubject === 'all' && !onlyPinned
+              ? 'bg-[var(--color-accent)] text-[#0B141A] border-transparent shadow-xs'
+              : 'bg-[var(--color-surface)] text-[var(--color-muted)] border-[var(--color-border)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)]'
+          }`}
+        >
+          <span>All</span>
+          <span
+            className={`text-[11px] ${
+              selectedSubject === 'all' && !onlyPinned ? 'opacity-90 font-bold' : 'text-[var(--color-muted)]'
+            }`}
+          >
+            {notes.length}
+          </span>
+        </button>
+
+        {/* Pinned chip */}
+        <button
+          onClick={() => setOnlyPinned(!onlyPinned)}
+          className={`h-8 px-3 rounded-full text-[12px] font-semibold whitespace-nowrap transition-colors border shrink-0 snap-start cursor-pointer flex items-center gap-1.5 select-none ${
+            onlyPinned
+              ? 'bg-[var(--color-accent)] text-[#0B141A] border-transparent shadow-xs'
+              : 'bg-[var(--color-surface)] text-[var(--color-muted)] border-[var(--color-border)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)]'
+          }`}
+        >
+          <Pin size={12} strokeWidth={2} className={onlyPinned ? 'fill-current' : ''} />
+          <span>Pinned</span>
+          <span
+            className={`text-[11px] ${
+              onlyPinned ? 'opacity-90 font-bold' : 'text-[var(--color-muted)]'
+            }`}
+          >
+            {notes.filter((n) => n.isPinned).length}
+          </span>
+        </button>
+
+        {/* Distinct Subject chips */}
+        {distinctSubjects.map((sub) => {
+          const count = notes.filter((n) => n.subject === sub).length;
+          const isSelected = selectedSubject === sub && !onlyPinned;
+          return (
+            <button
+              key={sub}
+              onClick={() => {
+                setSelectedSubject(sub);
+                setOnlyPinned(false);
+              }}
+              className={`h-8 px-3 rounded-full text-[12px] font-semibold whitespace-nowrap transition-colors border shrink-0 snap-start cursor-pointer flex items-center gap-1.5 select-none ${
+                isSelected
+                  ? 'bg-[var(--color-accent)] text-[#0B141A] border-transparent shadow-xs'
+                  : 'bg-[var(--color-surface)] text-[var(--color-muted)] border-[var(--color-border)] hover:text-[var(--color-text)] hover:bg-[var(--color-elevated)]'
+              }`}
+            >
+              <span>{sub}</span>
+              <span
+                className={`text-[11px] ${
+                  isSelected ? 'opacity-90 font-bold' : 'text-[var(--color-muted)]'
+                }`}
+              >
+                {count}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Notes List or Empty State */}
+      {filteredNotes.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-16 text-center gap-4 my-auto">
+          <p className="text-[13px] text-[var(--color-muted)] font-normal">
+            {searchQuery || selectedSubject !== 'all' || onlyPinned
+              ? 'No matching notes found'
+              : 'No notes saved yet'}
+          </p>
           <button
             onClick={() => {
               setEditingNote(null);
               setIsAddOpen(true);
             }}
-            className="flex items-center gap-1 px-3 py-2 rounded-xl bg-[var(--color-accent)] text-black font-semibold text-xs hover:opacity-90 transition-opacity cursor-pointer shrink-0"
-            style={{ minHeight: '38px' }}
+            className="btn-primary"
+            aria-label="+ Note"
           >
-            <Plus size={16} strokeWidth={2.5} />
-            <span>Note</span>
+            <Plus size={18} strokeWidth={2} />
+            <span>+ Note</span>
           </button>
         </div>
-
-        {/* Filter Pills (Subject & Pinned) */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-none text-xs">
-          {/* Pinned filter button */}
-          <button
-            onClick={() => setOnlyPinned(!onlyPinned)}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-full font-semibold border transition-colors cursor-pointer shrink-0 ${
-              onlyPinned
-                ? 'bg-[var(--color-accent)]/20 border-[var(--color-accent)] text-[var(--color-accent)]'
-                : 'bg-[var(--color-elevated)] border-[var(--color-border)] text-[var(--color-muted)] hover:text-[var(--color-text)]'
-            }`}
-          >
-            <Pin size={12} className={onlyPinned ? 'fill-current' : ''} />
-            <span>Pinned</span>
-          </button>
-
-          {/* All Subjects Pill */}
-          <button
-            onClick={() => setSelectedSubject('all')}
-            className={`px-3 py-1 rounded-full font-semibold border transition-colors cursor-pointer shrink-0 ${
-              selectedSubject === 'all'
-                ? 'bg-[var(--color-elevated)] border-[var(--color-accent)] text-[var(--color-text)]'
-                : 'bg-[var(--color-surface)] border-[var(--color-border)] text-[var(--color-muted)] hover:text-[var(--color-text)]'
-            }`}
-          >
-            All ({notes.length})
-          </button>
-
-          {/* Distinct Subject Pills */}
-          {distinctSubjects.map((sub) => {
-            const count = notes.filter((n) => n.subject === sub).length;
-            const isSelected = selectedSubject === sub;
-            return (
-              <button
-                key={sub}
-                onClick={() => setSelectedSubject(sub)}
-                className={`px-3 py-1 rounded-full font-semibold border transition-colors cursor-pointer shrink-0 ${
-                  isSelected
-                    ? 'bg-[var(--color-elevated)] border-[var(--color-accent)] text-[var(--color-text)]'
-                    : 'bg-[var(--color-surface)] border-[var(--color-border)] text-[var(--color-muted)] hover:text-[var(--color-text)]'
-                }`}
-              >
-                {sub} ({count})
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Notes List Container */}
-      <div className="flex-1 p-3 flex flex-col gap-2.5">
-        {filteredNotes.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-16 text-center my-auto px-4">
-            <div className="w-12 h-12 rounded-full bg-[var(--color-elevated)] flex items-center justify-center text-[var(--color-muted)] mb-3">
-              <BookOpen size={24} />
-            </div>
-            <p className="text-sm font-semibold text-[var(--color-text)]">
-              {searchQuery || selectedSubject !== 'all' || onlyPinned
-                ? 'No matching notes found'
-                : 'No notes yet'}
-            </p>
-            <p className="text-xs text-[var(--color-muted)] mt-1 max-w-xs">
-              {searchQuery || selectedSubject !== 'all' || onlyPinned
-                ? 'Try clearing the search query or changing active filters.'
-                : 'Swipe left on any WhatsApp message or tap "+ Note" to capture syllabus checklists and key points.'}
-            </p>
-          </div>
-        ) : (
-          filteredNotes.map((note) => (
+      ) : (
+        <div className="flex flex-col gap-2.5">
+          {filteredNotes.map((note) => (
             <NoteCard key={note.id} note={note} onEdit={handleEditNote} />
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
 
       {/* Add / Edit Note Sheet */}
       <AddNoteSheet

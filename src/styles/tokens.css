@@ -1,76 +1,331 @@
+/* ============================================================
+   WhatsAppText — Design Tokens
+   WhatsApp Dark Palette (#0B141A, #111B21, #202C33, #25D366)
+   Grid: 8px. Font: Inter (400, 600). Max-width: 480px.
+   ============================================================ */
+
+/* ════════════════════════════════════════════════════════════
+   DARK THEME (Default)
+   ════════════════════════════════════════════════════════════ */
 :root {
-  /* Background */
-  --color-bg: #0B141A;
-  --color-surface: #111B21;
-  --color-elevated: #202C33;
-  --color-border: #2A3942;
+  /* ── Background layers ── */
+  --color-bg:             #0B141A;
+  --color-surface:        #111B21;
+  --color-elevated:       #202C33;
+  --color-overlay:        rgba(0, 0, 0, 0.65);
 
-  /* Text */
-  --color-text: #E9EDEF;
-  --color-muted: #8696A0;
+  /* ── Borders ── */
+  --color-border:         #2A3942;
+  --color-border-subtle:  rgba(42, 57, 66, 0.50);
 
-  /* Accent */
-  --color-accent: #25D366;
-  --color-accent-hover: #1DA851;
+  /* ── Text ── */
+  --color-text:           #E9EDEF;
+  --color-text-secondary: #C8D0D5;
+  --color-muted:          #8696A0;
 
-  /* Event type colors */
-  --color-quiz: #FF6B6B;
-  --color-assignment: #4ECDC4;
-  --color-exam: #FFE66D;
-  --color-class-change: #A78BFA;
-  --color-other: #8696A0;
+  /* ── WhatsApp Emerald Green Accent ── */
+  --color-accent:         #25D366;
+  --color-accent-hover:   #1DA851;
+  --color-accent-muted:   #20C65A;
+  --color-accent-surface: rgba(37, 211, 102, 0.12);
+  --color-accent-border:  rgba(37, 211, 102, 0.30);
 
-  /* Typography */
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-base: 16px;
-  --font-size-lg: 20px;
-  --font-weight-normal: 400;
+  /* ── Semantic / Status ── */
+  --color-danger:         #F15C6D;
+  --color-danger-surface: rgba(241, 92, 109, 0.12);
+  --color-warn:           #F5C344;
+  --color-warn-surface:   rgba(245, 195, 68, 0.12);
+
+  /* ── Event / Message type colors ── */
+  --color-quiz:           #FF6B6B;
+  --color-quiz-bg:        rgba(255, 107, 107, 0.14);
+  --color-assignment:     #53BDEB;
+  --color-assignment-bg:  rgba(83, 189, 235, 0.14);
+  --color-exam:           #F5C344;
+  --color-exam-bg:        rgba(245, 195, 68, 0.14);
+  --color-reminder:       #A78BFA;
+  --color-reminder-bg:    rgba(167, 139, 250, 0.14);
+  --color-class-change:   #A78BFA;
+  --color-class-change-bg: rgba(167, 139, 250, 0.14);
+  --color-event:          #25D366;
+  --color-event-bg:       rgba(37, 211, 102, 0.14);
+  --color-other:          #8696A0;
+  --color-other-bg:       rgba(134, 150, 160, 0.14);
+
+  /* ── Typography (Inter 400 + 600) ── */
+  --font:                 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family:          var(--font);
+  --text-xs:              12px;
+  --text-sm:              14px;
+  --text-base:            16px;
+  --text-lg:              20px;
+  --text-xl:              24px;
+  --font-size-xs:         12px;
+  --font-size-sm:         14px;
+  --font-size-base:       16px;
+  --font-size-lg:         20px;
+
+  --font-normal:          400;
+  --font-semibold:        600;
+  --font-weight-normal:   400;
   --font-weight-semibold: 600;
 
-  /* Spacing (8px grid) */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
+  /* ── 8px Grid Spacing ── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
   --space-10: 40px;
   --space-12: 48px;
+  --space-16: 64px;
 
-  /* Radius */
-  --radius-card: 12px;
-  --radius-chip: 999px;
-  --radius-button: 8px;
+  /* ── Radii ── */
+  --radius-card:    12px;
+  --radius-button:  10px;
+  --radius-chip:    9999px;
+  --radius-sheet:   20px;
+  --radius-input:   10px;
+  --radius-avatar:  9999px;
+  --radius-icon:    8px;
 
-  /* Motion */
-  --duration-fast: 150ms;
-  --duration-normal: 200ms;
-  --ease-out: ease-out;
+  /* ── Geometry & Layout ── */
+  --border-width:       1px;
+  --max-w:              480px;
+  --max-content-width:  480px;
+  --gutter:             16px;
+  --app-bar-height:     56px;
+  --app-bar-h:          56px;
+  --tab-bar-height:     60px;
+  --tab-bar-h:          60px;
+  --touch-min:          44px;
+  --min-touch-target:   44px;
+  --fab-size:           56px;
+  --icon-size:          20px;
+  --icon-stroke:        1.75;
 
-  /* Layout */
-  --max-content-width: 480px;
-  --min-touch-target: 44px;
-  --app-bar-height: 56px;
-  --tab-bar-height: 48px;
+  /* ── Motion ── */
+  --dur-fast:         150ms;
+  --dur-normal:       200ms;
+  --duration-fast:    150ms;
+  --duration-normal:  200ms;
+  --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Shadows ── */
+  --shadow-xs:    0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-sm:    0 2px 4px rgba(0, 0, 0, 0.30);
+  --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg:    0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-sheet: 0 -4px 32px rgba(0, 0, 0, 0.55);
 }
 
-/* Light theme */
+/* ════════════════════════════════════════════════════════════
+   LIGHT THEME
+   ════════════════════════════════════════════════════════════ */
 [data-theme="light"] {
-  --color-bg: #FFFFFF;
-  --color-surface: #F0F2F5;
-  --color-elevated: #FFFFFF;
-  --color-border: #D1D7DB;
-  --color-text: #111B21;
-  --color-muted: #667781;
+  --color-bg:             #F0F2F5;
+  --color-surface:        #FFFFFF;
+  --color-elevated:       #F5F6F8;
+  --color-overlay:        rgba(15, 23, 42, 0.40);
+
+  --color-border:         #D1D7DB;
+  --color-border-subtle:  #E9EDEF;
+
+  --color-text:           #111B21;
+  --color-text-secondary: #3B4A54;
+  --color-muted:          #667781;
+
+  --color-accent:         #008069;
+  --color-accent-hover:   #017561;
+  --color-accent-muted:   #00A884;
+  --color-accent-surface: #E8F5E9;
+  --color-accent-border:  #A5D6A7;
+
+  --color-danger:         #DC2626;
+  --color-danger-surface: #FEF2F2;
+  --color-warn:           #D97706;
+  --color-warn-surface:   #FFFBEB;
+
+  --color-quiz:           #E11D48;
+  --color-quiz-bg:        #FFF1F2;
+  --color-assignment:     #0284C7;
+  --color-assignment-bg:  #F0F9FF;
+  --color-exam:           #D97706;
+  --color-exam-bg:        #FFFBEB;
+  --color-reminder:       #7C3AED;
+  --color-reminder-bg:    #F5F3FF;
+  --color-class-change:   #7C3AED;
+  --color-class-change-bg:#F5F3FF;
+  --color-event:          #059669;
+  --color-event-bg:       #ECFDF5;
+  --color-other:          #64748B;
+  --color-other-bg:       #F1F5F9;
+
+  --shadow-xs:    0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm:    0 2px 4px rgba(15, 23, 42, 0.06);
+  --shadow-md:    0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg:    0 8px 24px rgba(15, 23, 42, 0.12);
+  --shadow-sheet: 0 -4px 32px rgba(15, 23, 42, 0.16);
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   :root {
+    --dur-fast: 0ms;
+    --dur-normal: 0ms;
     --duration-fast: 0ms;
     --duration-normal: 0ms;
   }
+}
+
+/* ════════════════════════════════════════════════════════════
+   SCROLLBAR & GLOBAL UTILITIES
+   ════════════════════════════════════════════════════════════ */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ════════════════════════════════════════════════════════════
+   BUTTON SYSTEM
+   ════════════════════════════════════════════════════════════ */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-ghost,
+.btn-danger {
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-button);
+  min-height: var(--touch-min);
+  padding: 0 var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+  line-height: 1;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color     var(--dur-fast) var(--ease-out),
+    transform        var(--dur-fast) var(--ease-out),
+    opacity          var(--dur-fast) var(--ease-out);
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Primary — WhatsApp Emerald Green with dark high-contrast text */
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #0B141A;
+  border-color: transparent;
+  font-weight: 600;
+}
+.btn-primary:hover:not(:disabled)  { background-color: var(--color-accent-hover); }
+.btn-primary:active:not(:disabled) { transform: scale(0.98); }
+
+/* Secondary */
+.btn-secondary {
+  background-color: var(--color-elevated);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.btn-secondary:hover:not(:disabled)  { background-color: rgba(42, 57, 66, 0.7); border-color: var(--color-border); }
+.btn-secondary:active:not(:disabled) { transform: scale(0.98); }
+
+/* Ghost */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-muted);
+  border-color: transparent;
+}
+.btn-ghost:hover:not(:disabled)  { background-color: var(--color-elevated); color: var(--color-text); }
+.btn-ghost:active:not(:disabled) { transform: scale(0.98); }
+
+/* Danger */
+.btn-danger {
+  background-color: var(--color-danger-surface);
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+.btn-danger:hover:not(:disabled) { background-color: var(--color-danger); color: #FFFFFF; }
+.btn-danger:active:not(:disabled) { transform: scale(0.98); }
+
+/* Icon button */
+.icon-btn {
+  width: var(--touch-min);
+  height: var(--touch-min);
+  border-radius: var(--radius-icon);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color     var(--dur-fast) var(--ease-out),
+    color            var(--dur-fast) var(--ease-out),
+    transform        var(--dur-fast) var(--ease-out);
+}
+.icon-btn:hover:not(:disabled)  { background-color: var(--color-elevated); color: var(--color-text); }
+.icon-btn:active:not(:disabled) { transform: scale(0.96); }
+
+/* ── Card ── */
+.card, [data-card] {
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+/* ── Input ── */
+.input {
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-input);
+  padding: 0 var(--space-4);
+  min-height: var(--touch-min);
+  width: 100%;
+  outline: none;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.input::placeholder { color: var(--color-muted); }
+.input:focus        { border-color: var(--color-accent); }
+
+/* ── Chip ── */
+.chip {
+  font-family: var(--font);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  border-radius: var(--radius-chip);
+  padding: 2px var(--space-3);
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  border: var(--border-width) solid transparent;
+}
+.chip-quiz         { background: var(--color-quiz-bg);         color: var(--color-quiz);         border-color: rgba(255, 107, 107, 0.3); }
+.chip-assignment   { background: var(--color-assignment-bg);   color: var(--color-assignment);   border-color: rgba(83, 189, 235, 0.3); }
+.chip-exam         { background: var(--color-exam-bg);         color: var(--color-exam);         border-color: rgba(245, 195, 68, 0.3); }
+.chip-reminder     { background: var(--color-reminder-bg);     color: var(--color-reminder);     border-color: rgba(167, 139, 250, 0.3); }
+.chip-class-change { background: var(--color-class-change-bg); color: var(--color-class-change); border-color: rgba(167, 139, 250, 0.3); }
+.chip-event        { background: var(--color-event-bg);        color: var(--color-event);        border-color: rgba(37, 211, 102, 0.3); }
+.chip-other        { background: var(--color-other-bg);        color: var(--color-other);        border-color: var(--color-border); }
+
+/* ── Sheet ── */
+.sheet {
+  border-top-left-radius:  var(--radius-sheet);
+  border-top-right-radius: var(--radius-sheet);
+  background-color: var(--color-surface);
+  border-top: var(--border-width) solid var(--color-border);
+  box-shadow: var(--shadow-sheet);
 }

@@ -49,28 +49,20 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between gap-4 px-4 py-3 rounded-lg shadow-lg border animate-fade-in"
+          className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between gap-3 px-4 py-3 rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-lg animate-slide-up bg-[var(--color-elevated)] text-[var(--color-text)]"
           style={{
             maxWidth: 'calc(var(--max-content-width) - 32px)',
             width: 'calc(100% - 32px)',
-            backgroundColor: 'var(--color-elevated)',
-            borderColor: 'var(--color-border)',
-            color: 'var(--color-text)',
           }}
         >
-          <span className="text-sm font-normal truncate">{toast.message}</span>
+          <span className="text-[13px] font-medium truncate">{toast.message}</span>
           {toast.actionLabel && toast.onAction && (
             <button
               onClick={() => {
                 toast.onAction?.();
                 hideToast();
               }}
-              className="text-sm font-semibold uppercase tracking-wider px-2 py-1 rounded transition-colors shrink-0"
-              style={{
-                color: 'var(--color-accent)',
-                minHeight: '36px',
-                minWidth: '44px',
-              }}
+              className="text-[12px] font-bold px-3 py-1 rounded-full bg-[var(--color-accent)] text-[#0B141A] shadow-xs hover:bg-[var(--color-accent-hover)] active:scale-95 transition-all shrink-0 cursor-pointer h-[32px] flex items-center justify-center"
             >
               {toast.actionLabel}
             </button>

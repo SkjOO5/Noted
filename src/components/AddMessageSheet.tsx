@@ -136,26 +136,24 @@ export function AddMessageSheet({
   };
 
   return (
-    <BottomSheet isOpen={isOpen} onClose={onClose} title="Import or Paste Messages">
-      <div className="flex flex-col gap-4">
+    <BottomSheet isOpen={isOpen} onClose={onClose} title="Import or paste messages">
+      <div className="flex flex-col gap-3.5">
         {/* Quick Action Buttons */}
         <div className="flex gap-2">
           <button
             onClick={handlePasteFromClipboard}
-            className="flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] hover:border-[var(--color-accent)] text-xs font-semibold text-[var(--color-text)] transition-colors cursor-pointer"
-            style={{ minHeight: '44px' }}
+            className="btn-secondary flex-1 h-[44px] text-[13px] font-bold"
           >
-            <Clipboard size={16} strokeWidth={1.75} className="text-[var(--color-accent)]" />
-            Paste Clipboard
+            <Clipboard size={16} strokeWidth={2} className="text-slate-500 dark:text-[#8696A0]" />
+            <span>Paste clipboard</span>
           </button>
 
           <button
             onClick={() => fileInputRef.current?.click()}
-            className="flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] hover:border-[var(--color-accent)] text-xs font-semibold text-[var(--color-text)] transition-colors cursor-pointer"
-            style={{ minHeight: '44px' }}
+            className="btn-secondary flex-1 h-[44px] text-[13px] font-bold"
           >
-            <Upload size={16} strokeWidth={1.75} className="text-[var(--color-accent)]" />
-            Import .txt Chat
+            <Upload size={16} strokeWidth={2} className="text-slate-500 dark:text-[#8696A0]" />
+            <span>Import .txt chat</span>
           </button>
           <input
             ref={fileInputRef}
@@ -169,14 +167,14 @@ export function AddMessageSheet({
         {/* Group Selector */}
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center justify-between">
-            <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
-              Target WhatsApp Group
+            <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-slate-400 dark:text-[#8696A0]">
+              Target WhatsApp group
             </label>
             <button
               onClick={() => setIsCreatingNewGroup(!isCreatingNewGroup)}
-              className="text-xs font-semibold text-[var(--color-accent)] hover:underline"
+              className="text-[12px] font-semibold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
             >
-              {isCreatingNewGroup ? 'Select Existing' : '+ New Group'}
+              {isCreatingNewGroup ? 'Select existing' : '+ New group'}
             </button>
           </div>
 
@@ -186,18 +184,16 @@ export function AddMessageSheet({
               placeholder="e.g. CSE 3rd Year Official"
               value={newGroupName}
               onChange={(e) => setNewGroupName(e.target.value)}
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[14px] font-normal text-[var(--color-text)] placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             />
           ) : (
             <select
               value={selectedGroupId || ''}
               onChange={(e) => setSelectedGroupId(Number(e.target.value))}
-              className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)]"
-              style={{ minHeight: '44px' }}
+              className="w-full px-3.5 h-[44px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[14px] font-semibold text-[var(--color-text)] focus:outline-none cursor-pointer transition-colors"
             >
               {groups.map((g) => (
-                <option key={g.id} value={g.id}>
+                <option key={g.id} value={g.id} className="bg-[var(--color-surface)] text-[var(--color-text)]">
                   {g.name}
                 </option>
               ))}
@@ -207,40 +203,39 @@ export function AddMessageSheet({
 
         {/* Text Area */}
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">
-            WhatsApp Text / Chat Export
+          <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
+            WhatsApp text / chat export
           </label>
           <textarea
             rows={5}
             placeholder={`Paste copied message(s) here, e.g.:\n12/10/26, 9:41 pm - Aman CSE: kal 10 baje DBMS quiz hai, unit 3 tak`}
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-elevated)] text-sm text-[var(--color-text)] font-mono resize-none focus:outline-none focus:border-[var(--color-accent)]"
+            className="w-full p-3.5 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[13px] text-[var(--color-text)] font-mono resize-none focus:outline-none focus:border-[var(--color-accent)] transition-colors leading-relaxed placeholder-[var(--color-muted)]"
           />
         </div>
 
         {/* Parsed Preview Stats */}
         {parsedPreview.length > 0 && (
-          <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-xs text-[var(--color-muted)]">
-            <MessageSquare size={14} className="text-[var(--color-accent)]" />
+          <div className="flex items-center gap-2 px-3.5 py-2.5 rounded-[var(--radius-card)] bg-[var(--color-accent-surface)] border border-[var(--color-accent-border)] text-[12px] font-semibold text-[var(--color-accent)]">
+            <MessageSquare size={16} strokeWidth={2} className="text-[var(--color-accent)] shrink-0" />
             <span>
-              Detected <strong className="text-[var(--color-text)]">{parsedPreview.length}</strong> message
-              {parsedPreview.length > 1 ? 's' : ''} ({parsedPreview.filter((m) => m.isImportant).length} important)
+              Detected <strong>{parsedPreview.length}</strong> message
+              {parsedPreview.length > 1 ? 's' : ''} ({parsedPreview.filter((m) => m.isImportant).length} urgent)
             </span>
           </div>
         )}
 
-        {error && <div className="text-xs font-medium text-[var(--color-quiz)]">{error}</div>}
+        {error && <div className="text-[12px] font-bold text-[var(--color-quiz)]">{error}</div>}
 
         {/* Submit */}
         <button
           onClick={handleSubmit}
           disabled={isProcessing || !text.trim()}
-          className="w-full py-3 rounded-xl bg-[var(--color-accent)] text-black font-semibold text-sm hover:opacity-90 disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
-          style={{ minHeight: '44px' }}
+          className="btn-primary w-full h-[44px] text-[14px] font-bold flex items-center justify-center gap-2 cursor-pointer mt-1 disabled:opacity-50"
         >
           <Plus size={18} strokeWidth={2.5} />
-          {isProcessing ? 'Importing...' : 'Add to WhatsAppText'}
+          <span>{isProcessing ? 'Processing...' : 'Save & process messages'}</span>
         </button>
       </div>
     </BottomSheet>
