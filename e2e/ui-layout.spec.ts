@@ -26,7 +26,7 @@ test.describe('UI Layout & Design System Verification', () => {
           page,
         }) => {
           await page.setViewportSize({ width, height: VIEWPORT_HEIGHT });
-          await page.goto('/');
+          await page.goto('/?demo=1');
           await page.waitForLoadState('networkidle');
 
           // Switch to the target tab

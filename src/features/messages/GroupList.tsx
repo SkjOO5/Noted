@@ -3,8 +3,7 @@ import type { Group } from '@/db/db';
 import { getAllGroups, deleteGroup } from '@/db/groupRepo';
 import { useLiveQuery } from '@/db/useLiveQuery';
 import { useToast } from '@/components/ToastContext';
-import { seedSampleData } from '@/lib/seed/seedData';
-import { Search, Users, Trash2, Plus, Sparkles } from 'lucide-react';
+import { Search, Users, Trash2, Plus } from 'lucide-react';
 
 interface GroupListProps {
   onSelectGroup: (group: Group) => void;
@@ -109,25 +108,13 @@ export function GroupList({ onSelectGroup, onOpenAddSheet }: GroupListProps) {
               {searchQuery ? 'No matching chats found' : 'No WhatsApp chats yet'}
             </p>
             {!searchQuery ? (
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={onOpenAddSheet}
-                  className="btn-primary"
-                >
-                  <Plus size={18} strokeWidth={2} />
-                  <span>Paste chat</span>
-                </button>
-                <button
-                  onClick={async () => {
-                    await seedSampleData();
-                    showToast({ message: 'Loaded sample college groups!' });
-                  }}
-                  className="btn-secondary"
-                >
-                  <Sparkles size={16} strokeWidth={2} className="text-[var(--color-accent)]" />
-                  <span>Demo data</span>
-                </button>
-              </div>
+              <button
+                onClick={onOpenAddSheet}
+                className="btn-primary"
+              >
+                <Plus size={18} strokeWidth={2} />
+                <span>Paste chat</span>
+              </button>
             ) : (
               <button
                 onClick={() => setSearchQuery('')}

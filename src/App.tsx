@@ -32,15 +32,18 @@ function AppContent() {
   const [sharedText, setSharedText] = useState('');
   const { isInstallable, triggerInstall } = useInstallPrompt();
 
-  // Initial Seed for new users / empty database
+  // Auto-seed only if explicitly enabled via query parameter (?demo=1) for testing
   useEffect(() => {
-    isDatabaseEmpty().then((empty) => {
-      if (empty) {
-        seedSampleData().catch((err) => {
-          console.warn('Auto-seed failed:', err);
-        });
-      }
-    });
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('demo') === '1') {
+      isDatabaseEmpty().then((empty) => {
+        if (empty) {
+          seedSampleData().catch((err) => {
+            console.warn('Auto-seed failed:', err);
+          });
+        }
+      });
+    }
   }, []);
 
   // Web and Native Share Target support

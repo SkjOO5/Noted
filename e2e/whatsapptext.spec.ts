@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('WhatsAppText Core User Flow', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/?demo=1');
   });
 
   test('loads initial app, displays seeded college groups, and allows tab navigation', async ({ page }) => {
