@@ -1,0 +1,125 @@
+name: Build & Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'          # triggers on v1.1.0, v1.2.0, etc.
+  workflow_dispatch:  # also allow manual trigger from GitHub Actions UI
+
+jobs:
+  build-apk:
+    name: Build Android Release APK
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Node.js + npm cache ───────────────────────────────────────────
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      # ── 3. Build the web bundle (dist/) ─────────────────────────────────
+      - name: Build production web bundle
+        run: npm run build
+
+      # ── 4. Capacitor sync (copies dist/ into android/app/src/main/assets/public/) ──
+      - name: Sync Capacitor assets into Android project
+        run: npx cap sync android
+
+      # ── 5. Java / Android toolchain ──────────────────────────────────────
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # ── 6. Gradle cache ──────────────────────────────────────────────────
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: gradle-
+
+      # ── 7. Grant Gradle execute permission ──────────────────────────────
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
+
+      # ── 8. Build release APK (unsigned) ─────────────────────────────────
+      - name: Build release APK
+        working-directory: android
+        run: ./gradlew assembleRelease --no-daemon
+
+      # ── 9. Sign APK with zipalign + apksigner ────────────────────────────
+      #    We generate a throwaway debug-style keystore for open-source release.
+      #    For production, replace with a real keystore stored in GitHub Secrets.
+      - name: Sign APK
+        run: |
+          # Generate a keystore if no secret provided
+          keytool -genkey -v \
+            -keystore noted-release.jks \
+            -alias noted \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass notedapp \
+            -keypass notedapp \
+            -dname "CN=Noted, OU=App, O=Noted, L=IN, S=IN, C=IN"
+
+          # Find the built APK
+          APK_PATH=$(find android/app/build/outputs/apk/release -name "*.apk" | head -1)
+          echo "Signing: $APK_PATH"
+
+          # Zipalign
+          $ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | tail -1)/zipalign \
+            -v -p 4 "$APK_PATH" noted-aligned.apk
+
+          # Sign
+          $ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | tail -1)/apksigner sign \
+            --ks noted-release.jks \
+            --ks-alias noted \
+            --ks-pass pass:notedapp \
+            --key-pass pass:notedapp \
+            --out Noted-release.apk \
+            noted-aligned.apk
+
+      # ── 10. Upload APK as artifact (always available) ────────────────────
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Noted-release-apk
+          path: Noted-release.apk
+          retention-days: 30
+
+      # ── 11. Create GitHub Release (only on tag push) ─────────────────────
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Noted-release.apk
+          name: "Noted ${{ github.ref_name }}"
+          body: |
+            ## 📱 Noted ${{ github.ref_name }}
+
+            ### Installation
+            1. Download `Noted-release.apk` below
+            2. Allow "Install from unknown sources" in Android Settings
+            3. Install and open — it will work immediately!
+
+            ### What's new
+            - TimePad-inspired Focus Timer with glowing SVG countdown ring
+            - Productivity Dashboard with weekly study trend chart
+            - Focus session analytics saved locally (offline-first)
+            - Fixed crash on launch (package name mismatch resolved)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
