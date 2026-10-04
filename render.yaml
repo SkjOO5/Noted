@@ -16,6 +16,12 @@ services:
       - path: /*
         name: X-Content-Type-Options
         value: nosniff
+    envVars:
+      - key: VITE_NOTED_CLOUD_URL
+        fromService:
+          type: web
+          name: noted-cloud
+          property: host
 
   # Noted Cloud Planner API (FastAPI)
   - type: web
@@ -27,3 +33,10 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
+      - key: NOTED_APP_TOKEN
+        value: noted-app-token-v1
+      - key: TINKER_MODEL_PATH
+        value: tinker://e544c265-4335-5428-96e8-a6ed147df7e8:train:0/sampler_weights/noted-study-planner-lora-v1
+      # Configure your Thinking Machines API key in Render dashboard under Environment
+      - key: TINKER_API_KEY
+        sync: false
