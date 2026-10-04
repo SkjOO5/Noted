@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test & Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run secret leak security guard
+        run: npm run check:secrets
+
+      - name: Run TypeScript typecheck
+        run: npm run typecheck
+
+      - name: Run unit & parser test suites
+        run: npm run test
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python test dependencies
+        run: |
+          pip install -r cloud/requirements.txt
+
+      - name: Run Python cloud & validator tests
+        run: |
+          python -m pytest cloud/test_cloud.py
