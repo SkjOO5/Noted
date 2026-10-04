@@ -77,18 +77,9 @@
 
 ## 4. Phase Breakdown & Scope
 
-- **Phases 0–10 (COMPLETED):**
-  - Design audit (`DESIGN_NOTES.md`), scaffold, Dexie data repositories, date/message parser (57 fixtures), chat import, UI component library, Messages screen with swipe/undo, Calendar with `.ics` export, Notes with checklist, Reminders with notifications, Share target configuration, debug APK generation, offline study planner with timetable editor, preferences, pure TS validator, greedy planner, and PlanReviewSheet modal.
-- **Phase 11: Noted Cloud Service (Render) (NEXT):**
-  - FastAPI service in `/cloud` (`GET /health`, `POST /plan`).
-  - Strict privacy: only structured slots sent, zero raw message text, zero logging of request bodies.
-  - Render static site deployment configuration for web preview.
-- **Phase 12: Tinker ML Experiment (`/ml`):**
-  - `scenarios.py`: synthetic student schedule generator (1,000+ scenarios, ≥100 test split).
-  - Model evaluation against baseline greedy planner.
-  - `results.md` performance comparison table.
-  - Wire winner into `TinkerBackend` in `/cloud`.
-- **Phase 13: TabPFN Insights (COULD):**
+- **Phases 0–12 (COMPLETED):**
+  - Design audit (`DESIGN_NOTES.md`), scaffold, Dexie data repositories, date/message parser (57 fixtures), chat import, UI component library, Messages screen with swipe/undo, Calendar with `.ics` export, Notes with checklist, Reminders with notifications, Share target configuration, debug APK generation, offline study planner with timetable editor, preferences, pure TS validator, greedy planner, PlanReviewSheet modal, FastAPI cloud planner on Render with zero-body privacy, pre-commit secret leak guard, shared JSON validator test cases, 800/100/100 student scenarios, Qwen3-8B LoRA fine-tuning on Thinking Machines Lab (Tinker API), `results.md` benchmark analysis, and hardened `TinkerBackend` with retry, fallback, rate limiting, and app token auth.
+- **Phase 13: TabPFN Insights (COULD) / Phase 14: Polish & Open Source Submission (NEXT):**
   - `/insights` endpoint on `reminder_log` numeric features for lead-time optimization.
 - **Phase 14: Polish & Open Source Submission:**
   - Signed release APK on GitHub Releases.
