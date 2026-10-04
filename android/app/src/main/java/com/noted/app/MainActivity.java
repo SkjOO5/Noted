@@ -1,4 +1,4 @@
-package com.whatsapptext.app;
+package com.noted.app;
 
 import com.getcapacitor.BridgeActivity;
 
