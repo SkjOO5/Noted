@@ -79,9 +79,9 @@ WhatsApp does not allow other apps to read your messages, and this project does 
 
 | Method | Steps |
 |---|---|
-| **Share to Notes** (fastest) | In WhatsApp, long-press a message, tap Share (or Forward, then pick the share sheet), and choose **Notes**. |
-| **Paste** | Copy a message in WhatsApp, open Notes, tap **+**, and paste. |
-| **Import a chat** | In WhatsApp, open a chat, tap the menu, then **More**, then **Export chat**, choose *Without media*, and share the `.txt` file to Notes (or use **+ > Import chat**). |
+| **Share to Noted** (fastest) | In WhatsApp, long-press a message, tap Share (or Forward, then pick the share sheet), and choose **Noted**. |
+| **Paste** | Copy a message in WhatsApp, open Noted, tap **+**, and paste. |
+| **Import a chat** | In WhatsApp, open a chat, tap the menu, then **More**, then **Export chat**, choose *Without media*, and share the `.txt` file to Noted (or use **+ > Import chat**). |
 
 ### 2. Act on a message
 
