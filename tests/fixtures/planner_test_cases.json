@@ -1,0 +1,312 @@
+[
+  {
+    "name": "valid_spaced_plan",
+    "expectedRules": [],
+    "request": {
+      "now": "2026-10-10T09:00:00",
+      "horizonDays": 7,
+      "events": [
+        {
+          "id": 1,
+          "kind": "quiz",
+          "subject": "DBMS",
+          "title": "DBMS Unit 3 Quiz",
+          "startAt": "2026-10-14T10:00:00"
+        }
+      ],
+      "classes": [
+        {
+          "id": 1,
+          "weekday": 1,
+          "startMinute": 600,
+          "endMinute": 660,
+          "subject": "OS Lecture"
+        }
+      ],
+      "topics": [
+        { "id": 101, "eventId": 1, "text": "Indexing & B-Trees", "isDone": false }
+      ],
+      "prefs": {
+        "sleepStart": "23:00",
+        "sleepEnd": "07:00",
+        "maxStudyMinutesPerDay": 240,
+        "blockMinutes": 45,
+        "bestTime": "evening",
+        "breakMinutes": 15,
+        "bufferHoursBeforeDeadline": 2
+      }
+    },
+    "plan": {
+      "blocks": [
+        {
+          "start": "2026-10-11T15:00:00",
+          "end": "2026-10-11T15:45:00",
+          "kind": "study",
+          "subject": "DBMS",
+          "topic": "Indexing & B-Trees",
+          "eventId": 1
+        },
+        {
+          "start": "2026-10-11T16:00:00",
+          "end": "2026-10-11T16:45:00",
+          "kind": "revision",
+          "subject": "DBMS",
+          "topic": "Quick Revision",
+          "eventId": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "overlap_violation",
+    "expectedRules": ["overlap"],
+    "request": {
+      "now": "2026-10-10T09:00:00",
+      "horizonDays": 7,
+      "events": [],
+      "classes": [],
+      "topics": [],
+      "prefs": {
+        "sleepStart": "23:00",
+        "sleepEnd": "07:00",
+        "maxStudyMinutesPerDay": 240,
+        "blockMinutes": 45,
+        "bestTime": "evening",
+        "breakMinutes": 15,
+        "bufferHoursBeforeDeadline": 2
+      }
+    },
+    "plan": {
+      "blocks": [
+        {
+          "start": "2026-10-11T18:00:00",
+          "end": "2026-10-11T19:00:00",
+          "kind": "study",
+          "subject": "Math"
+        },
+        {
+          "start": "2026-10-11T18:30:00",
+          "end": "2026-10-11T19:30:00",
+          "kind": "study",
+          "subject": "Physics"
+        }
+      ]
+    }
+  },
+  {
+    "name": "sleep_window_violation",
+    "expectedRules": ["sleep_window"],
+    "request": {
+      "now": "2026-10-10T09:00:00",
+      "horizonDays": 7,
+      "events": [],
+      "classes": [],
+      "topics": [],
+      "prefs": {
+        "sleepStart": "23:00",
+        "sleepEnd": "07:00",
+        "maxStudyMinutesPerDay": 240,
+        "blockMinutes": 45,
+        "bestTime": "evening",
+        "breakMinutes": 15,
+        "bufferHoursBeforeDeadline": 2
+      }
+    },
+    "plan": {
+      "blocks": [
+        {
+          "start": "2026-10-11T23:30:00",
+          "end": "2026-10-12T00:15:00",
+          "kind": "study",
+          "subject": "Late Night Study"
+        }
+      ]
+    }
+  },
+  {
+    "name": "class_conflict_violation",
+    "expectedRules": ["class_conflict"],
+    "request": {
+      "now": "2026-10-10T09:00:00",
+      "horizonDays": 7,
+      "events": [],
+      "classes": [
+        {
+          "id": 1,
+          "weekday": 1,
+          "startMinute": 600,
+          "endMinute": 660,
+          "subject": "Algorithms"
+        }
+      ],
+      "topics": [],
+      "prefs": {
+        "sleepStart": "23:00",
+        "sleepEnd": "07:00",
+        "maxStudyMinutesPerDay": 240,
+        "blockMinutes": 45,
+        "bestTime": "evening",
+        "breakMinutes": 15,
+        "bufferHoursBeforeDeadline": 2
+      }
+    },
+    "plan": {
+      "blocks": [
+        {
+          "start": "2026-10-12T10:15:00",
+          "end": "2026-10-12T11:00:00",
+          "kind": "study",
+          "subject": "Algorithms Self Study"
+        }
+      ]
+    }
+  },
+  {
+    "name": "after_deadline_violation",
+    "expectedRules": ["after_deadline"],
+    "request": {
+      "now": "2026-10-10T09:00:00",
+      "horizonDays": 7,
+      "events": [
+        {
+          "id": 10,
+          "kind": "exam",
+          "subject": "Networks",
+          "startAt": "2026-10-12T14:00:00"
+        }
+      ],
+      "classes": [],
+      "topics": [],
+      "prefs": {
+        "sleepStart": "23:00",
+        "sleepEnd": "07:00",
+        "maxStudyMinutesPerDay": 240,
+        "blockMinutes": 45,
+        "bestTime": "evening",
+        "breakMinutes": 15,
+        "bufferHoursBeforeDeadline": 2
+      }
+    },
+    "plan": {
+      "blocks": [
+        {
+          "start": "2026-10-12T13:00:00",
+          "end": "2026-10-12T13:45:00",
+          "kind": "study",
+          "subject": "Networks",
+          "eventId": 10
+        }
+      ]
+    }
+  },
+  {
+    "name": "daily_limit_violation",
+    "expectedRules": ["daily_limit"],
+    "request": {
+      "now": "2026-10-10T09:00:00",
+      "horizonDays": 7,
+      "events": [],
+      "classes": [],
+      "topics": [],
+      "prefs": {
+        "sleepStart": "23:00",
+        "sleepEnd": "07:00",
+        "maxStudyMinutesPerDay": 90,
+        "blockMinutes": 45,
+        "bestTime": "evening",
+        "breakMinutes": 15,
+        "bufferHoursBeforeDeadline": 2
+      }
+    },
+    "plan": {
+      "blocks": [
+        {
+          "start": "2026-10-11T14:00:00",
+          "end": "2026-10-11T14:45:00",
+          "kind": "study",
+          "subject": "Session 1"
+        },
+        {
+          "start": "2026-10-11T15:00:00",
+          "end": "2026-10-11T15:45:00",
+          "kind": "study",
+          "subject": "Session 2"
+        },
+        {
+          "start": "2026-10-11T16:00:00",
+          "end": "2026-10-11T16:45:00",
+          "kind": "study",
+          "subject": "Session 3"
+        }
+      ]
+    }
+  },
+  {
+    "name": "break_gap_violation",
+    "expectedRules": ["break_violation"],
+    "request": {
+      "now": "2026-10-10T09:00:00",
+      "horizonDays": 7,
+      "events": [],
+      "classes": [],
+      "topics": [],
+      "prefs": {
+        "sleepStart": "23:00",
+        "sleepEnd": "07:00",
+        "maxStudyMinutesPerDay": 240,
+        "blockMinutes": 45,
+        "bestTime": "evening",
+        "breakMinutes": 15,
+        "bufferHoursBeforeDeadline": 2
+      }
+    },
+    "plan": {
+      "blocks": [
+        {
+          "start": "2026-10-11T14:00:00",
+          "end": "2026-10-11T14:45:00",
+          "kind": "study",
+          "subject": "Session 1"
+        },
+        {
+          "start": "2026-10-11T14:50:00",
+          "end": "2026-10-11T15:35:00",
+          "kind": "study",
+          "subject": "Session 2"
+        }
+      ]
+    }
+  },
+  {
+    "name": "uncovered_topic_violation",
+    "expectedRules": ["uncovered_topic"],
+    "request": {
+      "now": "2026-10-10T09:00:00",
+      "horizonDays": 7,
+      "events": [
+        {
+          "id": 50,
+          "kind": "assignment",
+          "subject": "Operating Systems",
+          "startAt": "2026-10-13T18:00:00"
+        }
+      ],
+      "classes": [],
+      "topics": [
+        { "id": 1, "eventId": 50, "text": "Semaphores implementation", "isDone": false }
+      ],
+      "prefs": {
+        "sleepStart": "23:00",
+        "sleepEnd": "07:00",
+        "maxStudyMinutesPerDay": 240,
+        "blockMinutes": 45,
+        "bestTime": "evening",
+        "breakMinutes": 15,
+        "bufferHoursBeforeDeadline": 2
+      }
+    },
+    "plan": {
+      "blocks": []
+    }
+  }
+]

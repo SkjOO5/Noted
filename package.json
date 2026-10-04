@@ -12,7 +12,8 @@
     "e2e": "playwright test",
     "preview": "vite preview",
     "cap:sync": "cap sync android",
-    "apk:build": "npm run build && npx cap sync android && cd android && .\\gradlew.bat assembleDebug && cd .."
+    "apk:build": "npm run build && npx cap sync android && cd android && .\\gradlew.bat assembleDebug && cd ..",
+    "check:secrets": "python scripts/check_secrets.py"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.2",

@@ -331,4 +331,24 @@ describe('greedyPlan Generator', () => {
     expect(res.violations).toEqual([]);
     expect(res.latencyMs).toBeGreaterThanOrEqual(0);
   });
+
+  it('passes all standardized test cases in shared planner_test_cases.json', async () => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const fixturePath = path.resolve(__dirname, '../../../../tests/fixtures/planner_test_cases.json');
+    const raw = fs.readFileSync(fixturePath, 'utf-8');
+    const testCases = JSON.parse(raw);
+
+    for (const tc of testCases) {
+      const violations = validatePlan(tc.request, tc.plan);
+      const ruleNames = violations.map((v) => v.rule);
+
+      for (const expectedRule of tc.expectedRules) {
+        expect(ruleNames, `Case "${tc.name}" expected to include violation "${expectedRule}"`).toContain(expectedRule);
+      }
+      if (tc.expectedRules.length === 0) {
+        expect(violations, `Case "${tc.name}" expected 0 violations`).toEqual([]);
+      }
+    }
+  });
 });

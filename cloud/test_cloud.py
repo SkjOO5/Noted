@@ -219,3 +219,21 @@ def test_validator_detects_all_constraints():
     # 6. Test Uncovered Topic Violation
     v_uncovered = validate_plan(req, Plan(blocks=[]))
     assert any(v.rule == "uncovered_topic" for v in v_uncovered)
+
+def test_shared_json_fixtures():
+    import json
+    from pathlib import Path
+    fixture_path = Path(__file__).resolve().parent.parent / "tests" / "fixtures" / "planner_test_cases.json"
+    with open(fixture_path, "r", encoding="utf-8") as f:
+        test_cases = json.load(f)
+
+    for tc in test_cases:
+        req = PlanRequest(**tc["request"])
+        plan = Plan(**tc["plan"])
+        violations = validate_plan(req, plan)
+        rule_names = [v.rule for v in violations]
+
+        for expected_rule in tc["expectedRules"]:
+            assert expected_rule in rule_names, f"Case '{tc['name']}' expected rule '{expected_rule}', got {rule_names}"
+        if not tc["expectedRules"]:
+            assert len(violations) == 0, f"Case '{tc['name']}' expected 0 violations, got {violations}"
