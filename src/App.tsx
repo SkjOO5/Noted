@@ -3,6 +3,7 @@ import { MessagesTab } from '@/features/messages/MessagesTab';
 import { CalendarTab } from '@/features/calendar/CalendarTab';
 import { NotesTab } from '@/features/notes/NotesTab';
 import { RemindersTab } from '@/features/reminders/RemindersTab';
+import { ProductivityView } from '@/features/productivity/ProductivityView';
 import { ToastProvider, useToast } from '@/components/ToastContext';
 import { AddMessageSheet } from '@/components/AddMessageSheet';
 import { SettingsSheet } from '@/features/settings/SettingsSheet';
@@ -20,9 +21,10 @@ import {
   Calendar,
   FileText,
   Bell,
+  Timer,
 } from 'lucide-react';
 
-export type Tab = 'messages' | 'calendar' | 'notes' | 'reminders';
+export type Tab = 'messages' | 'calendar' | 'focus' | 'notes' | 'reminders';
 
 function AppContent() {
   const { showToast } = useToast();
@@ -105,6 +107,7 @@ function AppContent() {
   const navTabs: { id: Tab; label: string; icon: typeof MessageSquare }[] = [
     { id: 'messages', label: 'Messages', icon: MessageSquare },
     { id: 'calendar', label: 'Calendar', icon: Calendar },
+    { id: 'focus', label: 'Focus', icon: Timer },
     { id: 'notes', label: 'Notes', icon: FileText },
     { id: 'reminders', label: 'Reminders', icon: Bell },
   ];
@@ -165,6 +168,7 @@ function AppContent() {
       <main className="flex-1 overflow-y-auto overflow-x-hidden relative no-scrollbar bg-[var(--color-bg)]">
         {activeTab === 'messages' && <MessagesTab onOpenAddSheet={() => setIsAddSheetOpen(true)} />}
         {activeTab === 'calendar' && <CalendarTab />}
+        {activeTab === 'focus' && <ProductivityView />}
         {activeTab === 'notes' && <NotesTab />}
         {activeTab === 'reminders' && <RemindersTab />}
       </main>
@@ -186,45 +190,51 @@ function AppContent() {
         </button>
       )}
 
-      {/* 4-Tab Bottom Navigation Bar (Contra Smartphone Wireframe Standard) */}
+      {/* 5-Tab Floating Island Navigation Bar with TimePad styling */}
       <nav
-        className="w-full shrink-0 bg-[var(--color-surface)] border-t border-[var(--color-border)] z-30"
+        className="w-full shrink-0 bg-[var(--color-surface)]/95 backdrop-blur-xl border-t border-[var(--color-border)] z-30 shadow-lg"
         style={{
           height: 'var(--tab-bar-height, 60px)',
-          paddingLeft: 'var(--gutter, 16px)',
-          paddingRight: 'var(--gutter, 16px)',
+          paddingLeft: 'var(--gutter, 12px)',
+          paddingRight: 'var(--gutter, 12px)',
           paddingBottom: 'env(safe-area-inset-bottom, 0px)',
           boxSizing: 'border-box',
         }}
         role="tablist"
         aria-label="Bottom Navigation"
       >
-        <div className="grid grid-cols-4 h-full items-center">
+        <div className="grid grid-cols-5 h-full items-center">
           {navTabs.map((tab) => {
             const isActive = activeTab === tab.id;
             const IconComponent = tab.icon;
+            const isFocusTab = tab.id === 'focus';
+
             return (
               <button
                 key={tab.id}
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex flex-col items-center justify-center h-full w-full py-1 transition-colors select-none cursor-pointer group ${
+                className={`flex flex-col items-center justify-center h-full w-full py-1 transition-all select-none cursor-pointer group ${
                   isActive
-                    ? 'text-[var(--color-accent)] font-semibold'
+                    ? isFocusTab
+                      ? 'text-[#A78BFA] font-bold'
+                      : 'text-[var(--color-accent)] font-semibold'
                     : 'text-[var(--color-muted)] hover:text-[var(--color-text)] font-normal'
                 }`}
               >
                 <div
                   className={`flex items-center justify-center w-10 h-7 rounded-xl transition-all ${
                     isActive
-                      ? 'bg-[var(--color-accent-surface)] text-[var(--color-accent)]'
+                      ? isFocusTab
+                        ? 'bg-[#8B5CF6]/25 text-[#A78BFA] shadow-[0_0_12px_rgba(139,92,246,0.35)]'
+                        : 'bg-[var(--color-accent-surface)] text-[var(--color-accent)]'
                       : 'group-hover:bg-[var(--color-elevated)]'
                   }`}
                 >
-                  <IconComponent size={20} strokeWidth={isActive ? 2.2 : 1.75} />
+                  <IconComponent size={19} strokeWidth={isActive ? 2.3 : 1.75} />
                 </div>
-                <span className="text-[11px] tracking-tight mt-0.5">
+                <span className="text-[10px] tracking-tight mt-0.5">
                   {tab.label}
                 </span>
               </button>

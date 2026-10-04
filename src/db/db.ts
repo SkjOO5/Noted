@@ -87,6 +87,15 @@ export interface PlanRecord {
   blocksJson: string;
 }
 
+export interface FocusSession {
+  id?: number;
+  subject: string;
+  topic?: string;
+  durationMinutes: number;
+  completedAt: Date;
+  eventId?: number;
+}
+
 export class WhatsAppTextDB extends Dexie {
   groups!: Table<Group, number>;
   messages!: Table<Message, number>;
@@ -95,6 +104,7 @@ export class WhatsAppTextDB extends Dexie {
   reminders!: Table<Reminder, number>;
   classSlots!: Table<ClassSlot, number>;
   plans!: Table<PlanRecord, number>;
+  focusSessions!: Table<FocusSession, number>;
 
   constructor() {
     super('WhatsAppTextDB');
@@ -113,6 +123,16 @@ export class WhatsAppTextDB extends Dexie {
       reminders: '++id, eventId, triggerAt, status',
       classSlots: '++id, weekday, startMinute, endMinute, subject',
       plans: '++id, createdAt, horizonStart, horizonEnd, source, accepted',
+    });
+    this.version(3).stores({
+      groups: '++id, name, lastMessageAt',
+      messages: '++id, groupId, timestamp, hash, isImportant',
+      events: '++id, startAt, type, subject, sourceMessageId, isDone',
+      notes: '++id, subject, linkedEventId, sourceMessageId, isPinned, createdAt',
+      reminders: '++id, eventId, triggerAt, status',
+      classSlots: '++id, weekday, startMinute, endMinute, subject',
+      plans: '++id, createdAt, horizonStart, horizonEnd, source, accepted',
+      focusSessions: '++id, subject, durationMinutes, completedAt',
     });
   }
 }
