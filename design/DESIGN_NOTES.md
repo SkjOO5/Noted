@@ -1,4 +1,4 @@
-# DESIGN_NOTES — Notes (Phase 0)
+# DESIGN_NOTES — Noted (Phase 0)
 **Source**: Contra Wireframe Kit (Figma node 184-1880). No Figma inspect access.
 **Tokens**: All design tokens are [from SPEC, not measured from Figma].
 **Status**: Tokens and UI locked and approved per user instruction.

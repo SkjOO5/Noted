@@ -1,6 +1,6 @@
-# NOTES: MASTER BUILD SPECIFICATION (Capacitor + React Native Android)
+# NOTED: MASTER BUILD SPECIFICATION (Capacitor + React Native Android)
 
-> Source of Truth for the Notes app ("Bhoolna mat. Don't forget.")
+> Source of Truth for the Noted app ("Bhoolna mat. Don't forget.")
 > Built for DEV Hacktoberfest 2026 Weekend Challenge, theme **"Build for a Friend"**.
 
 ---
@@ -20,9 +20,9 @@
 
 ## 1. Product
 
-- **Name:** Notes (Repo: `Noted` / `notes-whatsapp-organizer`).
+- **Name:** Noted (Repo: `Noted`).
 - **Tagline:** "Bhoolna mat. Don't forget."
-- **Target Platform:** Android APK first (`notes.apk`). Web build is a preview for judges and UI checks.
+- **Target Platform:** Android APK first (`noted.apk`). Web build is a preview for judges and UI checks.
 - **Inputs:** Android Share Target intent, paste box, exported chat `.txt`.
 - **Hard truths:** WhatsApp has no API to read personal messages. Native scheduled notifications fire when app is closed; web preview cannot fire background notifications or handle Android share intents.
 
@@ -77,15 +77,9 @@
 
 ## 4. Phase Breakdown & Scope
 
-- **Phases 0–9 (COMPLETED):**
-  - Design audit (`DESIGN_NOTES.md`), scaffold, Dexie data repositories, date/message parser (57 fixtures), chat import, UI component library, Messages screen with swipe/undo, Calendar with `.ics` export, Notes with checklist, Reminders with notifications, Share target configuration, and debug APK generation.
-- **Phase 10: Offline Study Planner (NEXT):**
-  - Timetable editor (`class_slots`: weekday, startMinute, endMinute, subject).
-  - Study preferences screen (sleep window, max study minutes/day, block length, best study time: morning/afternoon/evening).
-  - Pure TS `validatePlan(request, plan)` with unit tests for every constraint.
-  - Pure TS `greedyPlan(request)` spaced study algorithm.
-  - "Plan my week" UI modal / review sheet (Day-by-Day grouping, Accept all / Edit / Discard) and Replan trigger.
-- **Phase 11: Notes Cloud Service (Render):**
+- **Phases 0–10 (COMPLETED):**
+  - Design audit (`DESIGN_NOTES.md`), scaffold, Dexie data repositories, date/message parser (57 fixtures), chat import, UI component library, Messages screen with swipe/undo, Calendar with `.ics` export, Notes with checklist, Reminders with notifications, Share target configuration, debug APK generation, offline study planner with timetable editor, preferences, pure TS validator, greedy planner, and PlanReviewSheet modal.
+- **Phase 11: Noted Cloud Service (Render) (NEXT):**
   - FastAPI service in `/cloud` (`GET /health`, `POST /plan`).
   - Strict privacy: only structured slots sent, zero raw message text, zero logging of request bodies.
   - Render static site deployment configuration for web preview.

@@ -12,8 +12,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg', 'apple-touch-icon.png', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
-        name: 'Notes - College Notice Companion',
-        short_name: 'Notes',
+        name: 'Noted - College Notice Companion',
+        short_name: 'Noted',
         description: 'Turn WhatsApp messages into calendar events, notes and reminders',
         theme_color: '#0B141A',
         background_color: '#0B141A',

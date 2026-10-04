@@ -1,6 +1,6 @@
 <div align="center">
 
-# Notes
+# Noted
 
 **Turn messy college WhatsApp messages into calendar events, notes and reminders, with one swipe.**
 
@@ -43,7 +43,7 @@ People skip the steps, and then miss the quiz. This project was built for a frie
 
 ## The solution
 
-Share (or paste) a WhatsApp message into **Notes**. It reads the message, understands the date and time (including Hinglish like *"kal 10 baje DBMS quiz, unit 3 tak"*), and lets you act on it with a single gesture:
+Share (or paste) a WhatsApp message into **Noted**. It reads the message, understands the date and time (including Hinglish like *"kal 10 baje DBMS quiz, unit 3 tak"*), and lets you act on it with a single gesture:
 
 - **Swipe right** to add it to your **Calendar**
 - **Swipe left** to save it to your **Notes**

@@ -314,4 +314,21 @@ describe('greedyPlan Generator', () => {
     const plan = greedyPlan(request);
     expect(plan.blocks).toEqual([]);
   });
+
+  it('getPlanWithFallback executes offline greedy plan when no URL is set', async () => {
+    const { getPlanWithFallback } = await import('../cloudPlanner');
+    const request: PlanRequest = {
+      now: new Date().toISOString(),
+      horizonDays: 7,
+      events: [],
+      classes: [],
+      topics: [],
+      prefs: defaultPrefs,
+    };
+    const res = await getPlanWithFallback(request);
+    expect(res.source).toBe('greedy');
+    expect(res.plan.blocks).toEqual([]);
+    expect(res.violations).toEqual([]);
+    expect(res.latencyMs).toBeGreaterThanOrEqual(0);
+  });
 });

@@ -1,0 +1,29 @@
+services:
+  # Noted Web Preview (Static Site)
+  - type: web
+    name: noted-web
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+
+  # Noted Cloud Planner API (FastAPI)
+  - type: web
+    name: noted-cloud
+    env: python
+    rootDir: cloud
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9

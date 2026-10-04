@@ -7,7 +7,7 @@ test.describe('WhatsAppText Core User Flow', () => {
 
   test('loads initial app, displays seeded college groups, and allows tab navigation', async ({ page }) => {
     // 1. App Header & Title
-    await expect(page.locator('header h1')).toHaveText('Notes');
+    await expect(page.locator('header h1')).toHaveText('Noted');
 
     // 2. Tab Navigation
     await expect(page.getByRole('tab', { name: /Messages/i })).toBeVisible();

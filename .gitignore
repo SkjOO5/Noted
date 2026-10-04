@@ -36,3 +36,11 @@ playwright-report/
 *.apk
 public/*.apk
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+.venv/
+
