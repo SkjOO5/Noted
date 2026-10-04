@@ -1,0 +1,7709 @@
+[
+  {
+    "id": 801,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "API Contract Versioning",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "CI/CD Pipeline Stages",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "File System Inodes",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 802,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Exam",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "B-Tree & Hash Indexing",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Cross-Entropy Loss Derivations",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Regularization (L1/L2)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 803,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Eigenvalues & SVD Decomposition",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Vector Spaces & Orthogonality",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Decision Trees & Ensembles",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 804,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Exam",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Exam",
+        "startAt": "2026-10-18T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Eigenvalues & SVD Decomposition",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Vector Spaces & Orthogonality",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "API Contract Versioning",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 805,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Assignment",
+        "startAt": "2026-10-18T20:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-17T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-18T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Mathematical Induction",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Graph Theory & Planarity",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Recurrence Relations",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 2,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 7,
+        "eventId": 3,
+        "text": "NP-Completeness Reductions",
+        "isDone": false
+      },
+      {
+        "id": 8,
+        "eventId": 3,
+        "text": "Context-Free Grammars",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 806,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Quiz",
+        "startAt": "2026-10-15T11:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Process Synchronization & Semaphores",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Deadlock Avoidance & Bankers Algo",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "B-Tree & Hash Indexing",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 807,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-16T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Unit & Integration Testing",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "CI/CD Pipeline Stages",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Turing Machine Halting Problem",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 808,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "API Contract Versioning",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Unit & Integration Testing",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "CI/CD Pipeline Stages",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 809,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Assignment",
+        "startAt": "2026-10-15T20:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Exam",
+        "startAt": "2026-10-18T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-15T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Combinatorics & Generating Functions",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Graph Theory & Planarity",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "CI/CD Pipeline Stages",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 3,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 810,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Quiz",
+        "startAt": "2026-10-15T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 811,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Quiz",
+        "startAt": "2026-10-16T10:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Subnetting & CIDR Math",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "DNS & HTTP/3 Protocols",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "LR(1) Parsing & Yacc",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 812,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Assignment",
+        "startAt": "2026-10-18T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "DFA & NFA Equivalence",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 813,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-14T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-18T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Vector Spaces & Orthogonality",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "API Contract Versioning",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 814,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "ACID & Concurrency Control",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 815,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Assignment",
+        "startAt": "2026-10-15T20:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Assignment",
+        "startAt": "2026-10-15T20:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Exam",
+        "startAt": "2026-10-16T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Lexical Analysis & Flex",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 3,
+        "text": "TLS 1.3 Cryptography",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 816,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "BGP & Routing Algorithms",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 817,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Assignment",
+        "startAt": "2026-10-17T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-17T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-14T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Context-Free Grammars",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 3,
+        "text": "Regularization (L1/L2)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 3,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 818,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Quiz",
+        "startAt": "2026-10-14T10:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-19T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "Turing Machine Halting Problem",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 819,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "BGP & Routing Algorithms",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "Cross-Entropy Loss Derivations",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 820,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Assignment",
+        "startAt": "2026-10-15T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Deadlock Avoidance & Bankers Algo",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Process Synchronization & Semaphores",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 821,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-14T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Regularization (L1/L2)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 822,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-16T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Exam",
+        "startAt": "2026-10-16T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Decision Trees & Ensembles",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Cross-Entropy Loss Derivations",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Recurrence Relations",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 823,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Assignment",
+        "startAt": "2026-10-16T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Exam",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-19T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Process Synchronization & Semaphores",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "File System Inodes",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "NP-Completeness Reductions",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "Context-Free Grammars",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 824,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Assignment",
+        "startAt": "2026-10-15T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-15T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Regularization (L1/L2)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 825,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Quiz",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "assignment",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Assignment",
+        "startAt": "2026-10-18T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Turing Machine Halting Problem",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Pumping Lemma for Regular Languages",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "API Contract Versioning",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "SOLID Principles & Clean Code",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Vector Spaces & Orthogonality",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 826,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Exam",
+        "startAt": "2026-10-17T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Exam",
+        "startAt": "2026-10-19T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "LR(1) Parsing & Yacc",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 827,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-16T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "LR(1) Parsing & Yacc",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 828,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Assignment",
+        "startAt": "2026-10-16T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-18T17:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "API Contract Versioning",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Unit & Integration Testing",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "SOLID Principles & Clean Code",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "DFA & NFA Equivalence",
+        "isDone": false
+      },
+      {
+        "id": 7,
+        "eventId": 3,
+        "text": "Context-Free Grammars",
+        "isDone": false
+      },
+      {
+        "id": 8,
+        "eventId": 3,
+        "text": "Pumping Lemma for Regular Languages",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 829,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Quiz",
+        "startAt": "2026-10-14T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "CPU Scheduling (CFS)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 830,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-15T17:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Subnetting & CIDR Math",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "BGP & Routing Algorithms",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "SOLID Principles & Clean Code",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 831,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Quiz",
+        "startAt": "2026-10-16T10:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Quiz",
+        "startAt": "2026-10-16T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Query Execution Plans",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Normalization (BCNF)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "B-Tree & Hash Indexing",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "NP-Completeness Reductions",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Graph Theory & Planarity",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 832,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Modular Arithmetic & RSA",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "LR(1) Parsing & Yacc",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Lexical Analysis & Flex",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 833,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Assignment",
+        "startAt": "2026-10-17T20:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Assignment",
+        "startAt": "2026-10-17T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "DFA & NFA Equivalence",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "File System Inodes",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Process Synchronization & Semaphores",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "CPU Scheduling (CFS)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 834,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-16T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Cross-Entropy Loss Derivations",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Regularization (L1/L2)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 835,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-15T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Lexical Analysis & Flex",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "LR(1) Parsing & Yacc",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 836,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-16T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Context-Free Grammars",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 837,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Mathematical Induction",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Recurrence Relations",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Modular Arithmetic & RSA",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 838,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Exam",
+        "startAt": "2026-10-18T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Exam",
+        "startAt": "2026-10-17T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Subnetting & CIDR Math",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "TLS 1.3 Cryptography",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Combinatorics & Generating Functions",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 839,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Quiz",
+        "startAt": "2026-10-16T11:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Exam",
+        "startAt": "2026-10-19T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "CPU Scheduling (CFS)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Eigenvalues & SVD Decomposition",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 840,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-16T11:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Assignment",
+        "startAt": "2026-10-15T20:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Turing Machine Halting Problem",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Context-Free Grammars",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 841,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Quiz",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Exam",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-15T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Process Synchronization & Semaphores",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 3,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 842,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-15T11:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Assignment",
+        "startAt": "2026-10-18T20:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Quiz",
+        "startAt": "2026-10-16T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Eigenvalues & SVD Decomposition",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "BGP & Routing Algorithms",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "TLS 1.3 Cryptography",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "Deadlock Avoidance & Bankers Algo",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 843,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Lexical Analysis & Flex",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 844,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Exam",
+        "startAt": "2026-10-17T09:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Exam",
+        "startAt": "2026-10-19T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "SQL Joins & Subqueries",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Normalization (BCNF)",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "Cross-Entropy Loss Derivations",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 845,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-14T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 846,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "SQL Joins & Subqueries",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Query Execution Plans",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "ACID & Concurrency Control",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 847,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Assignment",
+        "startAt": "2026-10-16T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Assignment",
+        "startAt": "2026-10-17T22:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "assignment",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Assignment",
+        "startAt": "2026-10-16T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "NP-Completeness Reductions",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Deadlock Avoidance & Bankers Algo",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "File System Inodes",
+        "isDone": false
+      },
+      {
+        "id": 7,
+        "eventId": 3,
+        "text": "CPU Scheduling (CFS)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 848,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Cross-Entropy Loss Derivations",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 849,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-15T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Decision Trees & Ensembles",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Turing Machine Halting Problem",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "NP-Completeness Reductions",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 850,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-16T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Lexical Analysis & Flex",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 851,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Exam",
+        "startAt": "2026-10-17T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "SOLID Principles & Clean Code",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 852,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Exam",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Normalization (BCNF)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "ACID & Concurrency Control",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Regularization (L1/L2)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 853,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Exam",
+        "startAt": "2026-10-19T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Quiz",
+        "startAt": "2026-10-16T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "CI/CD Pipeline Stages",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Unit & Integration Testing",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 854,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Exam",
+        "startAt": "2026-10-18T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "B-Tree & Hash Indexing",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "SQL Joins & Subqueries",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 855,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Assignment",
+        "startAt": "2026-10-17T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Exam",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-17T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Normalization (BCNF)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "SQL Joins & Subqueries",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Query Execution Plans",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Decision Trees & Ensembles",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "SOLID Principles & Clean Code",
+        "isDone": false
+      },
+      {
+        "id": 7,
+        "eventId": 3,
+        "text": "Unit & Integration Testing",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 856,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Exam",
+        "startAt": "2026-10-16T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "File System Inodes",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 857,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-19T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 858,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Exam",
+        "startAt": "2026-10-18T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "File System Inodes",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "CPU Scheduling (CFS)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 859,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Exam",
+        "startAt": "2026-10-19T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "DNS & HTTP/3 Protocols",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "TLS 1.3 Cryptography",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 860,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Quiz",
+        "startAt": "2026-10-14T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "LR(1) Parsing & Yacc",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "NP-Completeness Reductions",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "Subnetting & CIDR Math",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 861,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-15T22:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "assignment",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Decision Trees & Ensembles",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Pumping Lemma for Regular Languages",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 862,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Assignment",
+        "startAt": "2026-10-16T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Assignment",
+        "startAt": "2026-10-18T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Mathematical Induction",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Combinatorics & Generating Functions",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Recurrence Relations",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 863,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Assignment",
+        "startAt": "2026-10-17T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Exam",
+        "startAt": "2026-10-17T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Lexical Analysis & Flex",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "ACID & Concurrency Control",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Query Execution Plans",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 864,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-17T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 865,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Assignment",
+        "startAt": "2026-10-15T17:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "DNS & HTTP/3 Protocols",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 866,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Quiz",
+        "startAt": "2026-10-16T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 867,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Assignment",
+        "startAt": "2026-10-15T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Exam",
+        "startAt": "2026-10-19T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Vector Spaces & Orthogonality",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "B-Tree & Hash Indexing",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "SQL Joins & Subqueries",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Query Execution Plans",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 868,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Quiz",
+        "startAt": "2026-10-16T10:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-19T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "TLS 1.3 Cryptography",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Subnetting & CIDR Math",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 2,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 869,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 870,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Exam",
+        "startAt": "2026-10-19T09:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-19T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Unit & Integration Testing",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "SOLID Principles & Clean Code",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 871,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Exam",
+        "startAt": "2026-10-18T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Assignment",
+        "startAt": "2026-10-17T20:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-15T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Vector Spaces & Orthogonality",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "File System Inodes",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "API Contract Versioning",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 872,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Assignment",
+        "startAt": "2026-10-18T17:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 873,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Exam",
+        "startAt": "2026-10-18T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Cross-Entropy Loss Derivations",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 874,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-15T20:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Exam",
+        "startAt": "2026-10-18T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "SOLID Principles & Clean Code",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Unit & Integration Testing",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "BGP & Routing Algorithms",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 875,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-16T20:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Quiz",
+        "startAt": "2026-10-14T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "API Contract Versioning",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Pumping Lemma for Regular Languages",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 3,
+        "text": "Query Execution Plans",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "ACID & Concurrency Control",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "B-Tree & Hash Indexing",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 876,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Assignment",
+        "startAt": "2026-10-16T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Exam",
+        "startAt": "2026-10-16T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "ACID & Concurrency Control",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Process Synchronization & Semaphores",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 877,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-14T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Decision Trees & Ensembles",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Regularization (L1/L2)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 878,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Exam",
+        "startAt": "2026-10-16T09:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-16T11:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Eigenvalues & SVD Decomposition",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "BGP & Routing Algorithms",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 879,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-19T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-15T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Vector Spaces & Orthogonality",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 2,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      },
+      {
+        "id": 7,
+        "eventId": 3,
+        "text": "Lexical Analysis & Flex",
+        "isDone": false
+      },
+      {
+        "id": 8,
+        "eventId": 3,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 880,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Quiz",
+        "startAt": "2026-10-16T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Regularization (L1/L2)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 881,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Assignment",
+        "startAt": "2026-10-16T22:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Exam",
+        "startAt": "2026-10-18T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "LR(1) Parsing & Yacc",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Lexical Analysis & Flex",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 882,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Matrix Inverses & Determinants",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 883,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Assignment",
+        "startAt": "2026-10-17T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Deadlock Avoidance & Bankers Algo",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 884,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Assignment",
+        "startAt": "2026-10-17T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "DNS & HTTP/3 Protocols",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "TCP Handshake & Congestion Control",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 885,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Exam",
+        "startAt": "2026-10-19T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Computer Networks",
+        "title": "Computer Networks Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-19T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "File System Inodes",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "DNS & HTTP/3 Protocols",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 3,
+        "text": "Turing Machine Halting Problem",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 886,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-17T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Pumping Lemma for Regular Languages",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "NP-Completeness Reductions",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Turing Machine Halting Problem",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 887,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-15T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Cross-Entropy Loss Derivations",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 888,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Exam",
+        "startAt": "2026-10-16T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 889,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Quiz",
+        "startAt": "2026-10-14T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Exam",
+        "startAt": "2026-10-17T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Quiz",
+        "startAt": "2026-10-15T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Backpropagation Calculus",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 3,
+        "text": "CPU Scheduling (CFS)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 890,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Quiz",
+        "startAt": "2026-10-14T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 891,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Exam",
+        "startAt": "2026-10-16T09:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Exam",
+        "startAt": "2026-10-18T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-16T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Intermediate Code Generation",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 3,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 3,
+        "text": "Positive Definite Matrices",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 892,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-16T09:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Red-Black Tree Rotations",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Vector Spaces & Orthogonality",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 893,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Database Management Systems",
+        "title": "Database Management Systems Quiz",
+        "startAt": "2026-10-15T10:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Compiler Design",
+        "title": "Compiler Design Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Theory of Computation",
+        "title": "Theory of Computation Exam",
+        "startAt": "2026-10-17T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "SQL Joins & Subqueries",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Normalization (BCNF)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Abstract Syntax Trees (AST)",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Register Allocation (Graph Coloring)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Context-Free Grammars",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 894,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Exam",
+        "startAt": "2026-10-19T09:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "exam",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Exam",
+        "startAt": "2026-10-19T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Systems Lab",
+        "id": 2
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Design Patterns (Observer/Factory)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "CI/CD Pipeline Stages",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 1,
+        "text": "SOLID Principles & Clean Code",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 2,
+        "text": "Process Synchronization & Semaphores",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 2,
+        "text": "File System Inodes",
+        "isDone": false
+      },
+      {
+        "id": 6,
+        "eventId": 2,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 895,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Quiz",
+        "startAt": "2026-10-16T11:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Assignment",
+        "startAt": "2026-10-18T22:00:00"
+      },
+      {
+        "id": 3,
+        "kind": "exam",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Exam",
+        "startAt": "2026-10-17T09:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Mathematical Induction",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Graph Theory & Planarity",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Gaussian Elimination",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "eventId": 3,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "eventId": 3,
+        "text": "Dynamic Programming (Knapsack)",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 896,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "assignment",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Assignment",
+        "startAt": "2026-10-17T17:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-17T22:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 5,
+        "startMinute": 540,
+        "endMinute": 630,
+        "subject": "Core Lecture 2",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 4
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Divide and Conquer (Master Theorem)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Disjoint Set Union (DSU)",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 897,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "exam",
+        "subject": "Linear Algebra",
+        "title": "Linear Algebra Exam",
+        "startAt": "2026-10-17T09:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "quiz",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Quiz",
+        "startAt": "2026-10-14T10:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 840,
+        "endMinute": 960,
+        "subject": "Lab Practical",
+        "id": 2
+      },
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Eigenvalues & SVD Decomposition",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Graph Theory & Planarity",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "eventId": 2,
+        "text": "Modular Arithmetic & RSA",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "23:00",
+      "sleepEnd": "07:00",
+      "maxStudyMinutesPerDay": 180,
+      "blockMinutes": 60,
+      "bestTime": "afternoon",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 898,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Operating Systems",
+        "title": "Operating Systems Quiz",
+        "startAt": "2026-10-15T11:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Deadlock Avoidance & Bankers Algo",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 1,
+        "text": "Virtual Memory & Page Replacement",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 300,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 899,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Discrete Mathematics",
+        "title": "Discrete Mathematics Quiz",
+        "startAt": "2026-10-14T11:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Software Engineering",
+        "title": "Software Engineering Assignment",
+        "startAt": "2026-10-15T17:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 5,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Review & Q&A",
+        "id": 1
+      },
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 660,
+        "endMinute": 750,
+        "subject": "Core Lecture 2",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Mathematical Induction",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "API Contract Versioning",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "00:00",
+      "sleepEnd": "08:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 60,
+      "bestTime": "evening",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  },
+  {
+    "id": 900,
+    "now": "2026-10-12T09:00:00",
+    "horizonDays": 7,
+    "events": [
+      {
+        "id": 1,
+        "kind": "quiz",
+        "subject": "Algorithms & Data Structures",
+        "title": "Algorithms & Data Structures Quiz",
+        "startAt": "2026-10-15T14:00:00"
+      },
+      {
+        "id": 2,
+        "kind": "assignment",
+        "subject": "Machine Learning Foundations",
+        "title": "Machine Learning Foundations Assignment",
+        "startAt": "2026-10-18T20:00:00"
+      }
+    ],
+    "classes": [
+      {
+        "weekday": 3,
+        "startMinute": 660,
+        "endMinute": 720,
+        "subject": "Core Lecture 3",
+        "id": 1
+      },
+      {
+        "weekday": 1,
+        "startMinute": 540,
+        "endMinute": 600,
+        "subject": "Core Lecture 1",
+        "id": 3
+      },
+      {
+        "weekday": 2,
+        "startMinute": 600,
+        "endMinute": 660,
+        "subject": "Tutorial Session",
+        "id": 3
+      },
+      {
+        "weekday": 4,
+        "startMinute": 600,
+        "endMinute": 720,
+        "subject": "Department Seminar",
+        "id": 3
+      }
+    ],
+    "topics": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "text": "Graph Shortest Paths (Dijkstra)",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "text": "Gradient Descent & Adam",
+        "isDone": false
+      }
+    ],
+    "prefs": {
+      "sleepStart": "22:00",
+      "sleepEnd": "06:00",
+      "maxStudyMinutesPerDay": 240,
+      "blockMinutes": 45,
+      "bestTime": "morning",
+      "breakMinutes": 15,
+      "bufferHoursBeforeDeadline": 2
+    }
+  }
+]
