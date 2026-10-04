@@ -1,0 +1,11 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "n_test": 100,
+  "valid_count": 17,
+  "valid_rate": 0.17,
+  "ci_lower": 0.1089,
+  "ci_upper": 0.2555,
+  "preference_adherence": 0.1858,
+  "avg_latency_ms": 4499.6,
+  "total_tokens_out": 40000
+}

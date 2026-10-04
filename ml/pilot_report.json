@@ -1,0 +1,19 @@
+{
+  "pilot_examples": 50,
+  "base_model": "Qwen/Qwen3-8B",
+  "avg_prompt_tokens": 430.3,
+  "avg_completion_tokens": 548.4,
+  "total_tokens_pilot": 48931,
+  "pilot_cost_usd": 0.0215,
+  "full_run_cost_usd_1epoch": 0.3445,
+  "full_run_cost_usd_2epochs": 0.6889,
+  "step_losses": [
+    601.0886573791504,
+    553.4434661865234,
+    308.34152030944824,
+    231.9217824935913,
+    218.2703037261963
+  ],
+  "elapsed_seconds": 15.08,
+  "sample_output_preview": "{\n  \"blocks\": [\n    {\n      \"start\": \"2026-10-13T18:00:00\",\n      \"end\": \"2026-10-13T18:45:00\",\n      \"kind\": \"study\",\n      \"subject\": \"Discrete Mathematics\",\n      \"topic\": \"Comprehensive topic review\",\n      \"eventId\": 1\n    },\n    {\n      \"start\": \"2026-10-13T19:00:00\",\n      \"end\": \"2026-10-13T19:45:00\",\n      \"kind\": \"study\",\n      \"subject\": \"Machine Learning Foundations\",\n      \"topic\": \"C"
+}
