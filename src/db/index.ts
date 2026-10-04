@@ -4,3 +4,4 @@ export * from './messageRepo';
 export * from './eventRepo';
 export * from './noteRepo';
 export * from './reminderRepo';
+export * from './classSlotRepo';

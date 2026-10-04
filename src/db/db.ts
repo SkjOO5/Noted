@@ -25,7 +25,7 @@ export interface Message {
   topic?: string;
 }
 
-export type EventType = 'quiz' | 'exam' | 'deadline' | 'assignment' | 'class-change' | 'other';
+export type EventType = 'quiz' | 'exam' | 'deadline' | 'assignment' | 'class-change' | 'study' | 'other';
 
 export interface CalendarEvent {
   id?: number;
@@ -69,12 +69,32 @@ export interface Reminder {
   createdAt: Date;
 }
 
+export interface ClassSlot {
+  id?: number;
+  weekday: number; // 0=Sunday, 1=Monday..6=Saturday
+  startMinute: number; // e.g. 540 = 9:00 AM
+  endMinute: number;   // e.g. 600 = 10:00 AM
+  subject: string;
+}
+
+export interface PlanRecord {
+  id?: number;
+  createdAt: Date;
+  horizonStart: Date;
+  horizonEnd: Date;
+  source: 'greedy' | 'tinker' | 'fallback';
+  accepted: boolean;
+  blocksJson: string;
+}
+
 export class WhatsAppTextDB extends Dexie {
   groups!: Table<Group, number>;
   messages!: Table<Message, number>;
   events!: Table<CalendarEvent, number>;
   notes!: Table<Note, number>;
   reminders!: Table<Reminder, number>;
+  classSlots!: Table<ClassSlot, number>;
+  plans!: Table<PlanRecord, number>;
 
   constructor() {
     super('WhatsAppTextDB');
@@ -84,6 +104,15 @@ export class WhatsAppTextDB extends Dexie {
       events: '++id, startAt, type, subject, sourceMessageId, isDone',
       notes: '++id, subject, linkedEventId, sourceMessageId, isPinned, createdAt',
       reminders: '++id, eventId, triggerAt, status',
+    });
+    this.version(2).stores({
+      groups: '++id, name, lastMessageAt',
+      messages: '++id, groupId, timestamp, hash, isImportant',
+      events: '++id, startAt, type, subject, sourceMessageId, isDone',
+      notes: '++id, subject, linkedEventId, sourceMessageId, isPinned, createdAt',
+      reminders: '++id, eventId, triggerAt, status',
+      classSlots: '++id, weekday, startMinute, endMinute, subject',
+      plans: '++id, createdAt, horizonStart, horizonEnd, source, accepted',
     });
   }
 }

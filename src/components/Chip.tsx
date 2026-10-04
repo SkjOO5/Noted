@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 export interface ChipProps {
   label: string;
-  type?: 'quiz' | 'assignment' | 'exam' | 'class-change' | 'other' | 'neutral' | 'event';
+  type?: 'quiz' | 'assignment' | 'exam' | 'class-change' | 'study' | 'other' | 'neutral' | 'event';
   icon?: ReactNode;
   count?: number;
   active?: boolean;
@@ -30,6 +30,11 @@ const TYPE_STYLES: Record<string, { bg: string; text: string; border: string }> 
     bg: 'rgba(167, 139, 250, 0.15)',
     text: '#A78BFA',
     border: 'rgba(167, 139, 250, 0.35)',
+  },
+  study: {
+    bg: 'rgba(37, 211, 102, 0.15)',
+    text: '#25D366',
+    border: 'rgba(37, 211, 102, 0.35)',
   },
   event: {
     bg: 'rgba(37, 211, 102, 0.15)',

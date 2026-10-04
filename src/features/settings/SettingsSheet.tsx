@@ -27,7 +27,9 @@ import {
   AlertTriangle,
   Sparkles,
   Smartphone,
+  BookOpen,
 } from 'lucide-react';
+import { TimetableModal } from '@/features/plan/TimetableModal';
 
 interface SettingsSheetProps {
   isOpen: boolean;
@@ -42,6 +44,7 @@ export function SettingsSheet({ isOpen, onClose }: SettingsSheetProps) {
   const [settings, setSettings] = useState<AppSettings>(getSettings());
   const [hasNotifPerm, setHasNotifPerm] = useState(false);
   const [isWipeConfirmOpen, setIsWipeConfirmOpen] = useState(false);
+  const [isTimetableOpen, setIsTimetableOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -53,6 +56,16 @@ export function SettingsSheet({ isOpen, onClose }: SettingsSheetProps) {
   const handleUpdate = (updates: Partial<AppSettings>) => {
     const updated = saveSettings(updates);
     setSettings(updated);
+  };
+
+  const handleUpdateStudyPrefs = (partial: Partial<AppSettings['studyPreferences']>) => {
+    const current = settings.studyPreferences || getSettings().studyPreferences;
+    handleUpdate({
+      studyPreferences: {
+        ...current,
+        ...partial,
+      },
+    });
   };
 
   const handleInstallApp = async () => {
@@ -263,6 +276,137 @@ export function SettingsSheet({ isOpen, onClose }: SettingsSheetProps) {
           </div>
         </div>
 
+        {/* Timetable Section */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
+            Class Timetable
+          </label>
+          <div className="flex items-center justify-between p-3.5 rounded-[var(--radius-card)] bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-[var(--color-elevated)] text-[var(--color-accent)] border border-[var(--color-border)] flex items-center justify-center shrink-0 shadow-xs">
+                <BookOpen size={16} strokeWidth={2} />
+              </div>
+              <div>
+                <p className="text-[13px] font-semibold text-[var(--color-text)]">
+                  Weekly Class Slots
+                </p>
+                <p className="text-[12px] font-normal text-[var(--color-muted)]">
+                  Planner reserves class hours on your timetable
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setIsTimetableOpen(true)}
+              className="btn btn-secondary px-3.5 h-[36px] text-[12px] font-bold cursor-pointer flex items-center gap-1.5"
+            >
+              <span>Edit</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Study & Planner Preferences */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
+            Study & Planner Preferences
+          </label>
+          <div className="flex flex-col rounded-[var(--radius-card)] bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xs text-[13px] divide-y divide-[var(--color-border)] overflow-hidden">
+            {/* Best study time */}
+            <div className="flex items-center justify-between p-3.5">
+              <div>
+                <div className="font-semibold text-[var(--color-text)]">Best study time</div>
+                <div className="text-[12px] text-[var(--color-muted)]">Preferred hours for deep focus</div>
+              </div>
+              <select
+                value={settings.studyPreferences?.bestTime || 'evening'}
+                onChange={(e) =>
+                  handleUpdateStudyPrefs({ bestTime: e.target.value as 'morning' | 'afternoon' | 'evening' })
+                }
+                className="px-2.5 h-[32px] rounded-[var(--radius-button)] bg-[var(--color-elevated)] border border-[var(--color-border)] text-[12px] font-semibold text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)] cursor-pointer"
+              >
+                <option value="morning">Morning (8 AM - 12 PM)</option>
+                <option value="afternoon">Afternoon (1 PM - 5 PM)</option>
+                <option value="evening">Evening (6 PM - 10 PM)</option>
+              </select>
+            </div>
+
+            {/* Block Length */}
+            <div className="flex items-center justify-between p-3.5">
+              <div>
+                <div className="font-semibold text-[var(--color-text)]">Session duration</div>
+                <div className="text-[12px] text-[var(--color-muted)]">Target focus block length</div>
+              </div>
+              <select
+                value={settings.studyPreferences?.blockMinutes || 45}
+                onChange={(e) => handleUpdateStudyPrefs({ blockMinutes: Number(e.target.value) })}
+                className="px-2.5 h-[32px] rounded-[var(--radius-button)] bg-[var(--color-elevated)] border border-[var(--color-border)] text-[12px] font-semibold text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)] cursor-pointer"
+              >
+                <option value={30}>30 mins</option>
+                <option value={45}>45 mins</option>
+                <option value={60}>60 mins</option>
+              </select>
+            </div>
+
+            {/* Daily limit */}
+            <div className="flex items-center justify-between p-3.5">
+              <div>
+                <div className="font-semibold text-[var(--color-text)]">Daily study limit</div>
+                <div className="text-[12px] text-[var(--color-muted)]">Max study time per day</div>
+              </div>
+              <select
+                value={settings.studyPreferences?.maxStudyMinutesPerDay || 240}
+                onChange={(e) => handleUpdateStudyPrefs({ maxStudyMinutesPerDay: Number(e.target.value) })}
+                className="px-2.5 h-[32px] rounded-[var(--radius-button)] bg-[var(--color-elevated)] border border-[var(--color-border)] text-[12px] font-semibold text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)] cursor-pointer"
+              >
+                <option value={120}>2 hours (120m)</option>
+                <option value={180}>3 hours (180m)</option>
+                <option value={240}>4 hours (240m)</option>
+                <option value={360}>6 hours (360m)</option>
+              </select>
+            </div>
+
+            {/* Break minutes */}
+            <div className="flex items-center justify-between p-3.5">
+              <div>
+                <div className="font-semibold text-[var(--color-text)]">Break between blocks</div>
+                <div className="text-[12px] text-[var(--color-muted)]">Buffer between sessions</div>
+              </div>
+              <select
+                value={settings.studyPreferences?.breakMinutes || 15}
+                onChange={(e) => handleUpdateStudyPrefs({ breakMinutes: Number(e.target.value) })}
+                className="px-2.5 h-[32px] rounded-[var(--radius-button)] bg-[var(--color-elevated)] border border-[var(--color-border)] text-[12px] font-semibold text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent)] cursor-pointer"
+              >
+                <option value={10}>10 mins</option>
+                <option value={15}>15 mins</option>
+                <option value={20}>20 mins</option>
+              </select>
+            </div>
+
+            {/* Sleep window */}
+            <div className="flex items-center justify-between p-3.5">
+              <div>
+                <div className="font-semibold text-[var(--color-text)]">Sleep window</div>
+                <div className="text-[12px] text-[var(--color-muted)]">No study blocks will be placed</div>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs text-[var(--color-text)] font-semibold">
+                <input
+                  type="time"
+                  value={settings.studyPreferences?.sleepStart || '23:00'}
+                  onChange={(e) => handleUpdateStudyPrefs({ sleepStart: e.target.value })}
+                  className="px-1.5 h-[28px] rounded bg-[var(--color-elevated)] border border-[var(--color-border)] text-xs text-[var(--color-text)]"
+                />
+                <span className="text-[var(--color-muted)]">–</span>
+                <input
+                  type="time"
+                  value={settings.studyPreferences?.sleepEnd || '07:00'}
+                  onChange={(e) => handleUpdateStudyPrefs({ sleepEnd: e.target.value })}
+                  className="px-1.5 h-[28px] rounded bg-[var(--color-elevated)] border border-[var(--color-border)] text-xs text-[var(--color-text)]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Default Reminder Offsets */}
         <div className="flex flex-col gap-1.5">
           <label className="text-[10px] tracking-[1.2px] font-semibold uppercase text-[var(--color-muted)]">
@@ -359,6 +503,8 @@ export function SettingsSheet({ isOpen, onClose }: SettingsSheetProps) {
           )}
         </div>
       </div>
+
+      <TimetableModal isOpen={isTimetableOpen} onClose={() => setIsTimetableOpen(false)} />
     </BottomSheet>
   );
 }

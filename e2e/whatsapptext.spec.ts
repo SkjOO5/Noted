@@ -106,4 +106,30 @@ test.describe('WhatsAppText Core User Flow', () => {
     await expect(page.locator('text=Export JSON')).toBeVisible();
     await expect(page.locator('text=Import JSON')).toBeVisible();
   });
+
+  test('generates study plan from Calendar and configures timetable and preferences in Settings', async ({ page }) => {
+    // 1. Go to Calendar tab and click Plan week
+    await page.getByRole('tab', { name: /Calendar/i }).click();
+    const planBtn = page.getByRole('button', { name: /Plan week/i });
+    await expect(planBtn).toBeVisible();
+    await planBtn.click();
+
+    // 2. Verify PlanReviewSheet modal
+    await expect(page.locator('text=Recommended Study Schedule')).toBeVisible();
+    await expect(page.getByRole('button', { name: /Replan/i })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Discard/i })).toBeVisible();
+    await page.getByRole('button', { name: /Discard/i }).click();
+    await expect(page.locator('text=Recommended Study Schedule')).not.toBeVisible();
+
+    // 3. Open Settings and inspect Class Timetable and Study Preferences
+    await page.locator('button[aria-label="Settings and Privacy"]').click();
+    await expect(page.locator('text=Class Timetable')).toBeVisible();
+    await expect(page.locator('text=Study & Planner Preferences')).toBeVisible();
+    await expect(page.locator('text=Best study time')).toBeVisible();
+
+    // 4. Open Timetable modal
+    await page.getByRole('button', { name: /^Edit$/i }).click();
+    await expect(page.locator('#timetable-title')).toHaveText('Class Timetable');
+    await page.getByRole('dialog', { name: 'Class Timetable' }).getByLabel('Close').click();
+  });
 });

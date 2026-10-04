@@ -1,3 +1,6 @@
+import type { StudyPreferences } from '@/lib/planner/types';
+import { DEFAULT_STUDY_PREFERENCES } from '@/lib/planner/types';
+
 export interface AppSettings {
   defaultQuizOffsets: number[]; // in minutes, e.g. [1440, 60]
   defaultOtherOffsets: number[]; // in minutes, e.g. [60]
@@ -5,6 +8,7 @@ export interface AppSettings {
   quietHoursStart: string; // "22:00"
   quietHoursEnd: string; // "07:00"
   theme: 'dark' | 'light' | 'system';
+  studyPreferences: StudyPreferences;
 }
 
 export const DEFAULT_SETTINGS: AppSettings = {
@@ -14,6 +18,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   quietHoursStart: '22:00',
   quietHoursEnd: '07:00',
   theme: 'dark',
+  studyPreferences: DEFAULT_STUDY_PREFERENCES,
 };
 
 const STORAGE_KEY = 'whatsapptext_settings_v1';

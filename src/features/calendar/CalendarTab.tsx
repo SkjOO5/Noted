@@ -17,7 +17,16 @@ import {
   Clock,
   Trash2,
   Bell,
+  Sparkles,
 } from 'lucide-react';
+import { PlanReviewSheet } from '@/features/plan/PlanReviewSheet';
+import { greedyPlan } from '@/lib/planner/greedyPlan';
+import { validatePlan } from '@/lib/planner/validatePlan';
+import type { Plan, PlanViolation, PlanRequest, PlanTopic } from '@/lib/planner/types';
+import { DEFAULT_STUDY_PREFERENCES } from '@/lib/planner/types';
+import { getAllClassSlots } from '@/db/classSlotRepo';
+import { getAllNotes } from '@/db/noteRepo';
+import { getSettings } from '@/lib/settings/settingsManager';
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -27,6 +36,7 @@ const EVENT_DOT_COLORS: Record<EventType, string> = {
   exam: 'var(--color-exam)',
   'class-change': 'var(--color-class-change)',
   deadline: 'var(--color-quiz)',
+  study: 'var(--color-accent)',
   other: 'var(--color-muted)',
 };
 
@@ -47,6 +57,9 @@ export function CalendarTab() {
   const [selectedDate, setSelectedDate] = useState<Date>(() => new Date());
   const [viewFilter, setViewFilter] = useState<'selected' | 'upcoming'>('upcoming');
   const [isAddOpen, setIsAddOpen] = useState(false);
+  const [isPlanReviewOpen, setIsPlanReviewOpen] = useState(false);
+  const [currentPlan, setCurrentPlan] = useState<Plan>({ blocks: [] });
+  const [currentViolations, setCurrentViolations] = useState<PlanViolation[]>([]);
 
   // Live queries for all events
   const events = useLiveQuery(() => getAllEvents(), []) || [];
@@ -178,12 +191,62 @@ export function CalendarTab() {
     );
   };
 
-  const mapEventTypeToChip = (type: EventType): 'quiz' | 'assignment' | 'exam' | 'class-change' | 'other' => {
+  const mapEventTypeToChip = (type: EventType): 'quiz' | 'assignment' | 'exam' | 'class-change' | 'study' | 'other' => {
     if (type === 'quiz' || type === 'deadline') return 'quiz';
     if (type === 'assignment') return 'assignment';
     if (type === 'exam') return 'exam';
     if (type === 'class-change') return 'class-change';
+    if (type === 'study') return 'study';
     return 'other';
+  };
+
+  const handlePlanWeek = async () => {
+    const allEvents = await getAllEvents();
+    const allClasses = await getAllClassSlots();
+    const allNotes = await getAllNotes();
+    const prefs = getSettings().studyPreferences || DEFAULT_STUDY_PREFERENCES;
+
+    const topics: PlanTopic[] = [];
+    for (const n of allNotes) {
+      if (n.linkedEventId && n.checklist) {
+        for (const item of n.checklist) {
+          topics.push({
+            eventId: n.linkedEventId,
+            text: item.text,
+            isDone: item.done,
+          });
+        }
+      }
+    }
+
+    const req: PlanRequest = {
+      now: new Date().toISOString(),
+      horizonDays: 7,
+      events: allEvents.map((e) => ({
+        id: e.id!,
+        kind: (e.type === 'deadline' ? 'assignment' : e.type) as 'quiz' | 'assignment' | 'exam' | 'class-change' | 'study' | 'other',
+        subject: e.subject,
+        title: e.title,
+        startAt: new Date(e.startAt).toISOString(),
+        endAt: e.endAt ? new Date(e.endAt).toISOString() : undefined,
+      })),
+      classes: allClasses.map((c) => ({
+        id: c.id,
+        weekday: c.weekday,
+        startMinute: c.startMinute,
+        endMinute: c.endMinute,
+        subject: c.subject,
+      })),
+      topics,
+      prefs,
+    };
+
+    const generated = greedyPlan(req);
+    const violations = validatePlan(req, generated);
+
+    setCurrentPlan(generated);
+    setCurrentViolations(violations);
+    setIsPlanReviewOpen(true);
   };
 
   const today = new Date();
@@ -315,12 +378,21 @@ export function CalendarTab() {
           </button>
         </div>
 
-        {/* Global Export .ics & Add Event buttons */}
-        <div className="flex items-center gap-2">
+        {/* Global Export .ics, Plan Week & Add Event buttons */}
+        <div className="flex items-center gap-1.5">
+          <button
+            onClick={handlePlanWeek}
+            title="Plan study sessions for the week"
+            className="flex items-center gap-1 px-2.5 h-[36px] rounded-[var(--radius-button)] border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/10 hover:bg-[var(--color-accent)]/20 text-[12px] font-semibold text-[var(--color-accent)] transition-colors cursor-pointer shadow-xs"
+          >
+            <Sparkles size={14} strokeWidth={2} />
+            <span>Plan week</span>
+          </button>
+
           <button
             onClick={handleExportAll}
             title="Export all events to .ics"
-            className="flex items-center gap-1.5 px-3 h-[36px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-elevated)] text-[12px] font-semibold text-[var(--color-text)] transition-colors cursor-pointer shadow-xs"
+            className="flex items-center gap-1 px-2.5 h-[36px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-elevated)] text-[12px] font-semibold text-[var(--color-text)] transition-colors cursor-pointer shadow-xs"
           >
             <Download size={14} strokeWidth={2} className="text-[var(--color-accent)]" />
             <span>.ICS</span>
@@ -329,7 +401,7 @@ export function CalendarTab() {
           <button
             onClick={() => setIsAddOpen(true)}
             title="Add event"
-            className="btn-primary h-[36px] px-3.5 text-[12px] font-bold"
+            className="btn-primary h-[36px] px-3 text-[12px] font-bold"
           >
             <Plus size={16} strokeWidth={2} />
             <span>Add</span>
@@ -477,6 +549,16 @@ export function CalendarTab() {
         isOpen={isAddOpen}
         onClose={() => setIsAddOpen(false)}
         defaultDate={selectedDate}
+      />
+
+      {/* Plan Review Sheet */}
+      <PlanReviewSheet
+        isOpen={isPlanReviewOpen}
+        onClose={() => setIsPlanReviewOpen(false)}
+        plan={currentPlan}
+        violations={currentViolations}
+        source="greedy"
+        onReplan={handlePlanWeek}
       />
     </div>
   );
