@@ -164,6 +164,18 @@ Key design decisions:
 - **No silent guessing.** Ambiguous dates and missing times are surfaced to the user.
 - **Local-first.** No backend, no analytics, no network calls for your data.
 
+## Study Planner & Optional Cloud Service (Thinking Machines Lab)
+
+Noted features an automated study schedule planner that organizes preparation sessions before exams, quizzes, and assignment deadlines while respecting your weekly college timetable and sleep window:
+
+- **100% Offline Default**: Schedule generation and constraint validation run completely on-device via a deterministic greedy planner (`greedyPlan.ts`).
+- **Opt-In Cloud Planner**: Users can optionally connect to the Noted Cloud API (`/cloud`), powered by a fine-tuned open-weight model (`Qwen/Qwen3-8B + LoRA`) trained on Thinking Machines Lab (Tinker API).
+- **Privacy Guarantee**: Zero raw chat text is ever transmitted. Only structured time slots and course names are processed. The backend operates with strict zero-body logging.
+- **Security & Rate Limit Notes**:
+  - In-memory rate limits (10 requests/minute, 200 requests/day cap per IP) reset on server restart.
+  - The client authentication app token (`X-Noted-App-Token`) is bundled with the frontend and extractable from the compiled APK. It acts as an abuse mitigation measure, not a private secret.
+  - **Administrator Spending Limit**: Administrators must set a hard spending limit directly in the [Thinking Machines Console](https://console.thinkingmachines.ai) to safeguard against unexpected quota usage.
+
 ## Tech stack
 
 | Area | Tool |

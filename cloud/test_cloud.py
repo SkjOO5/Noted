@@ -92,7 +92,7 @@ def test_plan_generation_and_validation():
     response = client.post("/plan", json=req.model_dump())
     assert response.status_code == 200
     data = response.json()
-    assert data["source"] == "greedy"
+    assert data["source"] in ("tinker", "fallback", "greedy")
     blocks = data["plan"]["blocks"]
     assert len(blocks) >= 2 # at least study and revision
     assert data["violations"] == [] # 100% compliant with rules
@@ -237,3 +237,59 @@ def test_shared_json_fixtures():
             assert expected_rule in rule_names, f"Case '{tc['name']}' expected rule '{expected_rule}', got {rule_names}"
         if not tc["expectedRules"]:
             assert len(violations) == 0, f"Case '{tc['name']}' expected 0 violations, got {violations}"
+
+def test_app_token_auth():
+    payload = {
+        "now": "2026-10-05T09:00:00",
+        "horizonDays": 7,
+        "events": [],
+        "classes": [],
+        "topics": [],
+        "prefs": {
+            "sleepStart": "23:00",
+            "sleepEnd": "07:00",
+            "maxStudyMinutesPerDay": 240,
+            "blockMinutes": 45,
+            "bestTime": "evening",
+            "breakMinutes": 15,
+            "bufferHoursBeforeDeadline": 2
+        }
+    }
+    # Bad token -> 401
+    bad_res = client.post("/plan", json=payload, headers={"X-Noted-App-Token": "invalid-token"})
+    assert bad_res.status_code == 401
+    
+    # Valid token -> 200
+    good_res = client.post("/plan", json=payload, headers={"X-Noted-App-Token": "noted-app-token-v1"})
+    assert good_res.status_code == 200
+
+def test_input_limits_and_horizon_routing():
+    # 1. Horizon > 7 days routes straight to greedy
+    payload = {
+        "now": "2026-10-05T09:00:00",
+        "horizonDays": 14, # > 7 days
+        "events": [],
+        "classes": [],
+        "topics": [],
+        "prefs": {
+            "sleepStart": "23:00",
+            "sleepEnd": "07:00",
+            "maxStudyMinutesPerDay": 240,
+            "blockMinutes": 45,
+            "bestTime": "evening",
+            "breakMinutes": 15,
+            "bufferHoursBeforeDeadline": 2
+        }
+    }
+    res = client.post("/plan", json=payload)
+    assert res.status_code == 200
+    assert res.json()["source"] == "greedy"
+
+    # 2. Too many events (> 50) -> 400
+    oversized = dict(payload)
+    oversized["events"] = [
+        {"id": i, "kind": "quiz", "title": f"Quiz {i}", "startAt": "2026-10-10T10:00:00"}
+        for i in range(55)
+    ]
+    res_oversized = client.post("/plan", json=oversized)
+    assert res_oversized.status_code == 400
