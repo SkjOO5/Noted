@@ -93,7 +93,7 @@ jobs:
           # Sign APK
           "$BUILD_TOOLS_DIR/apksigner" sign \
             --ks noted-release.jks \
-            --ks-alias noted \
+            --ks-key-alias noted \
             --ks-pass pass:notedapp \
             --key-pass pass:notedapp \
             --out Noted-release.apk \
