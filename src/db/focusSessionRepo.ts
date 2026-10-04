@@ -73,68 +73,23 @@ export async function getWeeklyFocusStats(): Promise<DayFocusStat[]> {
   return stats;
 }
 
-export async function seedSampleFocusSessions(): Promise<void> {
-  const count = await db.focusSessions.count();
-  if (count > 0) return;
-
-  const now = new Date();
-  const sampleSessions: Omit<FocusSession, 'id'>[] = [
-    // Today
-    {
-      subject: 'DBMS',
-      topic: 'ER Modeling & Relational Algebra',
-      durationMinutes: 45,
-      completedAt: new Date(now.getTime() - 1000 * 60 * 120),
-    },
-    {
-      subject: 'Computer Networks',
-      topic: 'TCP Handshake & Congestion Control',
-      durationMinutes: 45,
-      completedAt: new Date(now.getTime() - 1000 * 60 * 45),
-    },
-    {
-      subject: 'Operating Systems',
-      topic: 'Deadlock Detection & Semaphores',
-      durationMinutes: 30,
-      completedAt: new Date(now.getTime() - 1000 * 60 * 15),
-    },
-    // Yesterday
-    {
-      subject: 'Mathematics',
-      topic: 'Eigenvalues & Linear Transformations',
-      durationMinutes: 60,
-      completedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24),
-    },
-    {
-      subject: 'DBMS',
-      topic: 'SQL Subqueries & Window Functions',
-      durationMinutes: 45,
-      completedAt: new Date(now.getTime() - 1000 * 60 * 60 * 26),
-    },
-    // 2 days ago
-    {
-      subject: 'Computer Networks',
-      topic: 'IP Subnetting & CIDR Calculations',
-      durationMinutes: 45,
-      completedAt: new Date(now.getTime() - 1000 * 60 * 60 * 48),
-    },
-    // 3 days ago
-    {
-      subject: 'Data Structures',
-      topic: 'Binary Search Tree & AVL Rotations',
-      durationMinutes: 50,
-      completedAt: new Date(now.getTime() - 1000 * 60 * 60 * 72),
-    },
-    // 4 days ago
-    {
-      subject: 'Operating Systems',
-      topic: 'Process Scheduling Algorithms',
-      durationMinutes: 40,
-      completedAt: new Date(now.getTime() - 1000 * 60 * 60 * 96),
-    },
-  ];
-
-  for (const s of sampleSessions) {
-    await db.focusSessions.add(s);
-  }
+export async function deleteFocusSession(id: number): Promise<void> {
+  await db.focusSessions.delete(id);
 }
+
+export async function cleanDemoFocusSessions(): Promise<void> {
+  const demoTopics = [
+    'ER Modeling & Relational Algebra',
+    'TCP Handshake & Congestion Control',
+    'Deadlock Detection & Semaphores',
+    'Eigenvalues & Linear Transformations',
+    'SQL Subqueries & Window Functions',
+    'IP Subnetting & CIDR Calculations',
+    'Binary Search Tree & AVL Rotations',
+    'Process Scheduling Algorithms',
+  ];
+  await db.focusSessions
+    .filter((s) => demoTopics.includes(s.topic || '') || demoTopics.includes(s.subject))
+    .delete();
+}
+

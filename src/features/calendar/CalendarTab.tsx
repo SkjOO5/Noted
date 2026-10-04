@@ -252,24 +252,24 @@ export function CalendarTab() {
   const today = new Date();
 
   return (
-    <div className="flex flex-col h-full bg-[var(--color-bg)] overflow-y-auto">
+    <div className="flex flex-col h-full w-full bg-[var(--color-bg)] overflow-y-auto overflow-x-hidden">
       {/* Calendar Card Container */}
-      <div className="px-4 py-3 bg-[var(--color-surface)] border-b border-[var(--color-border)] shrink-0">
+      <div className="px-3.5 py-3 bg-[var(--color-surface)] border-b border-[var(--color-border)] shrink-0 w-full">
         {/* Month Navigation Header */}
-        <div className="flex items-center justify-between mb-2.5">
-          <div className="flex items-center gap-2">
-            <h2 className="text-[15px] font-semibold text-[var(--color-text)]">
+        <div className="flex items-center justify-between mb-2.5 w-full">
+          <div className="flex items-center gap-2 min-w-0">
+            <h2 className="text-[15px] font-semibold text-[var(--color-text)] truncate">
               {currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
             </h2>
             <button
               onClick={handleToday}
-              className="text-[11px] font-semibold text-[#0B141A] bg-[var(--color-accent)] px-2.5 py-0.5 rounded-full hover:bg-[var(--color-accent-hover)] transition-colors cursor-pointer"
+              className="text-[11px] font-semibold text-[#0B141A] bg-[var(--color-accent)] px-2.5 py-0.5 rounded-full hover:bg-[var(--color-accent-hover)] transition-colors cursor-pointer shrink-0"
             >
               Today
             </button>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 shrink-0">
             <button
               onClick={handlePrevMonth}
               className="w-8 h-8 rounded-lg bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors cursor-pointer flex items-center justify-center"
@@ -288,11 +288,11 @@ export function CalendarTab() {
         </div>
 
         {/* Weekday Headers */}
-        <div className="grid grid-cols-7 text-center mb-1">
+        <div className="grid grid-cols-7 text-center mb-1 w-full">
           {WEEKDAYS.map((day) => (
             <span
               key={day}
-              className="text-[11px] font-semibold text-[var(--color-muted)] uppercase py-1"
+              className="text-[11px] font-semibold text-[var(--color-muted)] uppercase py-1 text-center"
             >
               {day}
             </span>
@@ -300,7 +300,7 @@ export function CalendarTab() {
         </div>
 
         {/* Month Day Grid */}
-        <div className="grid grid-cols-7 gap-1">
+        <div className="grid grid-cols-7 gap-1 w-full">
           {calendarDays.map(({ date, isCurrentMonth }, idx) => {
             const dateKey = formatDateKey(date);
             const dayEvents = eventsByDate.get(dateKey) || [];
@@ -317,7 +317,7 @@ export function CalendarTab() {
                     setCurrentMonth(new Date(date.getFullYear(), date.getMonth(), 1));
                   }
                 }}
-                className={`flex flex-col items-center justify-center p-1 rounded-xl transition-colors relative cursor-pointer border ${
+                className={`flex flex-col items-center justify-center p-1 rounded-xl transition-colors relative cursor-pointer border min-w-0 w-full ${
                   isSelected
                     ? 'bg-[var(--color-accent)] text-[#0B141A] border-transparent font-semibold shadow-xs'
                     : isToday
@@ -326,7 +326,7 @@ export function CalendarTab() {
                     ? 'border-transparent text-[var(--color-text)] hover:border-[var(--color-border)] hover:bg-[var(--color-elevated)]'
                     : 'border-transparent text-[var(--color-muted)]/50 hover:bg-[var(--color-elevated)]'
                 }`}
-                style={{ minHeight: '40px' }}
+                style={{ minHeight: '38px' }}
               >
                 <span className="text-[13px]">{date.getDate()}</span>
 
@@ -351,9 +351,9 @@ export function CalendarTab() {
       </div>
 
       {/* Agenda Header & Action Controls */}
-      <div className="px-4 py-2.5 bg-[var(--color-surface)] border-b border-[var(--color-border)] flex items-center justify-between gap-2">
+      <div className="px-3.5 py-2.5 bg-[var(--color-surface)] border-b border-[var(--color-border)] flex flex-wrap items-center justify-between gap-2 w-full">
         {/* Toggle between Selected Day vs Upcoming */}
-        <div className="flex items-center gap-1 bg-[var(--color-elevated)] p-1 rounded-full border border-[var(--color-border)]">
+        <div className="flex items-center gap-1 bg-[var(--color-elevated)] p-1 rounded-full border border-[var(--color-border)] shrink-0">
           <button
             onClick={() => setViewFilter('selected')}
             className={`px-3 py-1 rounded-full text-[12px] font-semibold transition-colors cursor-pointer ${
@@ -374,36 +374,36 @@ export function CalendarTab() {
                 : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
             }`}
           >
-            All Upcoming
+            Upcoming
           </button>
         </div>
 
         {/* Global Export .ics, Plan Week & Add Event buttons */}
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 shrink-0 ml-auto">
           <button
             onClick={handlePlanWeek}
             title="Plan study sessions for the week"
-            className="flex items-center gap-1 px-2.5 h-[36px] rounded-[var(--radius-button)] border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/10 hover:bg-[var(--color-accent)]/20 text-[12px] font-semibold text-[var(--color-accent)] transition-colors cursor-pointer shadow-xs"
+            className="flex items-center gap-1 px-2.5 h-[34px] rounded-[var(--radius-button)] border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/10 hover:bg-[var(--color-accent)]/20 text-[11px] font-semibold text-[var(--color-accent)] transition-colors cursor-pointer shadow-xs"
           >
-            <Sparkles size={14} strokeWidth={2} />
-            <span>Plan week</span>
+            <Sparkles size={13} strokeWidth={2} />
+            <span>Plan</span>
           </button>
 
           <button
             onClick={handleExportAll}
             title="Export all events to .ics"
-            className="flex items-center gap-1 px-2.5 h-[36px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-elevated)] text-[12px] font-semibold text-[var(--color-text)] transition-colors cursor-pointer shadow-xs"
+            className="flex items-center gap-1 px-2 h-[34px] rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-elevated)] text-[11px] font-semibold text-[var(--color-text)] transition-colors cursor-pointer shadow-xs"
           >
-            <Download size={14} strokeWidth={2} className="text-[var(--color-accent)]" />
+            <Download size={13} strokeWidth={2} className="text-[var(--color-accent)]" />
             <span>.ICS</span>
           </button>
 
           <button
             onClick={() => setIsAddOpen(true)}
             title="Add event"
-            className="btn-primary h-[36px] px-3 text-[12px] font-bold"
+            className="btn-primary h-[34px] px-2.5 text-[11px] font-bold"
           >
-            <Plus size={16} strokeWidth={2} />
+            <Plus size={15} strokeWidth={2.5} />
             <span>Add</span>
           </button>
         </div>
