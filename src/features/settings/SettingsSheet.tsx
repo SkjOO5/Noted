@@ -139,7 +139,7 @@ export function SettingsSheet({ isOpen, onClose }: SettingsSheetProps) {
               100% On-device & private
             </p>
             <p className="text-[12px] font-normal text-[var(--color-muted)] leading-relaxed">
-              WhatsAppText never uses external servers, cloud databases, or tracking. All chats, events, and notes stay purely in your browser IndexedDB.
+              Noted never uses external servers, cloud databases, or tracking. All chats, events, and notes stay purely on your device.
             </p>
           </div>
         </div>

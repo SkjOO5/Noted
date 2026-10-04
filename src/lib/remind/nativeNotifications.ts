@@ -65,7 +65,7 @@ export async function scheduleNativeReminder(reminder: Reminder): Promise<void> 
           {
             id: reminder.id,
             title: reminder.title,
-            body: 'Tap to view reminder in WhatsAppText',
+            body: 'Tap to view reminder in Noted',
             schedule: { at: triggerDate },
             sound: undefined,
             extra: {

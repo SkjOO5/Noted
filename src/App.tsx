@@ -98,7 +98,7 @@ function AppContent() {
   const handleInstallClick = async () => {
     const success = await triggerInstall();
     if (success) {
-      showToast({ message: 'WhatsAppText installed successfully!' });
+      showToast({ message: 'Noted installed successfully!' });
     }
   };
 

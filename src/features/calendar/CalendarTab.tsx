@@ -162,7 +162,7 @@ export function CalendarTab() {
       showToast({ message: 'No events to export' });
       return;
     }
-    downloadIcs(events, 'WhatsAppText-All-Events.ics');
+    downloadIcs(events, 'Noted-All-Events.ics');
     showToast({ message: `Exported ${events.length} event(s) to .ics` });
   };
 

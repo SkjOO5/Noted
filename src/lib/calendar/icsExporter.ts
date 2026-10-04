@@ -26,7 +26,7 @@ export function generateIcs(events: CalendarEvent[]): string {
   const lines: string[] = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//WhatsAppText//College Companion App//EN',
+    'PRODID:-//Noted//College Companion App//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
   ];
@@ -36,7 +36,7 @@ export function generateIcs(events: CalendarEvent[]): string {
 
   for (const event of events) {
     const start = new Date(event.startAt);
-    const uid = `event-${event.id ?? Math.random().toString(36).substring(2, 9)}@whatsapptext.app`;
+    const uid = `event-${event.id ?? Math.random().toString(36).substring(2, 9)}@noted.app`;
 
     lines.push('BEGIN:VEVENT');
     lines.push(`UID:${uid}`);

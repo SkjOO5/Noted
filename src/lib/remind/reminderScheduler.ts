@@ -36,14 +36,14 @@ export async function checkAndFireDueReminders(now: Date = new Date()): Promise<
         if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
           const reg = await navigator.serviceWorker.ready;
           await reg.showNotification(reminder.title, {
-            body: 'Tap to open WhatsAppText',
+            body: 'Tap to open Noted',
             icon: '/icon-192.png',
             tag: `reminder-${reminder.id}`,
             data: { reminderId: reminder.id, eventId: reminder.eventId },
           });
         } else {
           new Notification(reminder.title, {
-            body: 'Tap to open WhatsAppText',
+            body: 'Tap to open Noted',
             icon: '/icon-192.png',
             tag: `reminder-${reminder.id}`,
           });
