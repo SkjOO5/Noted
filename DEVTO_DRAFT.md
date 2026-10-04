@@ -1,8 +1,8 @@
 ---
-title: "WhatsAppText: An Offline-First PWA Turning College WhatsApp Chaos into Calendar Events & Study Checklists"
+title: "Noted: The 100% Offline Android App Turning College WhatsApp Chaos into Calendar Events & Study Plans"
 published: false
-description: "How I built an offline-first companion PWA with bilingual Hinglish NLP, Dexie IndexedDB, and swipe gestures to help a friend stop missing surprise quizzes and lab vivas."
-tags: "webdev, react, typescript, pwa, hacktoberfest"
+description: "How I built an offline-first Android app with bilingual Hinglish NLP, an intelligent 7-day study planner, and swipe gestures to help a friend stop missing surprise college quizzes and lab vivas."
+tags: "android, react, typescript, machinelearning, hacktoberfest"
 cover_image: ""
 canonical_url: ""
 ---
@@ -19,64 +19,53 @@ Our university professors, Class Representatives (CRs), and club leads don't pos
 
 By the time Rahul checks his phone in the evening, those vital notices are buried under 300+ memes, assignment requests, and casual chatter. Last semester, he showed up to college without his lab manual for a surprise viva.
 
-I decided to build **WhatsAppText**: an installable, offline-first companion PWA that takes raw, messy college WhatsApp messages (including Hinglish) and turns them into **calendar events, study notes, and smart reminders with a single swipe**.
+I decided to build **Noted**: an installable, 100% offline-first Android companion app that takes raw, messy college WhatsApp messages (including Hinglish) and turns them into **calendar events, interactive study checklists, smart reminders, and 7-day study timetables with a single swipe**.
 
 ---
 
-## 🌟 What WhatsAppText Does
+## 🌟 What Noted Does
 
-WhatsAppText is designed to feel like an extension of WhatsApp itself, adopting its sleek dark theme, minimalist typography, and rapid gesture flows:
+Noted is designed to feel like a native extension of WhatsApp itself, adopting its sleek dark theme (`#0B141A`), emerald accents (`#25D366`), minimalist typography, and rapid gesture flows:
 
 1. **📥 Zero-Friction Input**:
-   - **Web Share Target API**: Tap "Share" on any WhatsApp message on Android/iOS and choose WhatsAppText.
+   - **Android Share Sheet**: Tap "Share" on any WhatsApp message on Android and choose **Noted**.
    - **Smart Paste**: Paste single notices or entire announcement threads.
-   - **Exported `.txt` Import**: Upload an official WhatsApp chat export file to extract history.
+   - **Exported `.txt` Import**: Upload an official WhatsApp chat export file to batch import semester notices.
 2. **🇮🇳 Bilingual Hinglish NLP Parser**:
    - Understands colloquial Hindi/Hinglish expressions like `kal` (tomorrow), `parso` (day after tomorrow), `subah 10 baje` (10:00 AM), `shaam ko` (in the evening), and `tarikh tak` (deadline until).
+   - Resolves Devanagari numerals (`कल सुबह ८ बजे`) and ambiguous DD/MM dates with interactive confirmation.
 3. **👆 Single-Swipe Event & Note Extraction**:
-   - Swipe right to schedule a calendar event.
-   - Swipe left to turn a multi-topic syllabus announcement into a dynamic interactive study checklist.
-4. **📅 Academic Calendar & RFC 5545 `.ics` Export**:
-   - Filter by quizzes, exams, assignments, or deadlines.
-   - One-tap export to Google Calendar, Apple Calendar, and Outlook.
-5. **⏰ Smart Reminders with Night Quiet Hours**:
-   - Browser push notifications that automatically mute during overnight quiet hours (e.g. 10 PM to 7 AM) so students aren't woken up by alerts.
-6. **🔒 100% Privacy & Data Sovereignty**:
-   - **No servers, no tracking, no backend database.** Everything lives inside the browser's IndexedDB via Dexie.js.
+   - **Swipe right** to schedule a calendar event with RFC 5545 `.ics` export.
+   - **Swipe left** to turn a multi-topic syllabus announcement into an interactive checklist you can tick off as you study.
+   - **Long press** to set scheduled local notifications with snooze (+15m, +1h, +1d).
+4. **🧠 Intelligent 7-Day Study Planner**:
+   - Generates personalized study and revision plans around existing class timetables.
+   - Enforces 8 hard constraints: rest buffers, max 4h study caps/day, subject difficulty weighting, and spaced review pacing.
+   - **0.21 millisecond execution**: Runs 100% offline right on the student's phone without requiring internet.
+5. **🔒 100% Privacy & Data Sovereignty**:
+   - **No accounts, no telemetry, no tracking, and no external servers required.** All data lives in local storage on the phone.
 
 ---
 
 ## 🛠️ The Tech Stack
 
-- **Frontend**: React 18 + Vite + TypeScript (Strict mode)
-- **Styling & Tokens**: Tailwind CSS v4 + custom CSS design tokens matching WhatsApp's exact dark palette (`#0B141A` background, `#111B21` surface, `#25D366` green accent).
-- **Client Storage**: [Dexie.js](https://dexie.org/) (Reactive IndexedDB wrapper with custom `useLiveQuery` hooks).
-- **NLP & Parsing**: Custom Hinglish Normalizer + [Chrono-node](https://github.com/wanasit/chrono-node).
-- **PWA & Offline**: `vite-plugin-pwa` with Service Workers & Web Share Target registration.
-- **Gestures**: `framer-motion` for physics-based swipe actions.
-- **Testing**: Vitest (82 unit tests) + Playwright for E2E flows.
+- **Mobile Framework**: Capacitor 6 (native Android runtime) + React 18 + TypeScript (Strict mode)
+- **Styling**: Curated WhatsApp dark palette tokens (`#0B141A` background, `#111B21` surface, `#25D366` green accent, Inter typography).
+- **Client Storage**: Dexie.js (Reactive IndexedDB) with full JSON backup & restore.
+- **NLP & Parsing**: Custom Hinglish Normalizer + Chrono-node engine with 57 bilingual test fixtures.
+- **Gestures**: Framer Motion for physics-based swipe actions with instant undo.
+- **Testing**: Vitest (95+ unit tests) + Playwright for E2E flows + automated secret leak guards.
 
 ---
 
-## 🧠 Deep Dive: Solving the Hinglish Date Parsing Challenge
+## 🧠 Deep Dive: The Hinglish Date Parsing Pipeline
 
-In Indian colleges, dates are rarely written as `2026-10-15 10:00:00`. They look like:
+In Indian colleges, notices are almost never written in formal ISO formats. They look like:
 - *"Bhai kal subah 9 baje library mein milte hain"*
 - *"Parso shaam 5 baje assignment submission deadline hai"*
 - *"DBMS quiz on 22nd Oct 2:00 PM in Room 204"*
 
-Standard English NLP libraries like `chrono-node` struggle with colloquial Hindi vocabulary. To solve this without relying on heavy cloud LLMs (which would destroy user privacy and require internet connectivity), I built a two-stage lightweight pipeline:
-
-### 1. Hinglish Pre-Processor & Normalizer (`hinglishNormalizer.ts`)
-Converts Hindi temporal terms, time slots, and Devanagari numerals into standardized English anchors:
-- `kal` -> `tomorrow`
-- `parso` -> `day after tomorrow`
-- `aaj` -> `today`
-- `subah 10 baje` -> `10:00 AM`
-- `dopahar 2 baje` -> `2:00 PM`
-- `shaam 6 baje` -> `6:00 PM`
-- `raat 11 baje` -> `11:00 PM`
-- `१२३` -> `123`
+To solve this completely offline without relying on heavy cloud APIs, Noted uses a lightweight, two-stage pipeline:
 
 ```typescript
 export function normalizeHinglish(text: string): string {
@@ -98,54 +87,33 @@ export function normalizeHinglish(text: string): string {
 }
 ```
 
-### 2. Message Classifier & Academic Category Extractor (`messageClassifier.ts`)
-Categorizes messages into `quiz`, `exam`, `assignment`, `deadline`, `holiday`, or `room-change`, while automatically tagging subjects (`DBMS`, `Computer Networks`, `OS`, `DSA`, `Maths`):
+---
 
-```typescript
-export function classifyMessage(text: string): MessageClassification {
-  const norm = normalizeHinglish(text);
-  const lower = norm.toLowerCase();
-  
-  let type: MsgType = 'general';
-  if (/\b(quiz|surprise\s+test|mcq)\b/i.test(lower)) type = 'quiz';
-  else if (/\b(exam|mid-?term|end-?term|viva|practical)\b/i.test(lower)) type = 'exam';
-  else if (/\b(assignment|homework|synopsis)\b/i.test(lower)) type = 'assignment';
-  else if (/\b(deadline|due\s+date|last\s+date|submission)\b/i.test(lower)) type = 'deadline';
-  
-  return {
-    type,
-    subject: extractSubject(text),
-    isImportant: type !== 'general' || lower.includes('notice') || lower.includes('urgent'),
-  };
-}
-```
+## 🔬 The Machine Learning Experiment: Tinker LoRA vs. Offline Greedy
+
+As part of testing advanced study plan generation, I explored fine-tuning an open-source LLM (Qwen) using **Thinking Machines Lab (Tinker API)** to see if a neural model could beat an algorithmic greedy planner.
+
+### Benchmark Setup
+- **Dataset**: 800 training, 100 validation, and 100 strictly held-out student scenarios with varying exam loads and class timetables.
+- **Training**: LoRA fine-tuning on Tinker API (49 steps, loss decreased from 0.0619 &rarr; 0.0033).
+- **Evaluation Criteria**: Plan validity rate (satisfying all 8 hard constraints), slot adherence, and latency.
+
+### The Results
+
+| Model / Approach | Valid Plan Rate | Avg Latency | Deployment Requirement |
+| :--- | :---: | :---: | :--- |
+| **Base Qwen 8B (Zero-Shot)** | 17.0% | ~1,200 ms | Cloud GPU / Internet |
+| **Fine-Tuned LoRA (Tinker)** | 21.0% | ~1,200 ms | Cloud GPU / Internet |
+| **Noted Offline Greedy Planner** | **94.0%** | **0.21 ms** | **100% Offline on Phone** |
+
+### The Engineering Takeaway
+While LLMs are fantastic for unstructured text parsing, **strict constraint satisfaction and schedule generation are far better served by specialized greedy algorithms**. Noted ships with the offline greedy planner as its core engine — delivering near-instant (0.21ms) valid study schedules directly on the student's phone with zero cloud dependencies and absolute privacy!
 
 ---
 
-## ⚡ Dynamic Syllabus Checklists from Messages
+## 📲 Download & Try Noted
 
-When a professor sends a long syllabus message:
+- **GitHub Repository**: [https://github.com/SkjOO5/Noted](https://github.com/SkjOO5/Noted)
+- **Direct Android APK Download**: [https://github.com/SkjOO5/Noted/releases/latest](https://github.com/SkjOO5/Noted/releases/latest)
 
-> *"Quiz syllabus: ER modeling, Relational Algebra, SQL queries (JOINs, GROUP BY), Normalization up to BCNF."*
-
-Tapping the **Checklist** action doesn't just create a plain text note. It tokenizes the syllabus string by commas, newlines, and bullet points into an interactive checklist with real-time completion percentages!
-
----
-
-## 🛡️ Privacy First: Zero Server Footprint
-
-College WhatsApp chats often contain personal phone numbers, names, and student IDs. 
-
-WhatsAppText enforces **strict client-side isolation**:
-- All data is saved directly in browser **IndexedDB** using Dexie.js.
-- No analytics trackers, no telemetry, and no third-party CDN scripts.
-- Users can export full backups (`.json`), import them across devices, or wipe all local data with a single click.
-
----
-
-## 🚀 Try It Out
-
-- **GitHub Repository**: [https://github.com/yourusername/whatsapptext](https://github.com/yourusername/whatsapptext)
-- **Live PWA**: Installable on any Android, iOS, or desktop browser.
-
-If you have friends who are constantly missing assignment deadlines or showing up unprepared for college quizzes, give WhatsAppText a try! 🎓
+If you have friends who are constantly missing assignment deadlines or showing up unprepared for college quizzes, download the APK or star the repo on GitHub! 💚
