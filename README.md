@@ -1,6 +1,6 @@
 <div align="center">
 
-# Noted
+# Notes
 
 **Turn messy college WhatsApp messages into calendar events, notes and reminders, with one swipe.**
 
@@ -43,7 +43,7 @@ People skip the steps, and then miss the quiz. This project was built for a frie
 
 ## The solution
 
-Share (or paste) a WhatsApp message into **Noted**. It reads the message, understands the date and time (including Hinglish like *"kal 10 baje DBMS quiz, unit 3 tak"*), and lets you act on it with a single gesture:
+Share (or paste) a WhatsApp message into **Notes**. It reads the message, understands the date and time (including Hinglish like *"kal 10 baje DBMS quiz, unit 3 tak"*), and lets you act on it with a single gesture:
 
 - **Swipe right** to add it to your **Calendar**
 - **Swipe left** to save it to your **Notes**
@@ -79,9 +79,9 @@ WhatsApp does not allow other apps to read your messages, and this project does 
 
 | Method | Steps |
 |---|---|
-| **Share to Noted** (fastest) | In WhatsApp, long-press a message, tap Share (or Forward, then pick the share sheet), and choose **Noted**. |
-| **Paste** | Copy a message in WhatsApp, open Noted, tap **+**, and paste. |
-| **Import a chat** | In WhatsApp, open a chat, tap the menu, then **More**, then **Export chat**, choose *Without media*, and share the `.txt` file to Noted (or use **+ > Import chat**). |
+| **Share to Notes** (fastest) | In WhatsApp, long-press a message, tap Share (or Forward, then pick the share sheet), and choose **Notes**. |
+| **Paste** | Copy a message in WhatsApp, open Notes, tap **+**, and paste. |
+| **Import a chat** | In WhatsApp, open a chat, tap the menu, then **More**, then **Export chat**, choose *Without media*, and share the `.txt` file to Notes (or use **+ > Import chat**). |
 
 ### 2. Act on a message
 

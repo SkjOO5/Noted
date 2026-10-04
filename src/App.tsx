@@ -123,12 +123,12 @@ function AppContent() {
           {/* Brand Icon */}
           <img
             src="/icon.svg"
-            alt="Noted Logo"
+            alt="Notes Logo"
             className="w-8 h-8 rounded-lg shrink-0 object-contain shadow-xs"
           />
 
           <h1 className="text-[17px] font-semibold text-[var(--color-text)] tracking-tight">
-            Noted
+            Notes
           </h1>
         </div>
 

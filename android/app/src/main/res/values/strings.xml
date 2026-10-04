@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Noted</string>
-    <string name="title_activity_main">Noted</string>
-    <string name="package_name">com.whatsapptext.app</string>
-    <string name="custom_url_scheme">com.whatsapptext.app</string>
+    <string name="app_name">Notes</string>
+    <string name="title_activity_main">Notes</string>
+    <string name="package_name">com.notes.app</string>
+    <string name="custom_url_scheme">com.notes.app</string>
 </resources>
