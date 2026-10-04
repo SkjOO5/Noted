@@ -333,14 +333,10 @@ describe('greedyPlan Generator', () => {
   });
 
   it('passes all standardized test cases in shared planner_test_cases.json', async () => {
-    const fs = await import('fs');
-    const path = await import('path');
-    const fixturePath = path.resolve(__dirname, '../../../../tests/fixtures/planner_test_cases.json');
-    const raw = fs.readFileSync(fixturePath, 'utf-8');
-    const testCases = JSON.parse(raw);
+    const { default: testCases } = await import('../../../../tests/fixtures/planner_test_cases.json');
 
     for (const tc of testCases) {
-      const violations = validatePlan(tc.request, tc.plan);
+      const violations = validatePlan(tc.request as unknown as PlanRequest, tc.plan as unknown as Plan);
       const ruleNames = violations.map((v) => v.rule);
 
       for (const expectedRule of tc.expectedRules) {

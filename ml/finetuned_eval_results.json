@@ -1,0 +1,50 @@
+{
+  "model": "Qwen/Qwen3-8B + LoRA (SFT)",
+  "sampler_handle": "tinker://e544c265-4335-5428-96e8-a6ed147df7e8:train:0/sampler_weights/noted-study-planner-lora-v1",
+  "n_test": 100,
+  "valid_count": 21,
+  "valid_rate": 0.21,
+  "ci_lower": 0.1417,
+  "ci_upper": 0.2998,
+  "preference_adherence": 0.23,
+  "avg_latency_ms": 5187.8,
+  "total_tokens_out": 40000,
+  "failure_count": 79,
+  "sample_failures": [
+    {
+      "scenario_id": 901,
+      "violations": [
+        "invalid_json_format"
+      ],
+      "output_preview": "{\n  \"blocks\": [\n    {\n      \"start\": \"2026-10-12T09:00:00\",\n      \"end\": \"2026-10-12T10:00:00\",\n      \"kind\": \"study\",\n      \"subject\": \"Machine Learning Foundations\",\n      \"topic\": \"Regularization (L1/L2)\",\n      \"eventId\": 1\n    },\n    {\n      \"st"
+    },
+    {
+      "scenario_id": 902,
+      "violations": [
+        "invalid_json_format"
+      ],
+      "output_preview": "{\n  \"blocks\": [\n    {\n      \"start\": \"2026-10-13T08:00:00\",\n      \"end\": \"2026-10-13T09:00:00\",\n      \"kind\": \"study\",\n      \"subject\": \"Algorithms & Data Structures\",\n      \"topic\": \"Divide and Conquer (Master Theorem)\",\n      \"eventId\": 2\n    },\n  "
+    },
+    {
+      "scenario_id": 903,
+      "violations": [
+        "invalid_json_format"
+      ],
+      "output_preview": "{\n  \"blocks\": [\n    {\n      \"start\": \"2026-10-12T13:00:00\",\n      \"end\": \"2026-10-12T13:45:00\",\n      \"kind\": \"study\",\n      \"subject\": \"Software Engineering\",\n      \"topic\": \"Design Patterns (Observer/Factory)\",\n      \"eventId\": 1\n    },\n    {\n     "
+    },
+    {
+      "scenario_id": 904,
+      "violations": [
+        "invalid_json_format"
+      ],
+      "output_preview": "{\n  \"blocks\": [\n    {\n      \"start\": \"2026-10-13T13:00:00\",\n      \"end\": \"2026-10-13T13:45:00\",\n      \"kind\": \"study\",\n      \"subject\": \"Machine Learning Foundations\",\n      \"topic\": \"Gradient Descent & Adam\",\n      \"eventId\": 1\n    },\n    {\n      \"s"
+    },
+    {
+      "scenario_id": 905,
+      "violations": [
+        "invalid_json_format"
+      ],
+      "output_preview": "{\n  \"blocks\": [\n    {\n      \"start\": \"2026-10-12T09:00:00\",\n      \"end\": \"2026-10-12T09:45:00\",\n      \"kind\": \"study\",\n      \"subject\": \"Software Engineering\",\n      \"topic\": \"Design Patterns (Observer/Factory)\",\n      \"eventId\": 1\n    },\n    {\n     "
+    }
+  ]
+}

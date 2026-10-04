@@ -1,0 +1,12 @@
+{
+  "base_model": "Qwen/Qwen3-8B",
+  "sampler_handle": "tinker://e544c265-4335-5428-96e8-a6ed147df7e8:train:0/sampler_weights/noted-study-planner-lora-v1",
+  "train_samples": 735,
+  "val_samples": 90,
+  "total_train_tokens": 697200,
+  "est_training_cost_usd": 0.3068,
+  "initial_loss_per_token": 0.0619,
+  "final_loss_per_token": 0.0033,
+  "avg_val_loss_per_token": 0.0028,
+  "elapsed_seconds": 209.2
+}
